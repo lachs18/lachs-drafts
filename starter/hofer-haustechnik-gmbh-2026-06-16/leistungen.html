@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leistungen – Hofer Haustechnik GmbH</title>
+  <meta name="description" content="Sanitär, Heizung und Klima aus einer Hand. Hofer Haustechnik GmbH – Installation, Reparatur, Notdienst. Jetzt Termin vereinbaren.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ===========================
+       CSS CUSTOM PROPERTIES
+    =========================== */
+    :root {
+      --primary:    #1C2B3A;
+      --accent:     #E8600A;
+      --background: #F5F3EF;
+      --neutral:    #6B7280;
+      --white:      #FFFFFF;
+      --font-display: 'Archivo Black', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --radius:     6px;
+      --shadow:     0 2px 12px rgba(28,43,58,0.10);
+      --transition: 0.2s ease;
+      --max-width:  1140px;
+    }
+
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--background);
+      color: var(--primary);
+      line-height: 1.65;
+      font-size: 1rem;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ===========================
+       TYPOGRAPHY
+    =========================== */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      line-height: 1.15;
+      color: var(--primary);
+    }
+
+    h1 { font-size: clamp(2rem, 5vw, 3rem); }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.35rem); }
+
+    p {
+      color: var(--neutral);
+      max-width: 68ch;
+    }
+
+    /* ===========================
+       LAYOUT HELPERS
+    =========================== */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section--alt {
+      background-color: var(--white);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ===========================
+       BUTTONS
+    =========================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .btn--primary {
+      background-color: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+
+    .btn--primary:hover {
+      background-color: #cf530a;
+      border-color: #cf530a;
+    }
+
+    .btn--outline {
+      background-color: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    .btn--outline:hover {
+      background-color: var(--white);
+      color: var(--primary);
+    }
+
+    .btn--outline-dark {
+      background-color: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn--outline-dark:hover {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+
+    /* ===========================
+       NAVIGATION
+    =========================== */
+    .nav {
+      background-color: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav__logo {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .nav__logo span {
+      color: var(--accent);
+    }
+
+    .nav__toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav__toggle span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .nav__menu {
+      display: none;
+      position: absolute;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background-color: var(--primary);
+      padding: 1rem 1.25rem 1.5rem;
+      flex-direction: column;
+      gap: 0.25rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav__menu.is-open {
+      display: flex;
+    }
+
+    .nav__link {
+      color: rgba(255,255,255,0.78);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color var(--transition);
+    }
+
+    .nav__link:hover,
+    .nav__link.active {
+      color: var(--accent);
+    }
+
+    .nav__link.active {
+      font-weight: 600;
+    }
+
+    .nav__cta {
+      margin-top: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav__toggle { display: none; }
+
+      .nav__menu {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        background: none;
+        border: none;
+        gap: 0.25rem;
+      }
+
+      .nav__link {
+        border: none;
+        padding: 0.4rem 0.75rem;
+      }
+
+      .nav__cta {
+        margin-top: 0;
+        margin-left: 0.5rem;
+      }
+    }
+
+    /* ===========================
+       PAGE HERO (COMPACT)
+    =========================== */
+    .page-hero {
+      background-color: var(--primary);
+      padding: 3.5rem 0 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent);
+    }
+
+    .page-hero__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-hero h1 {
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .page-hero__intro {
+      color: rgba(255,255,255,0.72);
+      font-size: 1.05rem;
+      max-width: 56ch;
+    }
+
+    /* ===========================
+       NOTDIENST BANNER
+    =========================== */
+    .notdienst-banner {
+      background-color: var(--accent);
+      padding: 1.25rem 0;
+    }
+
+    .notdienst-banner__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .notdienst-banner__text {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .notdienst-banner__icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .notdienst-banner__label {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--white);
+    }
+
+    .notdienst-banner__sub {
+      color: rgba(255,255,255,0.88);
+      font-size: 0.875rem;
+      max-width: none;
+    }
+
+    .notdienst-banner__cta {
+      background-color: var(--white);
+      color: var(--accent);
+      border-color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .notdienst-banner__cta:hover {
+      background-color: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    @media (min-width: 768px) {
+      .notdienst-banner__inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .notdienst-banner__sub {
+        max-width: 50ch;
+      }
+    }
+
+    /* ===========================
+       SERVICES GRID
+    =========================== */
+    .services-intro {
+      margin-bottom: 2.5rem;
+    }
+
+    .services-intro h2 {
+      margin-bottom: 0.75rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .service-card {
+      background-color: var(--white);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      border-top: 3px solid transparent;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .service-card:hover {
+      border-top-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .service-card__icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .service-card__title {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+      color: var(--primary);
+    }
+
+    .service-card__text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--neutral);
+      max-width: none;
+    }
+
+    /* Notdienst card – special styling */
+    .service-card--notdienst {
+      background-color: var(--primary);
+      border-top-color: var(--accent);
+      grid-column: 1 / -1;
+    }
+
+    @media (min-width: 1024px) {
+      .service-card--notdienst {
+        grid-column: span 1;
+      }
+    }
+
+    .service-card--notdienst .service-card__title {
+      color: var(--white);
+    }
+
+    .service-card--notdienst .service-card__text {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .service-card--notdienst .notdienst-phone {
+      display: inline-block;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1.05rem;
+    }
+
+    /* ===========================
+       PROCESS SECTION
+    =========================== */
+    .process-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .process-steps {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .process-step {
+      position: relative;
+      padding-left: 0;
+    }
+
+    .process-step__number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background-color: var(--accent);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      flex-shrink: 0;
+    }
+
+    .process-step__title {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .process-step__text {
+      font-size: 0.875rem;
+      line-height: 1.65;
+      max-width: none;
+    }
+
+    /* ===========================
+       GUARANTEE STRIP
+    =========================== */
+    .guarantee-strip {
+      background-color: var(--primary);
+      padding: 2.5rem 0;
+    }
+
+    .guarantee-strip__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .guarantee-strip__inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .guarantee-strip__inner {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .guarantee-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+
+    .guarantee-item__icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .guarantee-item__title {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .guarantee-item__text {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      max-width: none;
+    }
+
+    /* ===========================
+       CTA BLOCK
+    =========================== */
+    .cta-block {
+      background-color: var(--accent);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .cta-block h2 {
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-block__sub {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.05rem;
+      margin: 0 auto 0.5rem;
+      max-width: 52ch;
+    }
+
+    .cta-block__phone {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .cta-block__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    @media (min-width: 480px) {
+      .cta-block__actions {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    .footer {
+      background-color: var(--primary);
+      color: rgba(255,255,255,0.65);
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer__grid {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+
+    .footer__logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .footer__logo span {
+      color: var(--accent);
+    }
+
+    .footer__tagline {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      max-width: 36ch;
+    }
+
+    .footer__heading {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer__link {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.65);
+      transition: color var(--transition);
+    }
+
+    .footer__link:hover {
+      color: var(--accent);
+    }
+
+    .footer__contact-item {
+      font-size: 0.875rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .footer__contact-item a {
+      color: rgba(255,255,255,0.65);
+      transition: color var(--transition);
+    }
+
+    .footer__contact-item a:hover {
+      color: var(--accent);
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    @media (min-width: 640px) {
+      .footer__bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer__legal {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .footer__legal a {
+      color: rgba(255,255,255,0.45);
+      transition: color var(--transition);
+    }
+
+    .footer__legal a:hover {
+      color: var(--accent);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       NAVIGATION
+  =========================== -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container nav__inner">
+
+      <a href="index.html" class="nav__logo" aria-label="Hofer Haustechnik – Startseite">
+        Hofer <span>Haustechnik</span>
+      </a>
+
+      <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav__menu" id="navMenu" role="list">
+        <li><a href="index.html" class="nav__link">Startseite</a></li>
+        <li><a href="leistungen.html" class="nav__link active" aria-current="page">Leistungen</a></li>
+        <li><a href="ueber-uns.html" class="nav__link">Über uns</a></li>
+        <li><a href="referenzen.html" class="nav__link">Referenzen</a></li>
+        <li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+        <li class="nav__cta">
+          <a href="tel:+41XXXXXXXXX" class="btn btn--primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            Jetzt anrufen
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- ===========================
+       PAGE HERO
+  =========================== -->
+  <header class="page-hero" role="banner">
+    <div class="container">
+      <span class="page-hero__eyebrow">Was wir machen</span>
+      <h1>Sanitär, Heizung &amp; Klima –<br>alles aus einer Hand</h1>
+      <p class="page-hero__intro">Von der Rohrleitung bis zur Wärmepumpe, vom tropfenden Hahn bis zum Komplettbad: Hofer Haustechnik übernimmt Installation, Reparatur und Modernisierung – sauber, termingerecht und ohne versteckte Kosten.</p>
+    </div>
+  </header>
+
+  <!-- ===========================
+       NOTDIENST BANNER
+  =========================== -->
+  <div class="notdienst-banner" role="alert" aria-label="24-Stunden-Notdienst">
+    <div class="container notdienst-banner__inner">
+      <div class="notdienst-banner__text">
+        <span class="notdienst-banner__icon" aria-hidden="true">🚨</span>
+        <div>
+          <div class="notdienst-banner__label">24/7 Notdienst – auch am Wochenende und an Feiertagen</div>
+          <p class="notdienst-banner__sub">Rohrbruch, Heizungsausfall, Wasserfleck an der Decke? Wir kommen. Keine Warteschleife, direkter Draht zum Techniker.</p>
+        </div>
+      </div>
+      <a href="tel:+41XXXXXXXXX" class="btn notdienst-banner__cta">
+        Notfallnummer wählen
+      </a>
+    </div>
+  </div>
+
+  <!-- ===========================
+       LEISTUNGEN HAUPTTEIL
+  =========================== -->
+  <section class="section" aria-labelledby="leistungen-heading">
+    <div class="container">
+
+      <div class="services-intro">
+        <span class="section-label">Unsere Leistungen</span>
+        <h2 id="leistungen-heading">Was wir konkret für Sie tun</h2>
+        <p>Wir decken das gesamte Spektrum der Haustechnik ab – von der Neubauinstallation bis zum Servicevertrag für bestehende Anlagen. Wenn wir etwas nicht machen, sagen wir es Ihnen ehrlich und empfehlen den richtigen Fachmann.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Sanitärinstallation -->
+        <article class="service-card">
+          <span class="service-card__icon" aria-hidden="true">🔧</span>
+          <h3 class="service-card__title">Sanitärinstallation</h3>
+          <p class="service-card__text">Ob Neubau, Umbau oder Erweiterung: Wir installieren Wasserzu- und Ableitungen fachgerecht nach Norm. Dazu gehören Wasseranschlüsse für Küche und Bad, Leitungsführung im Mauerwerk sowie die komplette Unterputz- und Aufputzinstallation. Wir koordinieren direkt mit dem Rohbau, damit keine Folgekosten durch Nacharbeiten entstehen.</p>
+        </article>
+
+        <!-- Badrenovation -->
+        <article class="service-card">
+          <span class="service-card__icon" aria-hidden="true">🛁</span>
+          <h3 class="service-card__title">Badrenovation &amp; Badsanierung</h3>
+          <p class="service-card__text">Wir erneuern Ihr Bad vollständig: Demontage der alten Einrichtung, neue Leitungen, Montage von Dusche, Badewanne, WC, Waschtisch und Armaturen. Auf Wunsch koordinieren wir auch Plattenleger und Elektriker, damit Sie nur einen Ansprechpartner haben. Festpreis-Angebote sind möglich – einfach anfragen.</p>
+        </article>
+
+        <!-- Heizungsinstallation -->
+        <article class="service-card">
+          <span class="service-card__icon" aria-hidden="true">🔥</span>
+          <h3 class="service-card__title">Heizungsinstallation &amp; -umbau</h3>
+          <p class="service-card__text">Von der Ölheizung bis zur Wärmepumpe: Wir installieren neue Heizsysteme und bauen bestehende Anlagen um. Dabei beraten wir Sie vorab, welche Lösung zu Ihrem Gebäude und Budget passt – ohne Marken-Einseitigkeit. Anschluss, Einregulierung und Inbetriebnahme sind im Auftrag immer inbegriffen.</p>
+        </article>
+
+        <!-- Heizungswartung -->
+        <article class="service-card">
+          <span class="service-card__icon" aria-hidden="true">📋</span>
+          <h3 class="service-card__title">Heizungswartung &amp; Service</h3>
+          <p class="service-card__text">Eine gewartete Heizung verbraucht weniger und fällt seltener aus. Wir führen den jährlichen Service durch, prüfen Brenner, Wärmetauscher, Sicherheitsventile und Ausdehnungsgefäss. Für Mehrfamilienhäuser und Gewerbekunden bieten wir Serviceverträge mit fixen Jahreskosten und Priorität bei Störungen.</p>
+        </article>
+
+        <!-- Wärmepumpen -->
+        <article class="service-card">
+          <span class="service-card__icon" aria-hidden="true">🌡️</span>
+          <h3 class="service-card__title">Wärmepumpen &amp; Erneuerbare Energien</h3>
+          <p class="service-card__text">Wir planen und installieren Luft-Wasser- und Sole-Wasser-Wärmepumpen für Einfamilienhäuser und kleinere Mehrfamilienhäuser. Dazu übernehmen wir die Förderantragsbegleitung und koordinieren die Erdwärme-Bohrung mit zertifizierten Partnern. Wir arbeiten mit führenden Herstellern zusammen und sind produktunabhängig in der Beratung.</p>
+        </article>
+
+        <!-- Klima und Lüftung -->
+        <article class="service-card">
+          <span class="service-card__icon" aria-hidden="true">❄️</span>
+          <h3 class="service-card__title">Klima- &amp; Lüftungsanlagen</h3>
+          <p class="service-card__text">Wir installieren Split-Klimaanlagen für Wohnräume und Büros sowie kontrollierte Wohnraumlüftungen für Neubauten und Sanierungen. Bestehende Anlagen warten und desinfizieren wir gemäss Herstellervorgaben. Für Gewerbe- und Praxisräume erstellen wir ein unverbindliches Auslegungsangebot auf Wunsch direkt vor Ort.</p>
+        </article>
+
+        <!-- Reparatur & Entstörung -->
+        <article class="service-card">
+          <span class="service-card__icon" aria-hidden="true">🛠️</span>
+          <h3 class="service-card__title">Reparatur &amp; Entstörung</h3>
+          <p class="service-card__text">Tropfender Hahn, klemmende Armatur, Druckverlust in der Heizung – solche Probleme beheben wir schnell und ohne unnötige Diagnose-Umwege. Wir nennen Ihnen vor dem Eingriff, was die Reparatur kostet. Wenn ein Austausch sinnvoller ist als die Reparatur, sagen wir es Ihnen gerade heraus.</p>
+        </article>
+
+        <!-- Notdienst Card -->
+        <article class="service-card service-card--notdienst">
+          <span class="service-card__icon" aria-hidden="true">🚨</span>
+          <h3 class="service-card__title">24/7 Notdienst</h3>
+          <p class="service-card__text">Wasserrohrbruch um 2 Uhr nachts, Heizungsausfall im Januar, Rückstau aus dem Abfluss – wir sind rund um die Uhr erreichbar, sieben Tage die Woche. Kein Anrufbeantworter, kein Call-Center. Sie sprechen direkt mit einem Techniker, der einschätzt, ob und wie schnell er kommen muss. Notdienst-Einsätze werden transparent nach Aufwand verrechnet.</p>
+          <a href="tel:+41XXXXXXXXX" class="notdienst-phone">+41 XX XXX XX XX</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       PROZESS-SEKTION
+  =========================== -->
+  <section class="section section--alt" aria-labelledby="prozess-heading">
+    <div class="container">
+
+      <span class="section-label">So läuft es ab</span>
+      <h2 id="prozess-heading">Vom ersten Anruf bis zur fertigen Arbeit</h2>
+      <p>Wir machen den Ablauf so unkompliziert wie möglich. Keine langen Wartezeiten auf ein Angebot, keine Überraschungen bei der Rechnung.</p>
+
+      <div class="process-steps">
+
+        <div class="process-step">
+          <div class="process-step__number" aria-hidden="true">1</div>
+          <h3 class="process-step__title">Kontakt aufnehmen</h3>
+          <p class="process-step__text">Rufen Sie uns an oder schreiben Sie eine E-Mail. Kurz schildern, was das Problem ist oder was Sie planen – das reicht. Wir melden uns innert 24 Stunden, Notfälle sofort.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-step__number" aria-hidden="true">2</div>
+          <h3 class="process-step__title">Besichtigung &amp; Offerte</h3>
+          <p class="process-step__text">Bei grösseren Aufträgen schauen wir uns die Situation vor Ort an. Sie erhalten danach eine schriftliche Offerte mit klar aufgeführten Positionen – ohne versteckte Posten und ohne Überraschung auf der Schlussrechnung.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-step__number" aria-hidden="true">3</div>
+          <h3 class="process-step__title">Ausführung &amp; Koordination</h3>
+          <p class="process-step__text">Wir arbeiten sauber und halten uns an vereinbarte Termine. Falls andere Gewerke beteiligt sind, koordinieren wir die Abläufe. Änderungen besprechen wir mit Ihnen, bevor wir sie umsetzen.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-step__number" aria-hidden="true">4</div>
+          <h3 class="process-step__title">Übergabe &amp; Rechnung</h3>
+          <p class="process-step__text">Nach Abschluss zeigen wir Ihnen, was gemacht wurde und wie die Anlage bedient wird. Die Rechnung entspricht der Offerte. Fragen oder Nacharbeiten klären wir ohne Umwege – direkt und persönlich.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       GUARANTEE STRIP
+  =========================== -->
+  <div class="guarantee-strip" aria-label="Unsere Versprechen">
+    <div class="container">
+      <div class="guarantee-strip__inner">
+
+        <div class="guarantee-item">
+          <span class="guarantee-item__icon" aria-hidden="true">⏱️</span>
+          <div>
+            <div class="guarantee-item__title">Schnelle Reaktionszeit</div>
+            <p class="guarantee-item__text">Normaleinsätze innerhalb weniger Tage, Notfälle sofort</p>
+          </div>
+        </div>
+
+        <div class="guarantee-item">
+          <span class="guarantee-item__icon" aria-hidden="true">💶</span>
+          <div>
+            <div class="guarantee-item__title">Transparente Preise</div>
+            <p class="guarantee-item__text">Offerte schriftlich, Rechnung ohne Überraschungen</p>
+          </div>
+        </div>
+
+        <div class="guarantee-item">
+          <span class="guarantee-item__icon" aria-hidden="true">✅</span>
+          <div>
+            <div class="guarantee-item__title">Fachgerechte Ausführung</div>
+            <p class="guarantee-item__text">Zertifizierte Fachleute, Arbeit nach SIA- und SVGW-Norm</p>
+          </div>
+        </div>
+
+        <div class="guarantee-item">
+          <span class="guarantee-item__icon" aria-hidden="true">📞</span>
+          <div>
+            <div class="guarantee-item__title">Ein Ansprechpartner</div>
+            <p class="guarantee-item__text">Kein Weiterleiten, keine Warteschleifen – direkte Kommunikation</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===========================
+       CTA BLOCK
+  =========================== -->
+  <section class="cta-block" aria-labelledby="cta-heading">
+    <div class="container">
+      <h2 id="cta-heading">Bereit für ein sauberes Angebot?</h2>
+      <p class="cta-block__sub">Erzählen Sie uns kurz, was Sie brauchen. Wir schauen es uns an und geben Ihnen eine ehrliche Einschätzung – kostenlos und ohne Verpflichtung.</p>
+      <a href="tel:+41XXXXXXXXX" class="cta-block__phone" aria-label="Telefonnummer von Hofer Haustechnik">+41 XX XXX XX XX</a>
+      <div class="cta-block__actions">
+        <a href="kontakt.html" class="btn btn--outline">Kontaktformular</a>
+        <a href="tel:+41XXXXXXXXX" class="btn btn--primary" style="background-color: var(--primary); border-color: var(--primary);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          Jetzt anrufen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       FOOTER
+  =========================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer__grid">
+
+        <!-- Brand -->
+        <div>
+          <div class="footer__logo">Hofer <span>Haustechnik</span></div>
+          <p class="footer__tagline">Sanitär, Heizung &amp; Klima für die DACH-Region. Handwerk, das hält – ohne Umwege, ohne Versprechen, die wir nicht einhalten.</p>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <div class="footer__heading">Navigation</div>
+          <ul class="footer__links" role="list">
+            <li><a href="index.html" class="footer__link">Startseite</a></li>
+            <li><a href="leistungen.html" class="footer__link">Leistungen</a></li>
+            <li><a href="ueber-uns.html" class="footer__link">Über uns</a></li>
+            <li><a href="referenzen.html" class="footer__link">Referenzen</a></li>
+            <li><a href="kontakt.html" class="footer__link">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <!-- Kontakt -->
+        <div>
+          <div class="footer__heading">Kontakt</div>
+          <p class="footer__contact-item">
+            <a href="tel:+41XXXXXXXXX">+41 XX XXX XX XX</a>
+          </p>
+          <p class="footer__contact-item">
+            <a href="mailto:info@hofer-haustechnik.ch">info@hofer-haustechnik.ch</a>
+          </p>
+          <p class="footer__contact-item">Musterstrasse 1<br>PLZ Ort</p>
+          <p class="footer__contact-item" style="margin-top: 0.6rem; color: rgba(255,255,255,0.45); font-size: 0.8rem;">Notdienst: 24/7 erreichbar</p>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2024 Hofer Haustechnik GmbH. Alle Rechte vorbehalten.</span>
+        <nav class="footer__legal" aria-label="Rechtliche Links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ===========================
+       JAVASCRIPT
+  =========================== -->
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const menu   = document.getElementById('navMenu');
+
+    toggle.addEventListener('click', function () {
+      const isOpen = menu.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.setAttribute('aria-label', isOpen ? 'Menü schliessen' : 'Menü öffnen');
+    });
+
+    // Close nav on outside click
+    document.addEventListener('click', function (e) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Menü öffnen');
+      }
+    });
+
+    // Close nav when a link is clicked (mobile)
+    menu.querySelectorAll('.nav__link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menu.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Menü öffnen');
+      });
+    });
+  </script>
+
+</body>
+</html>
