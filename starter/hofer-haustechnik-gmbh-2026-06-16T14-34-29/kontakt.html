@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – Hofer Haustechnik GmbH</title>
+  <meta name="description" content="Kontaktieren Sie Hofer Haustechnik GmbH – Ihr Fachbetrieb für Sanitär, Heizung und Klima. Jetzt anrufen oder Anfrage senden. Notdienst 24/7." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary:    #1C2B39;
+      --accent:     #E8630A;
+      --bg:         #F5F2ED;
+      --neutral:    #6B7B8A;
+      --white:      #FFFFFF;
+      --border:     #D9D4CC;
+      --radius:     6px;
+      --max-width:  1200px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--primary);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Archivo Black', sans-serif;
+      line-height: 1.15;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ─── UTILITY ─── */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── NAVIGATION ─── */
+    .nav {
+      background-color: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav__logo {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.15rem;
+      color: var(--white);
+      letter-spacing: 0.01em;
+    }
+
+    .nav__logo span {
+      color: var(--accent);
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav__links a:hover {
+      color: var(--white);
+    }
+
+    .nav__links a.active {
+      color: var(--white);
+      border-bottom-color: var(--accent);
+    }
+
+    .nav__cta {
+      background-color: var(--accent);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      font-weight: 600 !important;
+      border-bottom: none !important;
+      transition: background-color 0.2s !important;
+    }
+
+    .nav__cta:hover {
+      background-color: #cf5508 !important;
+      color: var(--white) !important;
+    }
+
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav__hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--white);
+      border-radius: 2px;
+    }
+
+    /* ─── PAGE HERO (COMPACT) ─── */
+    .page-hero {
+      background-color: var(--primary);
+      padding: 64px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: rgba(232, 99, 10, 0.08);
+      pointer-events: none;
+    }
+
+    .page-hero__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero__eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .page-hero__title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .page-hero__title span {
+      color: var(--accent);
+    }
+
+    .page-hero__sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 520px;
+    }
+
+    /* ─── NOTDIENST BANNER ─── */
+    .notdienst-banner {
+      background-color: var(--accent);
+      padding: 16px 0;
+    }
+
+    .notdienst-banner__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .notdienst-banner__text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .notdienst-banner__icon {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .notdienst-banner__label {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.95rem;
+      color: var(--white);
+      letter-spacing: 0.01em;
+    }
+
+    .notdienst-banner__label span {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 0.88rem;
+      display: block;
+      opacity: 0.88;
+    }
+
+    .notdienst-banner__tel {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.25rem;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      border: 2px solid rgba(255,255,255,0.5);
+      padding: 8px 20px;
+      border-radius: var(--radius);
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    .notdienst-banner__tel:hover {
+      background-color: rgba(255,255,255,0.15);
+      border-color: var(--white);
+    }
+
+    /* ─── CONTACT SECTION ─── */
+    .contact-section {
+      padding: 80px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.45fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* ─── LEFT: CONTACT INFO ─── */
+    .contact-info__phone-block {
+      background-color: var(--primary);
+      border-radius: 10px;
+      padding: 32px 28px;
+      margin-bottom: 32px;
+    }
+
+    .contact-info__phone-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 10px;
+    }
+
+    .contact-info__phone-number {
+      display: block;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      color: var(--white);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .contact-info__phone-number:hover {
+      color: var(--accent);
+    }
+
+    .contact-info__phone-note {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .contact-info__phone-note strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .contact-info__card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .contact-info__card-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-info__card-row:last-child {
+      border-bottom: none;
+    }
+
+    .contact-info__card-icon {
+      width: 38px;
+      height: 38px;
+      background-color: rgba(232, 99, 10, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.05rem;
+    }
+
+    .contact-info__card-content {
+      flex: 1;
+    }
+
+    .contact-info__card-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neutral);
+      margin-bottom: 4px;
+    }
+
+    .contact-info__card-value {
+      font-size: 0.97rem;
+      font-weight: 500;
+      color: var(--primary);
+      line-height: 1.5;
+    }
+
+    .contact-info__card-value a {
+      color: var(--accent);
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .contact-info__card-value a:hover {
+      opacity: 0.75;
+    }
+
+    .contact-info__hours-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 16px;
+      font-size: 0.9rem;
+    }
+
+    .contact-info__hours-grid .day {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .contact-info__hours-grid .time {
+      color: var(--neutral);
+      text-align: right;
+    }
+
+    .contact-info__notdienst {
+      background: linear-gradient(135deg, #1C2B39 0%, #2a3d50 100%);
+      border-radius: 10px;
+      padding: 24px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-info__notdienst::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(232,99,10,0.12);
+    }
+
+    .contact-info__notdienst-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--accent);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .contact-info__notdienst-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.05rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .contact-info__notdienst-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.68);
+      margin-bottom: 14px;
+    }
+
+    .contact-info__notdienst-tel {
+      display: inline-block;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.15rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+    }
+
+    .contact-info__notdienst-tel:hover {
+      opacity: 0.8;
+    }
+
+    /* ─── RIGHT: FORM ─── */
+    .contact-form-wrap {
+      background-color: var(--white);
+      border-radius: 12px;
+      padding: 44px 40px;
+      box-shadow: 0 4px 24px rgba(28,43,57,0.08);
+    }
+
+    .contact-form-wrap__title {
+      font-size: 1.45rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .contact-form-wrap__sub {
+      font-size: 0.92rem;
+      color: var(--neutral);
+      margin-bottom: 32px;
+    }
+
+    .contact-form-wrap__sub strong {
+      color: var(--accent);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--primary);
+      margin-bottom: 7px;
+    }
+
+    .form-group label .required {
+      color: var(--accent);
+      margin-left: 2px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--primary);
+      background-color: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(232, 99, 10, 0.12);
+      background-color: var(--white);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7B8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-notice {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(232, 99, 10, 0.07);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 10px 14px;
+      margin-bottom: 24px;
+      font-size: 0.85rem;
+      color: var(--primary);
+    }
+
+    .form-notice__icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: var(--accent);
+      color: var(--white);
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      padding: 16px 24px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.15s;
+    }
+
+    .btn-submit:hover {
+      background-color: #cf5508;
+      transform: translateY(-1px);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .form-privacy {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--neutral);
+      margin-top: 12px;
+    }
+
+    .form-privacy a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* ─── MAPS SECTION ─── */
+    .maps-section {
+      padding: 0 0 80px;
+    }
+
+    .maps-section__title {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .maps-section__sub {
+      font-size: 0.95rem;
+      color: var(--neutral);
+      margin-bottom: 32px;
+    }
+
+    .maps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .anfahrt__block {
+      margin-bottom: 28px;
+    }
+
+    .anfahrt__block-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .anfahrt__block-icon {
+      width: 32px;
+      height: 32px;
+      background-color: rgba(232, 99, 10, 0.1);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .anfahrt__block-text {
+      font-size: 0.92rem;
+      color: var(--neutral);
+      line-height: 1.65;
+    }
+
+    .map-placeholder {
+      background-color: #2a3745;
+      border-radius: 12px;
+      height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.02) 0px,
+        rgba(255,255,255,0.02) 1px,
+        transparent 1px,
+        transparent 20px
+      );
+    }
+
+    .map-placeholder__content {
+      text-align: center;
+      z-index: 1;
+      padding: 24px;
+    }
+
+    .map-placeholder__icon {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .map-placeholder__address {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.05rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .map-placeholder__city {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 18px;
+    }
+
+    .map-placeholder__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--accent);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      transition: background-color 0.2s;
+    }
+
+    .map-placeholder__btn:hover {
+      background-color: #cf5508;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background-color: var(--primary);
+      padding: 64px 0 0;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer__logo {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer__logo span {
+      color: var(--accent);
+    }
+
+    .footer__tagline {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .footer__tel {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1rem;
+      color: var(--accent);
+      transition: opacity 0.2s;
+    }
+
+    .footer__tel:hover {
+      opacity: 0.8;
+    }
+
+    .footer__col-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 18px;
+    }
+
+    .footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer__links a {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.68);
+      transition: color 0.2s;
+    }
+
+    .footer__links a:hover {
+      color: var(--white);
+    }
+
+    .footer__contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .footer__contact-icon {
+      font-size: 0.9rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    .footer__contact-text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+
+    .footer__contact-text a {
+      color: rgba(255,255,255,0.65);
+      transition: color 0.2s;
+    }
+
+    .footer__contact-text a:hover {
+      color: var(--white);
+    }
+
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer__copy {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.38);
+    }
+
+    .footer__legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer__legal a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.38);
+      transition: color 0.2s;
+    }
+
+    .footer__legal a:hover {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .maps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav__links {
+        display: none;
+      }
+
+      .nav__hamburger {
+        display: flex;
+      }
+
+      .contact-form-wrap {
+        padding: 28px 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .page-hero {
+        padding: 44px 0 40px;
+      }
+
+      .notdienst-banner__inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .notdienst-banner__text {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">
+          Hofer<span>.</span>Haustechnik
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="index.html#leistungen">Leistungen</a></li>
+          <li><a href="index.html#nachhaltigkeit">Nachhaltigkeit</a></li>
+          <li><a href="index.html#referenzen">Referenzen</a></li>
+          <li><a href="kontakt.html" class="active" aria-current="page">Kontakt</a></li>
+          <li><a href="tel:+41XXXXXXXXX" class="nav__cta">📞 Jetzt anrufen</a></li>
+        </ul>
+        <button class="nav__hamburger" aria-label="Menü öffnen">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── PAGE HERO ─── -->
+  <section class="page-hero" aria-label="Seiteneinleitung">
+    <div class="container">
+      <div class="page-hero__inner">
+        <p class="page-hero__eyebrow">Kontakt</p>
+        <h1 class="page-hero__title">Sprechen wir.</h1>
+        <p class="page-hero__sub">Wir sind für Sie da – ob Heizungsausfall, geplante Sanierung oder einfach eine Frage zum Thema Wärmepumpe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── NOTDIENST BANNER ─── -->
+  <div class="notdienst-banner" role="alert" aria-label="Notdienst-Hinweis">
+    <div class="container">
+      <div class="notdienst-banner__inner">
+        <div class="notdienst-banner__text">
+          <span class="notdienst-banner__icon">🚨</span>
+          <div class="notdienst-banner__label">
+            Notdienst – 24 Stunden, 7 Tage
+            <span>Heizungsausfall oder Rohrbruch? Wir kommen zu Ihnen.</span>
+          </div>
+        </div>
+        <a href="tel:+41XXXXXXXXX" class="notdienst-banner__tel">+41 XX XXX XX XX</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CONTACT SECTION ─── -->
+  <section class="contact-section" aria-label="Kontaktinformationen und Formular">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- LINKE SPALTE: Kontaktdaten -->
+        <div class="contact-info">
+
+          <!-- Telefon XXL -->
+          <div class="contact-info__phone-block">
+            <p class="contact-info__phone-label">Direktlinie</p>
+            <a href="tel:+41XXXXXXXXX" class="contact-info__phone-number">+41 XX XXX XX XX</a>
+            <p class="contact-info__phone-note">
+              Montag–Freitag, 07:00–18:00 Uhr<br />
+              <strong>Notdienst:</strong> 24h / 7 Tage erreichbar
+            </p>
+          </div>
+
+          <!-- Weitere Kontaktdaten -->
+          <div class="contact-info__card">
+            <div class="contact-info__card-row">
+              <div class="contact-info__card-icon">✉️</div>
+              <div class="contact-info__card-content">
+                <p class="contact-info__card-title">E-Mail</p>
+                <p class="contact-info__card-value">
+                  <a href="mailto:info@hofer-haustechnik.ch">info@hofer-haustechnik.ch</a>
+                </p>
+              </div>
+            </div>
+            <div class="contact-info__card-row">
+              <div class="contact-info__card-icon">📍</div>
+              <div class="contact-info__card-content">
+                <p class="contact-info__card-title">Adresse</p>
+                <p class="contact-info__card-value">
+                  Hofer Haustechnik GmbH<br />
+                  Musterstrasse 1<br />
+                  PLZ Ort
+                </p>
+              </div>
+            </div>
+            <div class="contact-info__card-row">
+              <div class="contact-info__card-icon">🕐</div>
+              <div class="contact-info__card-content">
+                <p class="contact-info__card-title">Öffnungszeiten</p>
+                <div class="contact-info__hours-grid">
+                  <span class="day">Montag–Freitag</span>
+                  <span class="time">07:00–18:00</span>
+                  <span class="day">Samstag</span>
+                  <span class="time">08:00–12:00</span>
+                  <span class="day">Sonntag</span>
+                  <span class="time">Notdienst</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notdienst-Highlight -->
+          <div class="contact-info__notdienst">
+            <div class="contact-info__notdienst-badge">
+              🔴 Notdienst aktiv
+            </div>
+            <h3 class="contact-info__notdienst-title">Heizungsausfall? Rohrbruch?</h3>
+            <p class="contact-info__notdienst-desc">Wir kommen zu Ihnen – auch nachts und am Wochenende. Kein Anrufbeantworter, kein Rückruf-Versprechen. Sofort.</p>
+            <a href="tel:+41XXXXXXXXX" class="contact-info__notdienst-tel">+41 XX XXX XX XX →</a>
+          </div>
+
+        </div>
+
+        <!-- RECHTE SPALTE: Formular -->
+        <div class="contact-form-wrap">
+          <h2 class="contact-form-wrap__title">Anfrage senden</h2>
+          <p class="contact-form-wrap__sub">
+            Wir melden uns innerhalb von <strong>24 Stunden</strong> bei Ihnen – werktags meist deutlich schneller.
+          </p>
+
+          <form action="#" method="POST" novalidate>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name<span class="required">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Max Muster"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="telefon">Telefon<span class="required">*</span></label>
+                <input
+                  type="tel"
+                  id="telefon"
+                  name="telefon"
+                  placeholder="+41 XX XXX XX XX"
+                  required
+                  autocomplete="tel"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="max.muster@beispiel.ch"
+                autocomplete="email"
+              />
+            </div>
+
+            <!-- Marco-spezifisch: Art des Problems -->
+            <div class="form-group">
+              <label for="problem">Art des Anliegens<span class="required">*</span></label>
+              <select id="problem" name="problem" required>
+                <option value="" disabled selected>Bitte wählen …</option>
+                <option value="heizung">Heizung – Störung oder Wartung</option>
+                <option value="sanitaer">Sanitär – Reparatur oder Umbau</option>
+                <option name="waermepumpe" value="waermepumpe">Wärmepumpe – Neubau oder Sanierung</option>
+                <option value="solar">Solarenergie – Beratung oder Installation</option>
+                <option value="bad">Badumbau oder -sanierung</option>
+                <option value="notfall">🔴 Notfall – sofortige Hilfe nötig</option>
+                <option value="anderes">Anderes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="nachricht">Nachricht</label>
+              <textarea
+                id="nachricht"
+                name="nachricht"
+                placeholder="Beschreiben Sie kurz Ihr Anliegen – z. B. Baujahr der Heizung, Art des Problems oder gewünschte Lösung …"
+              ></textarea>
+            </div>
+
+            <div class="form-notice">
+              <span class="form-notice__icon">⏱️</span>
+              <span>Rückmeldung innerhalb von 24 Stunden – bei Notfällen bitte direkt anrufen.</span>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              Anfrage senden →
+            </button>
+
+          </form>
+
+          <p class="form-privacy">
+            Mit dem Absenden stimmen Sie unserer <a href="#">Datenschutzerklärung</a> zu.
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── KARTE & ANFAHRT ─── -->
+  <section class="maps-section" aria-label="Standort und Anfahrt">
+    <div class="container">
+      <h2 class="maps-section__title">So finden Sie uns</h2>
+      <p class="maps-section__sub">Unser Betrieb liegt zentral und ist gut erreichbar – zu Fuss, mit dem Auto oder dem öffentlichen Verkehr.</p>
+
+      <div class="maps-grid">
+
+        <!-- Anfahrtsbeschreibung -->
+        <div class="anfahrt">
+
+          <div class="anfahrt__block">
+            <div class="anfahrt__block-title">
+              <div class="anfahrt__block-icon">🚗</div>
+              Mit dem Auto
+            </div>
+            <p class="anfahrt__block-text">
+              Über die [Hauptstrasse] direkt zum Betrieb. Kostenlose Kundenparkplätze stehen direkt vor dem Gebäude zur Verfügung – auch für grössere Fahrzeuge und Lieferwagen geeignet.
+            </p>
+          </div>
+
+          <div class="anfahrt__block">
+            <div class="anfahrt__block-title">
+              <div class="anfahrt__block-icon">🚌</div>
+              Mit Bus oder Bahn
+            </div>
+            <p class="anfahrt__block-text">
+              Die nächste Bushaltestelle [Haltestellenname] liegt ca. 5 Gehminuten vom Betrieb entfernt. Linien [X] und [Y] halten dort regelmässig.
+            </p>
+          </div>
+
+          <div class="anfahrt__block">
+            <div class="anfahrt__block-title">
+              <div class="anfahrt__block-icon">🅿️</div>
+              Parken
+            </div>
+            <p class="anfahrt__block-text">
+              Kostenlose Parkplätze direkt beim Betrieb. Alternativ gibt es ein öffentliches Parkhaus in ca. 3 Gehminuten Entfernung.
+            </p>
+          </div>
+
+          <div class="anfahrt__block">
+            <div class="anfahrt__block-title">
+              <div class="anfahrt__block-icon">🏠</div>
+              Wir kommen zu Ihnen
+            </div>
+            <p class="anfahrt__block-text">
+              Für Installationen, Wartungen und Notfalleinsätze kommen wir direkt zu Ihnen nach Hause. Unser Einsatzgebiet umfasst die gesamte Region.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Google Maps Platzhalter -->
+        <!-- Google Maps iframe hier einfügen -->
+        <!-- Empfehlung: <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+        <div class="map-placeholder" role="img" aria-label="Kartenplatzhalter – Standort Hofer Haustechnik GmbH">
+          <div class="map-placeholder__content">
+            <span class="map-placeholder__icon">📍</span>
+            <p class="map-placeholder__address">Musterstrasse 1</p>
+            <p class="map-placeholder__city">PLZ Ort</p>
+            <a
+              href="https://maps.google.com/?q=Musterstrasse+1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="map-placeholder__btn"
+            >
+              In Google Maps öffnen ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+
+        <div>
+          <div class="footer__logo">Hofer<span>.</span>Haustechnik</div>
+          <p class="footer__tagline">Sanitär, Heizung und Klima aus einer Hand. Nachhaltig. Zuverlässig. Regional.</p>
+          <a href="tel:+41XXXXXXXXX" class="footer__tel">📞 +41 XX XXX XX XX</a>
+        </div>
+
+        <div>
+          <p class="footer__col-title">Leistungen</p>
+          <ul class="footer__links">
+            <li><a href="index.html#leistungen">Heizungsmodernisierung</a></li>
+            <li><a href="index.html#leistungen">Wärmepumpen</a></li>
+            <li><a href="index.html#leistungen">Solarenergie</a></li>
+            <li><a href="index.html#leistungen">Sanitärinstallationen</a></li>
+            <li><a href="index.html#leistungen">Badumbau</a></li>
+            <li><a href="index.html#leistungen">Notdienst</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__col-title">Unternehmen</p>
+          <ul class="footer__links">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="index.html#nachhaltigkeit">Nachhaltigkeit</a></li>
+            <li><a href="index.html#referenzen">Referenzen</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__col-title">Kontakt</p>
+          <div class="footer__contact-item">
+            <span class="footer__contact-icon">📍</span>
+            <span class="footer__contact-text">Musterstrasse 1<br />PLZ Ort</span>
+          </div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-icon">📞</span>
+            <span class="footer__contact-text">
+              <a href="tel:+41XXXXXXXXX">+41 XX XXX XX XX</a>
+            </span>
+          </div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-icon">✉️</span>
+            <span class="footer__contact-text">
+              <a href="mailto:info@hofer-haustechnik.ch">info@hofer-haustechnik.ch</a>
+            </span>
+          </div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-icon">🚨</span>
+            <span class="footer__contact-text">Notdienst 24/7<br />Sofort erreichbar</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 Hofer Haustechnik GmbH. Alle Rechte vorbehalten.</p>
+        <div class="footer__legal">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">AGB</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
