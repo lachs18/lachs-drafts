@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Über uns – Hofer Haustechnik GmbH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:   #1C2B39;
+      --accent:    #E8630A;
+      --bg:        #F5F2ED;
+      --neutral:   #6B7B8A;
+      --white:     #FFFFFF;
+      --display:   'Archivo Black', sans-serif;
+      --body:      'Inter', sans-serif;
+      --radius:    6px;
+      --shadow:    0 4px 24px rgba(28,43,57,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      background: var(--bg);
+      color: var(--primary);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      font-family: var(--display);
+      color: var(--white);
+      font-size: 1.15rem;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.80);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      padding-bottom: 3px;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: var(--radius);
+      font-weight: 600 !important;
+      transition: background 0.2s, opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-burger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    @media (max-width: 768px) {
+      .nav-burger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0; right: 0;
+        background: var(--primary);
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .nav-links a { display: block; padding: 0.85rem 1.5rem; }
+    }
+
+    /* ── HERO ── */
+    .page-hero {
+      background: var(--primary);
+      padding: 5rem 1.5rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -80px;
+      width: 380px; height: 380px;
+      background: var(--accent);
+      opacity: 0.07;
+      border-radius: 50%;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -60px;
+      width: 260px; height: 260px;
+      background: var(--accent);
+      opacity: 0.05;
+      border-radius: 50%;
+    }
+    .page-hero-label {
+      display: inline-block;
+      background: rgba(232,99,10,0.18);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 2rem;
+      margin-bottom: 1.4rem;
+    }
+    .page-hero h1 {
+      font-family: var(--display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--white);
+      line-height: 1.18;
+      max-width: 760px;
+      margin: 0 auto 1.2rem;
+    }
+    .page-hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .page-hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 580px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* ── SHARED ── */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      background: rgba(232,99,10,0.12);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 2rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: var(--display);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+    h2 em { font-style: normal; color: var(--accent); }
+    .lead {
+      font-size: 1.08rem;
+      color: var(--neutral);
+      max-width: 620px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+
+    /* ── STORY ── */
+    .story-section { background: var(--white); }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .story-visual {
+      background: var(--primary);
+      border-radius: 8px;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .story-visual::before {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: var(--accent);
+      opacity: 0.10;
+      border-radius: 50%;
+    }
+    .story-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .story-tagline {
+      font-family: var(--display);
+      color: var(--white);
+      font-size: 1.3rem;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .story-tagline span { color: var(--accent); }
+    .story-text p {
+      color: #3a4a57;
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+      font-size: 1.02rem;
+    }
+    .story-text p:last-child { margin-bottom: 0; }
+    @media (max-width: 768px) {
+      .story-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .story-visual { min-height: 220px; }
+    }
+
+    /* ── INHABER ── */
+    .inhaber-section { background: var(--bg); }
+    .inhaber-card {
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      overflow: hidden;
+      max-width: 900px;
+    }
+    .inhaber-photo {
+      background: var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .inhaber-photo::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -30px;
+      width: 140px; height: 140px;
+      background: var(--accent);
+      opacity: 0.15;
+      border-radius: 50%;
+    }
+    .inhaber-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: rgba(232,99,10,0.18);
+      border: 3px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .inhaber-name {
+      font-family: var(--display);
+      color: var(--white);
+      font-size: 1.15rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .inhaber-role {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-align: center;
+      margin-top: 0.3rem;
+      position: relative;
+      z-index: 1;
+    }
+    .inhaber-content { padding: 2.5rem 2.5rem; }
+    .inhaber-content p {
+      color: #3a4a57;
+      line-height: 1.8;
+      margin-bottom: 1.1rem;
+      font-size: 1.02rem;
+    }
+    .inhaber-content p:last-child { margin-bottom: 0; }
+    .inhaber-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .badge {
+      background: var(--bg);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.35rem 0.9rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(28,43,57,0.12);
+    }
+    @media (max-width: 720px) {
+      .inhaber-card { grid-template-columns: 1fr; }
+      .inhaber-photo { padding: 2.5rem 1.5rem; }
+      .inhaber-content { padding: 2rem 1.5rem; }
+    }
+
+    /* ── TEAM ── */
+    .team-section { background: var(--white); }
+    .team-note {
+      background: var(--bg);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 1.5rem 2rem;
+      max-width: 680px;
+      margin-top: 1.5rem;
+    }
+    .team-note p {
+      color: #3a4a57;
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    /* ── WERTE ── */
+    .werte-section { background: var(--primary); }
+    .werte-section h2 { color: var(--white); }
+    .werte-section .lead { color: rgba(255,255,255,0.65); }
+    .werte-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .wert-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 8px;
+      padding: 2rem 1.75rem;
+      transition: background 0.25s;
+    }
+    .wert-card:hover { background: rgba(255,255,255,0.10); }
+    .wert-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .wert-title {
+      font-family: var(--display);
+      color: var(--accent);
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+    }
+    .wert-text {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ── FAKTEN ── */
+    .fakten-section { background: var(--bg); }
+    .fakten-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .fakt-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(28,43,57,0.07);
+      border-top: 3px solid var(--accent);
+    }
+    .fakt-zahl {
+      font-family: var(--display);
+      font-size: 2.4rem;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .fakt-label {
+      font-size: 0.88rem;
+      color: var(--neutral);
+      font-weight: 500;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--accent);
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+    .cta-section h2 {
+      color: var(--white);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin-bottom: 0.8rem;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.08rem;
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s, transform 0.15s;
+      font-family: var(--body);
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary { background: var(--primary); color: var(--white); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+    .cta-contact {
+      color: rgba(255,255,255,0.80);
+      font-size: 0.95rem;
+    }
+    .cta-contact a {
+      color: var(--white);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .cta-contact a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary);
+      color: rgba(255,255,255,0.65);
+      padding: 3.5rem 1.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+    .footer-brand .nav-logo { display: inline-block; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.92rem; line-height: 1.7; max-width: 280px; }
+    .footer-col h4 {
+      font-family: var(--display);
+      color: var(--white);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.55rem; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.60);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--accent); }
+    .footer-col address {
+      font-style: normal;
+      font-size: 0.9rem;
+      line-height: 1.85;
+    }
+    .footer-col address a {
+      color: rgba(255,255,255,0.60);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col address a:hover { color: var(--accent); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.82rem;
+    }
+    .footer-bottom a {
+      color: rgba(255,255,255,0.50);
+      text-decoration: none;
+    }
+    .footer-bottom a:hover { color: var(--accent); }
+    .footer-bottom span { color: var(--accent); }
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Hofer<span>.</span>Haustechnik</a>
+      <button class="nav-burger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="ueber-uns.html" class="active">Über uns</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="referenzen.html">Referenzen</a></li>
+        <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <section class="page-hero">
+    <div class="page-hero-label">Über uns</div>
+    <h1>Handwerk mit Haltung.<br><em>Seit dem ersten Tag.</em></h1>
+    <p>Wir installieren keine Heizungen – wir bauen Grundlagen dafür, dass Familien warm und unabhängig durch den Winter kommen. Das ist der Unterschied.</p>
+  </section>
+
+  <!-- ── GRÜNDUNGSSTORY ── -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-visual">
+          <span class="story-icon">🔧</span>
+          <p class="story-tagline">Wer gut arbeitet,<br>muss nicht laut<br><span>reden.</span></p>
+        </div>
+        <div class="story-text">
+          <span class="section-label">Die Geschichte</span>
+          <h2>Wie alles <em>anfing</em></h2>
+          <p>Hofer Haustechnik ist aus einer einfachen Überzeugung entstanden: Es braucht Fachleute, die nicht erst beim dritten Anruf zurückrufen – sondern Menschen, die ihr Handwerk so ernster nehmen wie ihre Kunden ihr Zuhause.</p>
+          <p>Was als klassischer Sanitär- und Heizungsbetrieb begann, hat sich über die Jahre zu einem Spezialisten für nachhaltige Haustechnik entwickelt. Nicht weil es der Trend vorschreibt, sondern weil Wärmepumpen, Solaranlagen und Holzheizungen schlicht die überzeugendsten Antworten auf steigende Energiekosten und schwindende Ressourcen sind.</p>
+          <p>Heute steht Hofer Haustechnik für Verlässlichkeit in der Region: ein Team, das weiss was es tut, Termine einhält und nach getaner Arbeit nicht einfach verschwindet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INHABER ── -->
+  <section class="inhaber-section">
+    <div class="container">
+      <span class="section-label">Der Mensch dahinter</span>
+      <h2>Kevin Hofer – <em>Inhaber</em></h2>
+      <p class="lead">Einer, der seinen Beruf von der Pike auf gelernt hat. Und der genau deshalb weiss, worauf es ankommt – auf der Baustelle wie im Gespräch mit dem Kunden.</p>
+
+      <div class="inhaber-card">
+        <div class="inhaber-photo">
+          <div class="inhaber-avatar">👷</div>
+          <div class="inhaber-name">Kevin Hofer</div>
+          <div class="inhaber-role">Geschäftsführer &amp; Inhaber</div>
+        </div>
+        <div class="inhaber-content">
+          <p>Kevin Hofer ist kein Bürogeschäftsführer. Er kennt den Unterschied zwischen einer gut und einer schlecht verlegten Leitung – weil er beides selbst in den Händen hatte. Aufgewachsen im Handwerk, hat er früh gelernt, dass sauber arbeitende Betriebe keine lauten Versprechen brauchen.</p>
+          <p>Als er Hofer Haustechnik übernahm und weiterentwickelte, war ihm eines klar: Der Fokus auf erneuerbare Energien und nachhaltige Systeme ist keine Marketingstrategie – es ist die logische Konsequenz aus dem, was er täglich bei Kunden sieht. Heizöl wird teurer. Die Abhängigkeit wird grösser. Eine gut installierte Wärmepumpe schafft echte Unabhängigkeit.</p>
+          <p>Was ihn antreibt: Kunden, die nach Jahren noch anrufen und sagen, dass die Anlage einwandfrei läuft. Nicht weil er es erhofft hat, sondern weil es so geplant war.</p>
+          <div class="inhaber-badges">
+            <span class="badge">Sanitär &amp; Heizung</span>
+            <span class="badge">Wärmepumpen</span>
+            <span class="badge">Solarenergie</span>
+            <span class="badge">Holz &amp; Biomasse</span>
+            <span class="badge">Badumbauten</span>
+            <span class="badge">Heizungsmodernisierung</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TEAM ── -->
+  <section class="team-section">
+    <div class="container">
+      <span class="section-label">Das Team</span>
+      <h2>Kleine Truppe.<br><em>Grosses Know-how.</em></h2>
+      <p class="lead">Bei Hofer Haustechnik arbeiten 6 bis 15 Fachleute, die alle eine Gemeinsamkeit haben: Sie machen ihren Job, weil sie ihn können – nicht weil er gerade gefragt ist.</p>
+      <div class="team-note">
+        <p>Unser Team vereint klassische Handwerksausbildungen mit spezifischem Fachwissen im Bereich erneuerbare Energien. Monteure, Planer und Projektverantwortliche – jeder weiss, was der andere macht, und genau das spüren unsere Kunden auf der Baustelle. Keine Übergabefehler. Kein Informationsverlust. Nur saubere Arbeit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WERTE ── -->
+  <section class="werte-section">
+    <div class="container">
+      <span class="section-label">Unsere Haltung</span>
+      <h2>Was uns <em>antreibt</em></h2>
+      <p class="lead">Werte sind keine Plakate im Büro. Sie zeigen sich darin, wie wir montags morgens auf der Baustelle stehen und freitags abends den Anruf noch annehmen.</p>
+      <div class="werte-grid">
+        <div class="wert-card">
+          <span class="wert-icon">📞</span>
+          <div class="wert-title">Wir sind erreichbar</div>
+          <p class="wert-text">Wer bei uns anruft, spricht mit jemandem, der weiterhelfen kann. Kein Callcenter, keine automatische Weiterleitung. Rückrufe innerhalb eines Werktags – das ist bei uns Standard, nicht Ausnahme.</p>
+        </div>
+        <div class="wert-card">
+          <span class="wert-icon">📐</span>
+          <div class="wert-title">Sauberkeit ist Respekt</div>
+          <p class="wert-text">Wer bei uns arbeitet, verlässt die Baustelle so, wie er sie vorfinden möchte. Keine Abkürzungen, keine halben Sachen. Wir bauen Anlagen, die in zehn Jahren noch einwandfrei laufen – das beginnt mit dem ersten Handgriff.</p>
+        </div>
+        <div class="wert-card">
+          <span class="wert-icon">💬</span>
+          <div class="wert-title">Klartext statt Fachchinesisch</div>
+          <p class="wert-text">Wärmepumpe, COP-Wert, hydraulischer Abgleich – wir erklären, was das bedeutet und warum es für Sie relevant ist. Kein Kunde soll das Gefühl haben, etwas unterschrieben zu haben, das er nicht versteht.</p>
+        </div>
+        <div class="wert-card">
+          <span class="wert-icon">🌱</span>
+          <div class="wert-title">Nachhaltig aus Überzeugung</div>
+          <p class="wert-text">Wir empfehlen erneuerbare Systeme, weil wir von ihnen überzeugt sind – nicht weil es gerade Fördergelder gibt. Eine Wärmepumpe, die zu Ihrem Gebäude passt, schlägt jede Heizölanlage langfristig. Daran glauben wir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAKTEN ── -->
+  <section class="fakten-section">
+    <div class="container">
+      <span class="section-label">Auf einen Blick</span>
+      <h2>Zahlen, die <em>sprechen</em></h2>
+      <p class="lead">Kein Hochglanz-Jahresbericht. Nur ein paar Fakten, die zeigen, wer wir sind.</p>
+      <div class="fakten-grid">
+        <div class="fakt-card">
+          <span class="fakt-zahl">6–15</span>
+          <div class="fakt-label">Fachleute im Team</div>
+        </div>
+        <div class="fakt-card">
+          <span class="fakt-zahl">3</span>
+          <div class="fakt-label">Schwerpunkte: Solar, Wärmepumpe, Holz</div>
+        </div>
+        <div class="fakt-card">
+          <span class="fakt-zahl">1×</span>
+          <div class="fakt-label">Rückruf – innert einem Werktag</div>
+        </div>
+        <div class="fakt-card">
+          <span class="fakt-zahl">DACH</span>
+          <div class="fakt-label">Region mit lokalem Fokus</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Lern uns kennen.</h2>
+      <p>Ein kurzes Gespräch reicht oft, um zu sehen ob wir zusammenpassen. Kostenlos, unverbindlich – und Sie reden von Anfang an mit jemandem, der Ahnung hat.</p>
+      <div class="cta-buttons">
+        <a href="kontakt.html" class="btn btn-primary">Kostenloses Erstgespräch buchen</a>
+        <a href="tel:+41XXXXXXXX" class="btn btn-outline">Direkt anrufen</a>
+      </div>
+      <p class="cta-contact">
+        Lieber eine E-Mail? <a href="mailto:info@hofer-haustechnik.ch">info@hofer-haustechnik.ch</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Hofer<span>.</span>Haustechnik</a>
+        <p>Sanitär, Heizung &amp; Klima aus einer Hand. Nachhaltig, zuverlässig, klar kommuniziert – für Haushalte und Betriebe in der DACH-Region.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="referenzen.html">Referenzen</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <address>
+          Musterstrasse 1<br />
+          PLZ Ort<br /><br />
+          <a href="tel:+41XXXXXXXX">+41 XX XXX XX XX</a><br />
+          <a href="mailto:info@hofer-haustechnik.ch">info@hofer-haustechnik.ch</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Hofer Haustechnik GmbH – Alle Rechte vorbehalten</span>
+      <div style="display:flex;gap:1.2rem;">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+      <span>Webdesign by <span>Lachs Media</span></span>
+    </div>
+  </footer>
+
+</body>
+</html>
