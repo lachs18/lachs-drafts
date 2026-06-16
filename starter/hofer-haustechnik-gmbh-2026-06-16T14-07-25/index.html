@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hofer Haustechnik GmbH – Sanitär, Heizung & Klima</title>
+  <meta name="description" content="Hofer Haustechnik GmbH – Ihr Fachbetrieb für Sanitär, Heizung und Klima. Installation, Reparatur und Modernisierung. Jetzt anrufen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primaer: #1C2B3A;
+      --akzent: #E8600A;
+      --hintergrund: #F5F3EF;
+      --neutral: #6B7280;
+      --weiss: #FFFFFF;
+      --display-font: 'Archivo Black', sans-serif;
+      --body-font: 'Inter', sans-serif;
+      --radius: 4px;
+      --shadow: 0 2px 12px rgba(28, 43, 58, 0.10);
+      --transition: 0.2s ease;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--body-font);
+      background-color: var(--hintergrund);
+      color: var(--primaer);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ===== UTILITY ===== */
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--akzent);
+      color: var(--weiss);
+      font-family: var(--body-font);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      transition: background-color var(--transition), transform var(--transition);
+      border: 2px solid var(--akzent);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background-color: #cf530a;
+      border-color: #cf530a;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background-color: transparent;
+      color: var(--primaer);
+      font-family: var(--body-font);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      border: 2px solid var(--primaer);
+      transition: background-color var(--transition), color var(--transition), transform var(--transition);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--primaer);
+      color: var(--weiss);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary--light {
+      color: var(--weiss);
+      border-color: var(--weiss);
+    }
+
+    .btn-secondary--light:hover {
+      background-color: var(--weiss);
+      color: var(--primaer);
+    }
+
+    .section-label {
+      font-family: var(--body-font);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--akzent);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--display-font);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--primaer);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      font-size: 1rem;
+      color: var(--neutral);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--primaer);
+      box-shadow: 0 2px 8px rgba(28, 43, 58, 0.18);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      color: var(--weiss);
+      line-height: 1.2;
+    }
+
+    .nav-logo span {
+      display: block;
+      font-family: var(--body-font);
+      font-weight: 400;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: var(--body-font);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--weiss);
+    }
+
+    .nav-tel-btn {
+      display: none;
+      background-color: var(--akzent);
+      color: var(--weiss);
+      font-family: var(--body-font);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      transition: background-color var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-tel-btn:hover {
+      background-color: #cf530a;
+    }
+
+    .nav-tel-btn::before {
+      content: "📞 ";
+    }
+
+    .nav-mobile-tel {
+      background-color: var(--akzent);
+      color: var(--weiss);
+      font-family: var(--body-font);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      white-space: nowrap;
+    }
+
+    .nav-mobile-tel::before {
+      content: "📞 ";
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background-color: var(--primaer);
+      padding: 72px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 40%, rgba(232, 96, 10, 0.07) 100%);
+      pointer-events: none;
+    }
+
+    .hero-accent-bar {
+      width: 56px;
+      height: 5px;
+      background-color: var(--akzent);
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .hero-headline {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 5.5vw, 3.6rem);
+      color: var(--weiss);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      max-width: 700px;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--akzent);
+    }
+
+    .hero-subline {
+      font-family: var(--body-font);
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: rgba(255,255,255,0.78);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 320px;
+    }
+
+    .hero-trust {
+      margin-top: 56px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .hero-trust-item::before {
+      content: "✓";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      background-color: var(--akzent);
+      color: var(--weiss);
+      border-radius: 50%;
+      font-size: 0.7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ===== LEISTUNGEN ===== */
+    .leistungen {
+      padding: 80px 0;
+      background-color: var(--hintergrund);
+    }
+
+    .leistungen-header {
+      margin-bottom: 48px;
+    }
+
+    .leistungen-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .leistung-card {
+      background-color: var(--weiss);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      border-left: 4px solid var(--akzent);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .leistung-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(28, 43, 58, 0.13);
+    }
+
+    .leistung-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .leistung-title {
+      font-family: var(--display-font);
+      font-size: 1.05rem;
+      color: var(--primaer);
+      margin-bottom: 10px;
+    }
+
+    .leistung-text {
+      font-size: 0.9rem;
+      color: var(--neutral);
+      line-height: 1.6;
+    }
+
+    .leistungen-cta {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    .leistungen-cta a {
+      font-family: var(--body-font);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--akzent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap var(--transition);
+    }
+
+    .leistungen-cta a:hover {
+      gap: 10px;
+    }
+
+    .leistungen-cta a::after {
+      content: "→";
+    }
+
+    /* ===== VERTRAUEN ===== */
+    .vertrauen {
+      background-color: var(--primaer);
+      padding: 72px 0;
+    }
+
+    .vertrauen-intro {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .vertrauen-intro .section-title {
+      color: var(--weiss);
+    }
+
+    .vertrauen-intro .section-intro {
+      color: rgba(255,255,255,0.65);
+      margin: 0 auto;
+    }
+
+    .vertrauen-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .vertrauen-item {
+      background-color: rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .vertrauen-zahl {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      color: var(--akzent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .vertrauen-label {
+      font-family: var(--body-font);
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.4;
+    }
+
+    /* ===== ÜBER UNS ===== */
+    .ueber-uns {
+      padding: 80px 0;
+      background-color: var(--hintergrund);
+    }
+
+    .ueber-uns-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .ueber-uns-visual {
+      background-color: var(--primaer);
+      border-radius: var(--radius);
+      padding: 48px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ueber-uns-visual::after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 140px;
+      height: 140px;
+      background-color: var(--akzent);
+      opacity: 0.12;
+      border-radius: 50%;
+    }
+
+    .ueber-uns-visual-quote {
+      font-family: var(--display-font);
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: var(--weiss);
+      line-height: 1.4;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ueber-uns-visual-quote::before {
+      content: "\"";
+      font-size: 4rem;
+      color: var(--akzent);
+      opacity: 0.5;
+      display: block;
+      line-height: 0.6;
+      margin-bottom: 16px;
+    }
+
+    .ueber-uns-text p {
+      font-size: 1rem;
+      color: var(--neutral);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .ueber-uns-text p:last-of-type {
+      margin-bottom: 28px;
+    }
+
+    /* ===== CTA-BLOCK ===== */
+    .cta-block {
+      background-color: var(--akzent);
+      padding: 72px 0;
+    }
+
+    .cta-block-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      align-items: flex-start;
+    }
+
+    .cta-block-text .section-label {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .cta-block-title {
+      font-family: var(--display-font);
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      color: var(--weiss);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .cta-block-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 480px;
+      line-height: 1.65;
+    }
+
+    .cta-block-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cta-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--weiss);
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .cta-contact-icon {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.18);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .cta-block-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background-color: var(--primaer);
+      padding: 56px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-logo {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      color: var(--weiss);
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+      max-width: 260px;
+    }
+
+    .footer-col-title {
+      font-family: var(--body-font);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 16px;
+    }
+
+    .footer-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-nav-list a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      transition: color var(--transition);
+    }
+
+    .footer-nav-list a:hover {
+      color: var(--weiss);
+    }
+
+    .footer-adresse {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+    }
+
+    .footer-adresse a {
+      color: rgba(255,255,255,0.7);
+      transition: color var(--transition);
+    }
+
+    .footer-adresse a:hover {
+      color: var(--weiss);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      transition: color var(--transition);
+    }
+
+    .footer-legal a:hover {
+      color: var(--weiss);
+    }
+
+    /* ===== RESPONSIVE: 768px ===== */
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-tel-btn {
+        display: inline-block;
+      }
+
+      .nav-mobile-tel {
+        display: none;
+      }
+
+      .hero {
+        padding: 96px 0 104px;
+      }
+
+      .hero-ctas {
+        flex-direction: row;
+        max-width: none;
+      }
+
+      .leistungen-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .vertrauen-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .ueber-uns-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-block-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .cta-block-text {
+        flex: 1;
+        max-width: 500px;
+      }
+
+      .cta-block-actions {
+        width: auto;
+        min-width: 220px;
+        flex-shrink: 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    /* ===== RESPONSIVE: 1024px ===== */
+    @media (min-width: 1024px) {
+      .leistungen-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .hero-headline {
+        max-width: 780px;
+      }
+
+      .cta-block-contacts {
+        flex-direction: row;
+        gap: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header>
+    <nav class="site-nav" role="navigation" aria-label="Hauptnavigation">
+      <div class="container">
+        <div class="nav-inner">
+          <a href="index.html" class="nav-logo" aria-label="Hofer Haustechnik GmbH – Startseite">
+            Hofer Haustechnik
+            <span>Sanitär · Heizung · Klima</span>
+          </a>
+          <ul class="nav-links" role="list">
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="referenzen.html">Referenzen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+          <a href="tel:+41XXXXXXXXX" class="nav-tel-btn" aria-label="Jetzt anrufen">+41 XX XXX XX XX</a>
+          <a href="tel:+41XXXXXXXXX" class="nav-mobile-tel" aria-label="Jetzt anrufen">Anrufen</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Willkommen bei Hofer Haustechnik">
+      <div class="container">
+        <div class="hero-accent-bar" role="presentation"></div>
+        <h1 class="hero-headline">
+          Sanitär, Heizung & Klima –<br>
+          <em>gemacht,</em> nicht versprochen.
+        </h1>
+        <p class="hero-subline">
+          Hofer Haustechnik GmbH installiert, repariert und modernisiert Ihre Heizungs- und Sanitäranlagen. Fachbetrieb mit klaren Aussagen, verlässlichen Terminen und Handwerk, das hält.
+        </p>
+        <div class="hero-ctas">
+          <a href="tel:+41XXXXXXXXX" class="btn-primary">📞 Jetzt anrufen</a>
+          <a href="leistungen.html" class="btn-secondary btn-secondary--light">Leistungen ansehen</a>
+        </div>
+        <div class="hero-trust" role="list" aria-label="Vertrauenssignale">
+          <div class="hero-trust-item" role="listitem">Lokaler Fachbetrieb</div>
+          <div class="hero-trust-item" role="listitem">Schnelle Reaktionszeiten</div>
+          <div class="hero-trust-item" role="listitem">Faire Preise, klare Offerten</div>
+          <div class="hero-trust-item" role="listitem">Erfahrenes Team</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LEISTUNGEN-TEASER ===== -->
+    <section class="leistungen" id="leistungen" aria-labelledby="leistungen-heading">
+      <div class="container">
+        <div class="leistungen-header">
+          <p class="section-label">Was wir machen</p>
+          <h2 class="section-title" id="leistungen-heading">Von der Rohleitung<br>bis zur neuen Heizung</h2>
+          <p class="section-intro">Kein Auftrag ist zu klein, keiner zu gross. Wir nennen Ihnen einen Preis, bevor wir anfangen – und halten ihn.</p>
+        </div>
+        <div class="leistungen-grid">
+          <div class="leistung-card">
+            <div class="leistung-icon" aria-hidden="true">🔧</div>
+            <h3 class="leistung-title">Sanitärinstallation</h3>
+            <p class="leistung-text">Neubau, Umbau oder Reparatur – Leitungen, Armaturen und Badezimmer aus einer Hand.</p>
+          </div>
+          <div class="leistung-card">
+            <div class="leistung-icon" aria-hidden="true">🔥</div>
+            <h3 class="leistung-title">Heizung & Modernisierung</h3>
+            <p class="leistung-text">Neue Heizsysteme, Wärmepumpen und Sanierungen älterer Anlagen – effizient und normgerecht.</p>
+          </div>
+          <div class="leistung-card">
+            <div class="leistung-icon" aria-hidden="true">❄️</div>
+            <h3 class="leistung-title">Klima & Lüftung</h3>
+            <p class="leistung-text">Installation und Wartung von Klimaanlagen und Lüftungssystemen für Wohn- und Gewerberäume.</p>
+          </div>
+          <div class="leistung-card">
+            <div class="leistung-icon" aria-hidden="true">🛠️</div>
+            <h3 class="leistung-title">Service & Wartung</h3>
+            <p class="leistung-text">Regelmässige Wartungsverträge und schnelle Pannenhilfe – damit Ihre Anlage läuft, wenn sie soll.</p>
+          </div>
+        </div>
+        <div class="leistungen-cta">
+          <a href="leistungen.html">Alle Leistungen im Überblick</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VERTRAUENS-SEKTION ===== -->
+    <section class="vertrauen" aria-labelledby="vertrauen-heading">
+      <div class="container">
+        <div class="vertrauen-intro">
+          <p class="section-label" style="color: rgba(255,255,255,0.6);">Zahlen, die sprechen</p>
+          <h2 class="section-title vertrauen-heading" id="vertrauen-heading" style="color: var(--weiss);">Ein Betrieb, dem man vertraut</h2>
+          <p class="section-intro" style="color: rgba(255,255,255,0.6); margin: 0 auto;">Wir messen uns nicht an Hochglanzbroschüren, sondern daran, dass Ihre Anlage funktioniert und Sie uns weiterempfehlen.</p>
+        </div>
+        <div class="vertrauen-grid" role="list" aria-label="Kennzahlen und Fakten">
+          <div class="vertrauen-item" role="listitem">
+            <div class="vertrauen-zahl">6–15</div>
+            <div class="vertrauen-label">Mitarbeitende im Fachbetrieb</div>
+          </div>
+          <div class="vertrauen-item" role="listitem">
+            <div class="vertrauen-zahl">3</div>
+            <div class="vertrauen-label">Fachbereiche unter einem Dach</div>
+          </div>
+          <div class="vertrauen-item" role="listitem">
+            <div class="vertrauen-zahl">100%</div>
+            <div class="vertrauen-label">Eigenes Montageteam, kein Subunternehmer</div>
+          </div>
+          <div class="vertrauen-item" role="listitem">
+            <div class="vertrauen-zahl">1×</div>
+            <div class="vertrauen-label">Ansprechperson vom Angebot bis zur Abnahme</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ÜBER UNS TEASER ===== -->
+    <section class="ueber-uns" id="ueber-uns" aria-labelledby="ueber-uns-heading">
+      <div class="container">
+        <div class="ueber-uns-inner">
+          <div class="ueber-uns-visual" aria-hidden="true">
+            <p class="ueber-uns-visual-quote">Wir sagen Ihnen, was es kostet. Und dann kostet es das.</p>
+          </div>
+          <div class="ueber-uns-text">
+            <p class="section-label">Über Hofer Haustechnik</p>
+            <h2 class="section-title" id="ueber-uns-heading">Handwerk ohne Umwege</h2>
+            <p>Hofer Haustechnik GmbH ist ein regionaler Fachbetrieb für Sanitär, Heizung und Klima. Wir arbeiten mit ausgebildeten Fachleuten, die wissen, was sie tun – und es Ihnen geradeheraus sagen.</p>
+            <p>Keine Weiterleitungen, keine vagen Versprechen. Sie erreichen uns direkt, bekommen eine klare Offerte und einen Termin, den wir einhalten.</p>
+            <a href="ueber-uns.html" class="btn-secondary">Mehr über uns</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA-BLOCK ===== -->
+    <section class="cta-block" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-block-inner">
+          <div class="cta-block-text">
+            <p class="section-label" style="color: rgba(255,255,255,0.75);">Bereit loszulegen?</p>
+            <h2 class="cta-block-title" id="cta-heading">Rufen Sie an oder schreiben Sie uns – wir melden uns am selben Tag.</h2>
+            <p class="cta-block-sub">Ob dringende Reparatur, geplante Modernisierung oder einfach eine erste Einschätzung: Wir sind unkompliziert erreichbar und nennen Ihnen schnell einen Preis.</p>
+            <div class="cta-block-contacts" style="margin-top: 28px;">
+              <div class="cta-contact-item">
+                <div class="cta-contact-icon" aria-hidden="true">📞</div>
+                <a href="tel:+41XXXXXXXXX" style="color: inherit; font-weight: 600;">+41 XX XXX XX XX</a>
+              </div>
+              <div class="cta-contact-item">
+                <div class="cta-contact-icon" aria-hidden="true">✉️</div>
+                <a href="mailto:info@hofer-haustechnik.ch" style="color: inherit; font-weight: 600;">info@hofer-haustechnik.ch</a>
+              </div>
+            </div>
+          </div>
+          <div class="cta-block-actions">
+            <a href="kontakt.html" class="btn-secondary btn-secondary--light" style="width: 100%; text-align: center;">Kontaktformular öffnen</a>
+            <a href="tel:+41XXXXXXXXX" class="btn-primary" style="background-color: var(--weiss); color: var(--akzent); border-color: var(--weiss); width: 100%; text-align: center;">📞 Direkt anrufen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Hofer Haustechnik GmbH</div>
+          <p class="footer-tagline">Sanitär, Heizung und Klima – direkt, verlässlich, fachgerecht.</p>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-col-title">Seiten</p>
+          <ul class="footer-nav-list" role="list">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="referenzen.html">Referenzen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-kontakt">
+          <p class="footer-col-title">Kontakt</p>
+          <address class="footer-adresse" style="font-style: normal;">
+            Hofer Haustechnik GmbH<br>
+            Musterstrasse 1<br>
+            PLZ Ort<br>
+            <a href="tel:+41XXXXXXXXX">+41 XX XXX XX XX</a><br>
+            <a href="mailto:info@hofer-haustechnik.ch">info@hofer-haustechnik.ch</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Hofer Haustechnik GmbH. Alle Rechte vorbehalten.</p>
+        <nav class="footer-legal" aria-label="Rechtliche Links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
