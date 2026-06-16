@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hofer Haustechnik GmbH – Sanitär, Heizung & Klima</title>
+  <meta name="description" content="Hofer Haustechnik GmbH – Ihr Fachbetrieb für Wärmepumpen, Solarenergie, Heizungsmodernisierung und Badumbauten. Bodenständig, kompetent, nachhaltig.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primaer: #1C2B39;
+      --akzent: #E8630A;
+      --hintergrund: #F5F2ED;
+      --neutral: #6B7B8A;
+      --weiss: #FFFFFF;
+      --display-font: 'Archivo Black', sans-serif;
+      --body-font: 'Inter', sans-serif;
+      --radius: 4px;
+      --shadow: 0 2px 12px rgba(28,43,57,0.10);
+      --transition: 0.2s ease;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--body-font);
+      background-color: var(--hintergrund);
+      color: var(--primaer);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ─── UTILITIES ─── */
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--akzent);
+      color: var(--weiss);
+      font-family: var(--body-font);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      border: 2px solid var(--akzent);
+      transition: background-color var(--transition), transform var(--transition);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      background-color: #cf5608;
+      border-color: #cf5608;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background-color: transparent;
+      color: var(--primaer);
+      font-family: var(--body-font);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      border: 2px solid var(--primaer);
+      transition: background-color var(--transition), color var(--transition), transform var(--transition);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--primaer);
+      color: var(--weiss);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary--light {
+      color: var(--weiss);
+      border-color: var(--weiss);
+    }
+
+    .btn-secondary--light:hover {
+      background-color: var(--weiss);
+      color: var(--primaer);
+    }
+
+    .section-label {
+      font-family: var(--body-font);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--akzent);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--display-font);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      color: var(--primaer);
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--neutral);
+      max-width: 560px;
+      margin-bottom: 40px;
+    }
+
+    /* ─── NAVIGATION ─── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--primaer);
+      box-shadow: 0 2px 8px rgba(28,43,57,0.18);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      color: var(--weiss);
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    .nav-logo span {
+      color: var(--akzent);
+    }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-family: var(--body-font);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.82);
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--weiss);
+    }
+
+    .nav-tel {
+      font-family: var(--body-font);
+      font-weight: 600;
+      font-size: 0.9rem;
+      background-color: var(--akzent);
+      color: var(--weiss);
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      transition: background-color var(--transition);
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .nav-tel:hover {
+      background-color: #cf5608;
+    }
+
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--weiss);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .nav-mobile {
+      display: none;
+      background-color: var(--primaer);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-mobile.open {
+      display: block;
+    }
+
+    .nav-mobile ul {
+      list-style: none;
+      padding: 16px 20px 20px;
+    }
+
+    .nav-mobile ul li {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-mobile ul li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-mobile ul a {
+      display: block;
+      padding: 12px 0;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background-color: var(--primaer);
+      position: relative;
+      overflow: hidden;
+      padding: 72px 0 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -200px;
+      width: 600px;
+      height: 100%;
+      background: radial-gradient(ellipse at top right, rgba(232,99,10,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(232,99,10,0.15);
+      border: 1px solid rgba(232,99,10,0.3);
+      color: var(--akzent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--akzent);
+      flex-shrink: 0;
+    }
+
+    .hero-headline {
+      font-family: var(--display-font);
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      line-height: 1.1;
+      color: var(--weiss);
+      margin-bottom: 20px;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--akzent);
+    }
+
+    .hero-subline {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hero-signature {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+    }
+
+    .hero-sig-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-sig-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba(232,99,10,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hero-sig-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--akzent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .hero-sig-text {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 500;
+    }
+
+    .hero-visual {
+      display: none;
+    }
+
+    .hero-visual-block {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 32px;
+    }
+
+    .hero-visual-title {
+      font-family: var(--display-font);
+      font-size: 1rem;
+      color: var(--weiss);
+      margin-bottom: 20px;
+    }
+
+    .service-pill {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background-color: rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      border-left: 3px solid var(--akzent);
+    }
+
+    .service-pill span {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+    }
+
+    .service-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--akzent);
+      flex-shrink: 0;
+    }
+
+    /* ─── LEISTUNGEN ─── */
+    .leistungen {
+      padding: 80px 0;
+      background-color: var(--hintergrund);
+    }
+
+    .leistungen-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .leistung-card {
+      background-color: var(--weiss);
+      border-radius: 6px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      border-top: 3px solid transparent;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .leistung-card:hover {
+      border-top-color: var(--akzent);
+      transform: translateY(-3px);
+    }
+
+    .leistung-icon {
+      width: 48px;
+      height: 48px;
+      background-color: rgba(232,99,10,0.1);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .leistung-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--akzent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .leistung-title {
+      font-family: var(--display-font);
+      font-size: 1.1rem;
+      color: var(--primaer);
+      margin-bottom: 8px;
+    }
+
+    .leistung-text {
+      font-size: 0.9rem;
+      color: var(--neutral);
+      line-height: 1.6;
+    }
+
+    .leistungen-cta {
+      text-align: center;
+    }
+
+    /* ─── VERTRAUEN ─── */
+    .vertrauen {
+      background-color: var(--primaer);
+      padding: 72px 0;
+    }
+
+    .vertrauen-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .vertrauen-item {
+      text-align: center;
+      padding: 24px 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+    }
+
+    .vertrauen-zahl {
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--akzent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .vertrauen-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* ─── ÜBER UNS ─── */
+    .ueber-uns {
+      padding: 80px 0;
+      background-color: var(--hintergrund);
+    }
+
+    .ueber-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .ueber-visual {
+      background-color: var(--primaer);
+      border-radius: 8px;
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ueber-visual::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background-color: rgba(232,99,10,0.12);
+      pointer-events: none;
+    }
+
+    .ueber-visual-quote {
+      font-family: var(--display-font);
+      font-size: 1.3rem;
+      color: var(--weiss);
+      line-height: 1.4;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ueber-visual-quote::before {
+      content: '\201E';
+      font-size: 4rem;
+      color: var(--akzent);
+      line-height: 0.5;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .ueber-visual-name {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ueber-content .section-intro {
+      margin-bottom: 24px;
+    }
+
+    .ueber-punkte {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .ueber-punkte li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(28,43,57,0.08);
+      font-size: 0.92rem;
+      color: var(--primaer);
+    }
+
+    .ueber-punkte li:last-child {
+      border-bottom: none;
+    }
+
+    .ueber-punkte li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--akzent);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* ─── CTA BLOCK ─── */
+    .cta-block {
+      background-color: var(--akzent);
+      padding: 72px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: -80px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.06);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-inner .section-label {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .cta-title {
+      font-family: var(--display-font);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--weiss);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .cta-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 36px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-kontakt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .cta-kontakt-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .cta-kontakt-item svg {
+      width: 18px;
+      height: 18px;
+      stroke: rgba(255,255,255,0.7);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      background-color: #111D27;
+      padding: 56px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-logo {
+      font-family: var(--display-font);
+      font-size: 1.15rem;
+      color: var(--weiss);
+      margin-bottom: 12px;
+    }
+
+    .footer-logo span {
+      color: var(--akzent);
+    }
+
+    .footer-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-family: var(--body-font);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--weiss);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .footer-contact-item svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--neutral);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-contact-item span, .footer-contact-item a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.5;
+    }
+
+    .footer-contact-item a:hover {
+      color: var(--weiss);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-legal a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.40);
+      transition: color var(--transition);
+    }
+
+    .footer-legal a:hover {
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ─── RESPONSIVE 768px ─── */
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-hamburger {
+        display: none;
+      }
+
+      .hero {
+        padding: 96px 0 104px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+      }
+
+      .hero-visual {
+        display: block;
+      }
+
+      .leistungen-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .vertrauen-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .ueber-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-kontakt {
+        flex-direction: row;
+        justify-content: center;
+        gap: 32px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      }
+
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    /* ─── RESPONSIVE 1024px ─── */
+    @media (min-width: 1024px) {
+      .leistungen-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <header>
+    <nav class="site-nav">
+      <div class="container">
+        <div class="nav-inner">
+          <a href="index.html" class="nav-logo">
+            Hofer<span>.</span>Haustechnik
+          </a>
+
+          <ul class="nav-links">
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="referenzen.html">Referenzen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+
+          <a href="tel:+41XXXXXXXXX" class="nav-tel">
+            +41 XX XXX XX XX
+          </a>
+
+          <button class="nav-hamburger" aria-label="Menü öffnen" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-mobile" id="mobileMenu">
+        <ul>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="referenzen.html">Referenzen</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">Ihr Fachbetrieb für Heizung &amp; Sanitär</div>
+
+            <h1 class="hero-headline">
+              Weniger Heizkosten.<br>
+              Mehr <em>Unabhängigkeit.</em><br>
+              Sauber gemacht.
+            </h1>
+
+            <p class="hero-subline">
+              Wir installieren Wärmepumpen, Solaranlagen und modernisieren Heizungen – handwerklich sauber, ohne Umwege, mit echtem Fachwissen. Für Einfamilienhäuser und kleinere Liegenschaften im DACH-Raum.
+            </p>
+
+            <div class="hero-ctas">
+              <a href="tel:+41XXXXXXXXX" class="btn-primary">Jetzt anrufen</a>
+              <a href="leistungen.html" class="btn-secondary btn-secondary--light">Leistungen ansehen</a>
+            </div>
+
+            <div class="hero-signature">
+              <div class="hero-sig-item">
+                <div class="hero-sig-icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <span class="hero-sig-text">Zertifizierter Fachbetrieb</span>
+              </div>
+              <div class="hero-sig-item">
+                <div class="hero-sig-icon">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <span class="hero-sig-text">Schnelle Rückmeldung</span>
+              </div>
+              <div class="hero-sig-item">
+                <div class="hero-sig-icon">
+                  <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <span class="hero-sig-text">Regionaler Betrieb</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-visual-block">
+              <p class="hero-visual-title">Unsere Kernleistungen</p>
+              <div class="service-pill">
+                <div class="service-pill-dot"></div>
+                <span>Wärmepumpen – Luft / Wasser / Erdwärme</span>
+              </div>
+              <div class="service-pill">
+                <div class="service-pill-dot"></div>
+                <span>Solarenergie – Warmwasser &amp; Strom</span>
+              </div>
+              <div class="service-pill">
+                <div class="service-pill-dot"></div>
+                <span>Heizungsmodernisierung &amp; Biomasse</span>
+              </div>
+              <div class="service-pill">
+                <div class="service-pill-dot"></div>
+                <span>Badumbau &amp; Sanitärinstallation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── LEISTUNGEN ─── -->
+    <section class="leistungen" id="leistungen">
+      <div class="container">
+        <span class="section-label">Was wir machen</span>
+        <h2 class="section-title">Heizung, Wasser, Energie –<br>alles aus einer Hand.</h2>
+        <p class="section-intro">Von der Planung bis zur Abnahme. Kein Subunternehmer-Wirrwarr, keine halbfertigen Lösungen.</p>
+
+        <div class="leistungen-grid">
+          <div class="leistung-card">
+            <div class="leistung-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l2 2 4-4"/></svg>
+            </div>
+            <h3 class="leistung-title">Wärmepumpen</h3>
+            <p class="leistung-text">Luft-Wasser, Erdsonde oder Grundwasser – wir dimensionieren, installieren und nehmen in Betrieb. Förderanträge inklusive.</p>
+          </div>
+
+          <div class="leistung-card">
+            <div class="leistung-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </div>
+            <h3 class="leistung-title">Solarenergie</h3>
+            <p class="leistung-text">Thermische Solaranlagen für Warmwasser sowie Photovoltaik zur Eigenstromerzeugung – kombinierbar mit Wärmepumpe.</p>
+          </div>
+
+          <div class="leistung-card">
+            <div class="leistung-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.12A1 1 0 0 0 5 20.5c3-1 6-4 9-4 .9 0 1.7.2 2.4.5"/><path d="M21 3A16 16 0 0 1 9 13"/></svg>
+            </div>
+            <h3 class="leistung-title">Heizung &amp; Biomasse</h3>
+            <p class="leistung-text">Heizungsersatz, Pelletskessel, Holzvergaser – wir modernisieren bestehende Anlagen oder bauen vollständig neu auf.</p>
+          </div>
+
+          <div class="leistung-card">
+            <div class="leistung-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+            </div>
+            <h3 class="leistung-title">Badumbau &amp; Sanitär</h3>
+            <p class="leistung-text">Komplette Badezimmersanierungen und Sanitärinstallationen – vom Konzept bis zum fertigen Bad, termingerecht und sauber.</p>
+          </div>
+        </div>
+
+        <div class="leistungen-cta">
+          <a href="leistungen.html" class="btn-secondary">Alle Leistungen ansehen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── VERTRAUEN ─── -->
+    <section class="vertrauen">
+      <div class="container">
+        <div class="vertrauen-grid">
+          <div class="vertrauen-item">
+            <div class="vertrauen-zahl">6–15</div>
+            <div class="vertrauen-label">Fachleute im Team</div>
+          </div>
+          <div class="vertrauen-item">
+            <div class="vertrauen-zahl">100%</div>
+            <div class="vertrauen-label">Eigenleistung – keine Subunternehmer</div>
+          </div>
+          <div class="vertrauen-item">
+            <div class="vertrauen-zahl">3</div>
+            <div class="vertrauen-label">Kernbereiche: Heizung, Solar, Sanitär</div>
+          </div>
+          <div class="vertrauen-item">
+            <div class="vertrauen-zahl">1×</div>
+            <div class="vertrauen-label">Ansprechperson – von Anfang bis Ende</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ÜBER UNS ─── -->
+    <section class="ueber-uns" id="ueber-uns">
+      <div class="container">
+        <div class="ueber-grid">
+          <div class="ueber-visual">
+            <p class="ueber-visual-quote">Wir erklären, was wir tun – und tun, was wir versprechen.</p>
+            <p class="ueber-visual-name">Hofer Haustechnik GmbH</p>
+          </div>
+
+          <div class="ueber-content">
+            <span class="section-label">Über uns</span>
+            <h2 class="section-title">Handwerk mit Haltung.</h2>
+            <p class="section-intro">
+              Hofer Haustechnik ist ein regionaler Fachbetrieb für Sanitär, Heizung und Klima. Wir haben uns auf nachhaltige Heizsysteme spezialisiert – weil wir überzeugt sind, dass Wärmepumpen und Solarenergie die Antwort auf steigende Energiekosten sind.
+            </p>
+
+            <ul class="ueber-punkte">
+              <li>Direkte Kommunikation ohne Umwege</li>
+              <li>Fachgerechte Installation nach aktuellen Normen</li>
+              <li>Unterstützung bei Förderanträgen und Planung</li>
+              <li>Zuverlässige Terminplanung und Nachbetreuung</li>
+            </ul>
+
+            <a href="ueber-uns.html" class="btn-secondary">Mehr über uns erfahren</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA BLOCK ─── -->
+    <section class="cta-block">
+      <div class="container">
+        <div class="cta-inner">
+          <span class="section-label">Bereit loszulegen?</span>
+          <h2 class="cta-title">Kostenloses Erstgespräch – ohne Verpflichtung.</h2>
+          <p class="cta-sub">Schildern Sie uns Ihr Projekt. Wir schauen es uns an und sagen Ihnen ehrlich, was möglich ist und was es kostet.</p>
+
+          <div class="cta-btns">
+            <a href="tel:+41XXXXXXXXX" class="btn-primary" style="background-color: var(--primaer); border-color: var(--primaer);">Jetzt anrufen</a>
+            <a href="kontakt.html" class="btn-secondary btn-secondary--light">Kontaktformular</a>
+          </div>
+
+          <div class="cta-kontakt">
+            <div class="cta-kontakt-item">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+41 XX XXX XX XX</span>
+            </div>
+            <div class="cta-kontakt-item">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:info@hofer-haustechnik.ch">info@hofer-haustechnik.ch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Hofer<span>.</span>Haustechnik</div>
+          <p class="footer-desc">Ihr Fachbetrieb für Sanitär, Heizung und nachhaltige Energiesysteme im DACH-Raum. Wärmepumpen, Solar und Badumbau.</p>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Seiten</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="referenzen.html">Referenzen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Leistungen</p>
+          <ul class="footer-links">
+            <li><a href="leistungen.html">Wärmepumpen</a></li>
+            <li><a href="leistungen.html">Solarenergie</a></li>
+            <li><a href="leistungen.html">Heizungsersatz</a></li>
+            <li><a href="leistungen.html">Badumbau</a></li>
+            <li><a href="leistungen.html">Sanitär</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Kontakt</p>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Musterstrasse 1<br>PLZ Ort</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+41XXXXXXXXX">+41 XX XXX XX XX</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@hofer-haustechnik.ch">info@hofer-haustechnik.ch</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 Hofer Haustechnik GmbH. Alle Rechte vorbehalten.</p>
+        <ul class="footer-legal">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
