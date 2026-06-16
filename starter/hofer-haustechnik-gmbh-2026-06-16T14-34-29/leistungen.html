@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leistungen – Hofer Haustechnik GmbH</title>
+  <meta name="description" content="Sanitär, Heizung und Klima aus einer Hand: Wärmepumpen, Solarenergie, Badumbauten und Notdienst – Hofer Haustechnik GmbH, Ihr Fachbetrieb in der DACH-Region.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ===========================
+       DESIGN TOKENS
+    =========================== */
+    :root {
+      --color-primary:    #1C2B39;
+      --color-accent:     #E8630A;
+      --color-bg:         #F5F2ED;
+      --color-neutral:    #6B7B8A;
+      --color-white:      #FFFFFF;
+      --color-dark-card:  #162230;
+      --color-border:     #DDD8D0;
+      --font-display:     'Archivo Black', sans-serif;
+      --font-body:        'Inter', sans-serif;
+      --radius-sm:        4px;
+      --radius-md:        8px;
+      --radius-lg:        16px;
+      --shadow-sm:        0 2px 8px rgba(28,43,57,0.08);
+      --shadow-md:        0 4px 20px rgba(28,43,57,0.12);
+      --transition:       0.2s ease;
+      --max-width:        1180px;
+      --nav-height:       72px;
+    }
+
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ===========================
+       TYPOGRAPHY
+    =========================== */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      line-height: 1.15;
+      color: var(--color-primary);
+    }
+
+    h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); }
+    h4 { font-size: 1rem; }
+
+    p {
+      font-size: 1rem;
+      color: var(--color-primary);
+      opacity: 0.85;
+    }
+
+    /* ===========================
+       LAYOUT UTILITIES
+    =========================== */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section--lg {
+      padding: 96px 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    /* ===========================
+       BUTTONS
+    =========================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .btn-primary:hover {
+      background-color: #cf5608;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--color-white);
+      border: 2px solid var(--color-white);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+    }
+
+    .btn-outline-dark {
+      background-color: transparent;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+
+    .btn-outline-dark:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    /* ===========================
+       NAVIGATION
+    =========================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      background-color: var(--color-primary);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav__logo {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .nav__logo-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--color-white);
+      line-height: 1.1;
+    }
+
+    .nav__logo-sub {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      color: var(--color-accent);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav__links {
+      display: none;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav__links a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav__links a:hover {
+      color: var(--color-white);
+    }
+
+    .nav__links a.active {
+      color: var(--color-accent);
+    }
+
+    .nav__links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    .nav__cta {
+      display: none;
+    }
+
+    .nav__burger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav__burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--color-white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .nav__mobile {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background-color: var(--color-primary);
+      padding: 24px 20px 32px;
+      z-index: 99;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    .nav__mobile.open {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .nav__mobile a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: color var(--transition);
+    }
+
+    .nav__mobile a:hover,
+    .nav__mobile a.active {
+      color: var(--color-accent);
+    }
+
+    .nav__mobile .btn {
+      margin-top: 8px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+      .nav__links { display: flex; }
+      .nav__cta { display: flex; }
+      .nav__burger { display: none; }
+    }
+
+    /* ===========================
+       PAGE HERO (COMPACT)
+    =========================== */
+    .page-hero {
+      margin-top: var(--nav-height);
+      background-color: var(--color-primary);
+      padding: 64px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 340px;
+      height: 340px;
+      background-color: var(--color-accent);
+      opacity: 0.06;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 10%;
+      width: 220px;
+      height: 220px;
+      background-color: var(--color-accent);
+      opacity: 0.04;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .page-hero__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero__breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .page-hero__breadcrumb a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .page-hero__breadcrumb a:hover {
+      color: var(--color-accent);
+    }
+
+    .page-hero__breadcrumb span {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .page-hero__breadcrumb .current {
+      font-size: 0.82rem;
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    .page-hero h1 {
+      color: var(--color-white);
+      margin-bottom: 16px;
+      max-width: 640px;
+    }
+
+    .page-hero h1 span {
+      color: var(--color-accent);
+    }
+
+    .page-hero__intro {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 560px;
+      opacity: 1;
+      line-height: 1.7;
+    }
+
+    .page-hero__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .page-hero__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background-color: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .page-hero__tag .dot {
+      width: 7px;
+      height: 7px;
+      background-color: var(--color-accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ===========================
+       SERVICES GRID
+    =========================== */
+    .services-section {
+      background-color: var(--color-bg);
+    }
+
+    .services-section__header {
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    .services-section__header h2 {
+      margin-bottom: 12px;
+    }
+
+    .services-section__header p {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .service-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      border: 1px solid var(--color-border);
+      transition: box-shadow var(--transition), transform var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: var(--color-border);
+      transition: background-color var(--transition);
+    }
+
+    .service-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .service-card:hover::before {
+      background-color: var(--color-accent);
+    }
+
+    .service-card--featured {
+      background-color: var(--color-primary);
+      border-color: transparent;
+    }
+
+    .service-card--featured::before {
+      background-color: var(--color-accent);
+    }
+
+    .service-card--featured h3,
+    .service-card--featured p,
+    .service-card--featured .service-card__meta {
+      color: rgba(255,255,255,0.85);
+    }
+
+    .service-card--featured h3 {
+      color: var(--color-white);
+    }
+
+    .service-card--featured .service-card__icon {
+      background-color: rgba(232,99,10,0.2);
+      color: var(--color-accent);
+    }
+
+    .service-card--featured .service-card__badge {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .service-card__icon {
+      width: 52px;
+      height: 52px;
+      background-color: rgba(232,99,10,0.1);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    .service-card__title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .service-card__badge {
+      display: inline-block;
+      padding: 3px 10px;
+      background-color: rgba(232,99,10,0.1);
+      color: var(--color-accent);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .service-card h3 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .service-card p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .service-card__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .service-card__tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-neutral);
+      background-color: var(--color-bg);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .service-card--featured .service-card__tag {
+      background-color: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ===========================
+       NOTDIENST HIGHLIGHT
+    =========================== */
+    .notdienst-section {
+      background-color: var(--color-primary);
+      padding: 64px 0;
+    }
+
+    .notdienst-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    @media (min-width: 768px) {
+      .notdienst-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .notdienst-content {
+      flex: 1;
+    }
+
+    .notdienst-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background-color: var(--color-accent);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      margin-bottom: 16px;
+    }
+
+    .notdienst-label .pulse {
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-white);
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .notdienst-content h2 {
+      color: var(--color-white);
+      margin-bottom: 12px;
+    }
+
+    .notdienst-content p {
+      color: rgba(255,255,255,0.72);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 520px;
+      opacity: 1;
+    }
+
+    .notdienst-action {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 768px) {
+      .notdienst-action {
+        align-items: flex-end;
+      }
+    }
+
+    .notdienst-phone {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 28px;
+      background-color: var(--color-accent);
+      border-radius: var(--radius-md);
+      transition: background-color var(--transition), transform var(--transition);
+    }
+
+    .notdienst-phone:hover {
+      background-color: #cf5608;
+      transform: translateY(-2px);
+    }
+
+    .notdienst-phone__icon {
+      font-size: 1.4rem;
+    }
+
+    .notdienst-phone__text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .notdienst-phone__label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .notdienst-phone__number {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--color-white);
+    }
+
+    .notdienst-note {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      font-style: italic;
+    }
+
+    /* ===========================
+       PROZESS
+    =========================== */
+    .process-section {
+      background-color: var(--color-white);
+    }
+
+    .process-section__header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .process-section__header h2 {
+      margin-bottom: 12px;
+    }
+
+    .process-section__header p {
+      max-width: 480px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .process-steps {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .process-step {
+        align-items: center;
+        text-align: center;
+      }
+
+      .process-step:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 28px;
+        left: calc(50% + 28px);
+        right: calc(-50% + 28px);
+        height: 2px;
+        background: linear-gradient(90deg, var(--color-accent), var(--color-border));
+        z-index: 0;
+      }
+    }
+
+    .process-step__number {
+      width: 56px;
+      height: 56px;
+      background-color: var(--color-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--color-white);
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .process-step h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--color-primary);
+    }
+
+    .process-step p {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--color-neutral);
+      opacity: 1;
+    }
+
+    /* ===========================
+       LEISTUNGS-ÜBERSICHT (Zusatz)
+    =========================== */
+    .leistungen-extra {
+      background-color: var(--color-bg);
+    }
+
+    .leistungen-extra__header {
+      margin-bottom: 40px;
+    }
+
+    .leistungen-extra__header h2 {
+      margin-bottom: 10px;
+    }
+
+    .leistungen-extra__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .leistungen-extra__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .extra-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 24px;
+      background-color: var(--color-white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+    }
+
+    .extra-item__icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .extra-item__text h4 {
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      margin-bottom: 4px;
+      color: var(--color-primary);
+    }
+
+    .extra-item__text p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--color-neutral);
+      opacity: 1;
+    }
+
+    /* ===========================
+       CTA BLOCK
+    =========================== */
+    .cta-section {
+      background-color: var(--color-bg);
+      padding: 80px 0;
+    }
+
+    .cta-block {
+      background-color: var(--color-primary);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      align-items: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .cta-block {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      background-color: var(--color-accent);
+      opacity: 0.07;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cta-block__content {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+
+    .cta-block__content h2 {
+      color: var(--color-white);
+      margin-bottom: 12px;
+    }
+
+    .cta-block__content p {
+      color: rgba(255,255,255,0.68);
+      font-size: 1rem;
+      opacity: 1;
+      max-width: 440px;
+      line-height: 1.7;
+    }
+
+    .cta-block__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 768px) {
+      .cta-block__actions {
+        align-items: flex-end;
+      }
+    }
+
+    .cta-phone-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .cta-phone-link:hover {
+      color: var(--color-white);
+    }
+
+    .cta-phone-link strong {
+      color: var(--color-white);
+      font-size: 1.05rem;
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    .footer {
+      background-color: #111C26;
+      padding: 56px 0 0;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .footer__grid {
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 48px;
+      }
+    }
+
+    .footer__brand-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--color-white);
+      margin-bottom: 4px;
+    }
+
+    .footer__brand-sub {
+      font-size: 0.75rem;
+      color: var(--color-accent);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer__brand-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      max-width: 300px;
+      opacity: 1;
+    }
+
+    .footer__contact-list {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer__contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer__contact-item a {
+      color: rgba(255,255,255,0.6);
+      transition: color var(--transition);
+    }
+
+    .footer__contact-item a:hover {
+      color: var(--color-accent);
+    }
+
+    .footer__col-title {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: var(--color-white);
+      margin-bottom: 16px;
+      letter-spacing: 0.04em;
+    }
+
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer__links a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      transition: color var(--transition);
+    }
+
+    .footer__links a:hover {
+      color: var(--color-accent);
+    }
+
+    .footer__bottom {
+      margin-top: 48px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    @media (min-width: 768px) {
+      .footer__bottom {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .footer__copy {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      opacity: 1;
+    }
+
+    .footer__bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer__bottom-links a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      transition: color var(--transition);
+    }
+
+    .footer__bottom-links a:hover {
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ===========================
+       RESPONSIVE MISC
+    =========================== */
+    @media (max-width: 767px) {
+      .section { padding: 56px 0; }
+      .section--lg { padding: 64px 0; }
+      .cta-block { padding: 36px 24px; }
+      .notdienst-section { padding: 48px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       NAVIGATION
+  =========================== -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Hofer Haustechnik GmbH – Startseite">
+        <span class="nav__logo-name">Hofer Haustechnik</span>
+        <span class="nav__logo-sub">Sanitär · Heizung · Klima</span>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="leistungen.html" class="active" aria-current="page">Leistungen</a></li>
+        <li><a href="projekte.html">Projekte</a></li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+
+      <a href="tel:+41XXXXXXXXX" class="btn btn-primary nav__cta">
+        <span>📞</span> Jetzt anrufen
+      </a>
+
+      <button class="nav__burger" aria-label="Menü öffnen" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav__mobile" id="mobileMenu" role="menu">
+      <a href="index.html" role="menuitem">Start</a>
+      <a href="leistungen.html" class="active" role="menuitem">Leistungen</a>
+      <a href="projekte.html" role="menuitem">Projekte</a>
+      <a href="ueber-uns.html" role="menuitem">Über uns</a>
+      <a href="kontakt.html" role="menuitem">Kontakt</a>
+      <a href="tel:+41XXXXXXXXX" class="btn btn-primary">📞 +41 XX XXX XX XX</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ===========================
+         PAGE HERO
+    =========================== -->
+    <section class="page-hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="page-hero__inner">
+          <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Start</a>
+            <span aria-hidden="true">›</span>
+            <span class="current">Leistungen</span>
+          </nav>
+
+          <h1 id="hero-heading">Was wir für Sie <span>erledigen</span></h1>
+          <p class="page-hero__intro">
+            Von der Heizungsmodernisierung bis zum Notfalleinsatz um Mitternacht – wir sind ein Handwerksbetrieb, der liefert, was er verspricht. Fachgerecht, termingerecht, ohne Überraschungen auf der Rechnung.
+          </p>
+
+          <div class="page-hero__tags" aria-label="Leistungsübersicht">
+            <span class="page-hero__tag"><span class="dot" aria-hidden="true"></span> Heizungsmodernisierung</span>
+            <span class="page-hero__tag"><span class="dot" aria-hidden="true"></span> Wärmepumpen</span>
+            <span class="page-hero__tag"><span class="dot" aria-hidden="true"></span> Solarenergie</span>
+            <span class="page-hero__tag"><span class="dot" aria-hidden="true"></span> Sanitär</span>
+            <span class="page-hero__tag"><span class="dot" aria-hidden="true"></span> Badumbauten</span>
+            <span class="page-hero__tag"><span class="dot" aria-hidden="true"></span> Notdienst 24/7</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         NOTDIENST HIGHLIGHT
+    =========================== -->
+    <section class="notdienst-section" aria-labelledby="notdienst-heading">
+      <div class="container">
+        <div class="notdienst-inner">
+          <div class="notdienst-content">
+            <div class="notdienst-label" aria-label="24/7 Notdienst aktiv">
+              <span class="pulse" aria-hidden="true"></span>
+              24/7 Notdienst – immer erreichbar
+            </div>
+            <h2 id="notdienst-heading">Heizungsausfall? Rohrbruch?<br>Wir kommen.</h2>
+            <p>
+              Haustechnik-Notfälle passieren selten zu günstigen Zeiten. Unser Notdienst ist an 365 Tagen im Jahr besetzt – auch an Feiertagen und nachts. Sie erreichen uns direkt, ohne Warteschleife. Wir sind in der Regel innerhalb von 60 Minuten vor Ort.
+            </p>
+          </div>
+
+          <div class="notdienst-action">
+            <a href="tel:+41XXXXXXXXX" class="notdienst-phone" aria-label="Notdienst anrufen">
+              <span class="notdienst-phone__icon" aria-hidden="true">📞</span>
+              <span class="notdienst-phone__text">
+                <span class="notdienst-phone__label">Notfallnummer</span>
+                <span class="notdienst-phone__number">+41 XX XXX XX XX</span>
+              </span>
+            </a>
+            <span class="notdienst-note">Direkt besetzt, keine Hotline</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         SERVICES GRID
+    =========================== -->
+    <section class="services-section section--lg" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="services-section__header">
+          <span class="section-label">Unsere Leistungen</span>
+          <h2 id="services-heading">Alles aus einer Hand – Sanitär, Heizung und Klima</h2>
+          <p>Wir übernehmen Planung, Installation und Wartung. Kein Weitervermitteln, kein Koordinationsaufwand für Sie – ein Ansprechpartner, der das Handwerk von Grund auf kennt.</p>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- Karte 1: Wärmepumpen -->
+          <article class="service-card service-card--featured" aria-labelledby="service-waermepumpe">
+            <div class="service-card__icon" aria-hidden="true">♨️</div>
+            <div class="service-card__title-row">
+              <h3 id="service-waermepumpe">Wärmepumpen</h3>
+              <span class="service-card__badge">Empfohlen</span>
+            </div>
+            <p>
+              Wir installieren Luft-Wasser-, Sole-Wasser- und Wasser-Wasser-Wärmepumpen – je nachdem, was Ihr Gebäude und Ihr Budget hergeben. Wir übernehmen die Standortanalyse, holen die nötigen Bewilligungen ein und begleiten Sie bei der Beantragung von Fördermitteln. Bestehende Öl- oder Gasheizungen werden sauber rückgebaut.
+            </p>
+            <div class="service-card__meta" aria-label="Details">
+              <span class="service-card__tag">Neubau & Sanierung</span>
+              <span class="service-card__tag">Förderberatung</span>
+              <span class="service-card__tag">Alle Hersteller</span>
+            </div>
+          </article>
+
+          <!-- Karte 2: Solarenergie / Solarthermie -->
+          <article class="service-card" aria-labelledby="service-solar">
+            <div class="service-card__icon" aria-hidden="true">☀️</div>
+            <div class="service-card__title-row">
+              <h3 id="service-solar">Solarenergie & Solarthermie</h3>
+            </div>
+            <p>
+              Solarthermie-Anlagen nutzen die Sonnenenergie direkt für Warmwasser und Heizungsunterstützung. Wir planen die Anlage auf Ihr Dach, installieren die Kollektoren und binden sie in Ihre bestehende Haustechnik ein. Kombinationen mit Wärmepumpe oder Pelletheizung sind möglich und sinnvoll.
+            </p>
+            <div class="service-card__meta" aria-label="Details">
+              <span class="service-card__tag">Warmwasser</span>
+              <span class="service-card__tag">Heizungsunterstützung</span>
+              <span class="service-card__tag">Dachintegration</span>
+            </div>
+          </article>
+
+          <!-- Karte 3: Holz/Biomasse -->
+          <article class="service-card" aria-labelledby="service-biomasse">
+            <div class="service-card__icon" aria-hidden="true">🪵</div>
+            <div class="service-card__title-row">
+              <h3 id="service-biomasse">Holz- & Biomasseheizungen</h3>
+            </div>
+            <p>
+              Pelletheizungen, Stückholzkessel oder Holzhackschnitzelanlagen sind eine bewährte Alternative, besonders in ländlichen Lagen mit eigenem Holzvorrat. Wir installieren und warten solche Anlagen und sorgen dafür, dass Einbau und Abgasanlage den aktuellen Normen entsprechen.
+            </p>
+            <div class="service-card__meta" aria-label="Details">
+              <span class="service-card__tag">Pellets & Stückholz</span>
+              <span class="service-card__tag">Normenkonform</span>
+              <span class="service-card__tag">Wartungsvertrag</span>
+            </div>
+          </article>
+
+          <!-- Karte 4: Heizungsmodernisierung -->
+          <article class="service-card" aria-labelledby="service-heizung">
+            <div class="service-card__icon" aria-hidden="true">🔧</div>
+            <div class="service-card__title-row">
+              <h3 id="service-heizung">Heizungsmodernisierung</h3>
+            </div>
+            <p>
+              Eine veraltete Heizung kostet jeden Winter zu viel. Wir prüfen Ihre bestehende Anlage, berechnen den tatsächlichen Energiebedarf Ihres Gebäudes und empfehlen die wirtschaftlich sinnvollste Lösung – ohne an einer bestimmten Technologie zu verdienen. Rückbau und Entsorgung sind inbegriffen.
+            </p>
+            <div class="service-card__meta" aria-label="Details">
+              <span class="service-card__tag">Bestandsaufnahme</span>
+              <span class="service-card__tag">Energieberatung</span>
+              <span class="service-card__tag">Rückbau inkl.</span>
+            </div>
+          </article>
+
+          <!-- Karte 5: Badumbauten -->
+          <article class="service-card" aria-labelledby="service-bad">
+            <div class="service-card__icon" aria-hidden="true">🚿</div>
+            <div class="service-card__title-row">
+              <h3 id="service-bad">Badumbauten & Sanitär</h3>
+            </div>
+            <p>
+              Vom Wasserhahn bis zum kompletten Badumbau: Wir erledigen alle Sanitärarbeiten handwerklich sauber und termingerecht. Bei Umbauten arbeiten wir mit verlässlichen Partnern für Platten und Möbel zusammen – so haben Sie einen einzigen Ansprechpartner statt drei verschiedene Handwerker zu koordinieren.
+            </p>
+            <div class="service-card__meta" aria-label="Details">
+              <span class="service-card__tag">Neu- & Umbau</span>
+              <span class="service-card__tag">Barrierefreiheit</span>
+              <span class="service-card__tag">Komplettlösung</span>
+            </div>
+          </article>
+
+          <!-- Karte 6: Lüftung & Klima -->
+          <article class="service-card" aria-labelledby="service-klima">
+            <div class="service-card__icon" aria-hidden="true">💨</div>
+            <div class="service-card__title-row">
+              <h3 id="service-klima">Lüftung & Klimatisierung</h3>
+            </div>
+            <p>
+              Kontrollierte Wohnraumlüftung (KWL) verbessert die Luftqualität und spart Heizenergie. Wir planen und installieren Lüftungsanlagen für Wohnungen, Einfamilienhäuser und kleinere Gewerbeobjekte. Auch Klimaanlagen und Split-Systeme für Büros oder Einzelräume werden fachgerecht eingebaut und gewartet.
+            </p>
+            <div class="service-card__meta" aria-label="Details">
+              <span class="service-card__tag">KWL-Systeme</span>
+              <span class="service-card__tag">Split-Klimaanlagen</span>
+              <span class="service-card__tag">Gewerbe & Wohnen</span>
+            </div>
+          </article>
+
+          <!-- Karte 7: Wartung & Service -->
+          <article class="service-card" aria-labelledby="service-wartung">
+            <div class="service-card__icon" aria-hidden="true">🗓️</div>
+            <div class="service-card__title-row">
+              <h3 id="service-wartung">Wartung & Servicevertrag</h3>
+            </div>
+            <p>
+              Regelmässige Wartung verlängert die Lebensdauer jeder Heizungsanlage und verhindert teure Ausfälle zur falschen Zeit. Wir bieten Jahreswartungsverträge für alle gängigen Heizungstypen an. Sie erhalten eine Terminvorschau zu Saisonbeginn und werden rechtzeitig erinnert.
+            </p>
+            <div class="service-card__meta" aria-label="Details">
+              <span class="service-card__tag">Alle Fabrikate</span>
+              <span class="service-card__tag">Jahresvertrag</span>
+              <span class="service-card__tag">Termingarantie</span>
+            </div>
+          </article>
+
+          <!-- Karte 8: Neubau-Haustechnik -->
+          <article class="service-card" aria-labelledby="service-neubau">
+            <div class="service-card__icon" aria-hidden="true">🏗️</div>
+            <div class="service-card__title-row">
+              <h3 id="service-neubau">Neubau-Haustechnik</h3>
+            </div>
+            <p>
+              Bei Neubauprojekten arbeiten wir direkt mit Architekten und Generalunternehmern zusammen. Wir übernehmen die gesamte Haustechnik – Sanitär, Heizung und Lüftung – aus einer Hand und halten Bauzeitpläne zuverlässig ein. Unser Betrieb ist auf Projekte im Ein- und Mehrfamilienhausbereich ausgelegt.
+            </p>
+            <div class="service-card__meta" aria-label="Details">
+              <span class="service-card__tag">EFH & MFH</span>
+              <span class="service-card__tag">GU-Tauglich</span>
+              <span class="service-card__tag">Terminzuverlässig</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         ZUSATZLEISTUNGEN
+    =========================== -->
+    <section class="leistungen-extra section" aria-labelledby="extra-heading">
+      <div class="container">
+        <div class="leistungen-extra__header">
+          <span class="section-label">Ausserdem</span>
+          <h2 id="extra-heading">Kleine Arbeiten, die keiner vergessen sollte</h2>
+          <p>Nicht jeder Auftrag ist ein Grossprojekt. Auch für kleinere Arbeiten sind wir der richtige Ansprechpartner.</p>
+        </div>
+
+        <div class="leistungen-extra__grid">
+          <div class="extra-item">
+            <span class="extra-item__icon" aria-hidden="true">🚰</span>
+            <div class="extra-item__text">
+              <h4>Armaturen & Dichtungen</h4>
+              <p>Tropfender Wasserhahn, undichte Spülung, defektes Ventil – wir beheben solche Kleinigkeiten schnell, oft noch am selben Tag.</p>
+            </div>
+          </div>
+
+          <div class="extra-item">
+            <span class="extra-item__icon" aria-hidden="true">🌡️</span>
+            <div class="extra-item__text">
+              <h4>Thermostat & Regelung</h4>
+              <p>Veraltete Heizkörperventile oder eine unzuverlässige Steuerung kosten Energie. Wir tauschen aus und justieren die Anlage neu.</p>
+            </div>
+          </div>
+
+          <div class="extra-item">
+            <span class="extra-item__icon" aria-hidden="true">💧</span>
+            <div class="extra-item__text">
+              <h4>Wasseraufbereitung</h4>
+              <p>Enthärtungsanlagen und Filter schützen Ihre Leitungen und Geräte vor Kalkschäden. Wir beraten und installieren passende Systeme.</p>
+            </div>
+          </div>
+
+          <div class="extra-item">
+            <span class="extra-item__icon" aria-hidden="true">🔍</span>
+            <div class="extra-item__text">
+              <h4>Leckageortung</h4>
+              <p>Wasserverlust im Leitungsnetz lässt sich oft erst spät erkennen. Wir orten Lecks zerstörungsfrei und beheben die Ursache gezielt.</p>
+            </div>
+          </div>
+
+          <div class="extra-item">
+            <span class="extra-item__icon" aria-hidden="true">📋</span>
+            <div class="extra-item__text">
+              <h4>Förderberatung</h4>
+              <p>Kantone, Bund und Energieversorger bieten Beiträge für Heizungssanierungen. Wir helfen Ihnen, die passenden Formulare rechtzeitig einzureichen.</p>
+            </div>
+          </div>
+
+          <div class="extra-item">
+            <span class="extra-item__icon" aria-hidden="true">📦</span>
+            <div class="extra-item__text">
+              <h4>Geräteanschluss & Umzüge</h4>
+              <p>Geschirrspüler, Waschmaschine, Gasgerd – fachgerechter Anschluss nach Norm. Auch bei Umzügen oder Küchen-Umbau.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         PROZESS
+    =========================== -->
+    <section class="process-section section--lg" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="process-section__header">
+          <span class="section-label">So läuft es ab</span>
+          <h2 id="process-heading">Vom ersten Anruf bis zur fertigen Anlage</h2>
+          <p>Keine Überraschungen, keine Umwege – vier klare Schritte, die für jedes Projekt gelten.</p>
+        </div>
+
+        <div class="process-steps" role="list">
+
+          <div class="process-step" role="listitem" aria-label="Schritt 1: Erstkontakt">
+            <div class="process-step__number" aria-hidden="true">1</div>
+            <h4>Erstkontakt & Termin</h4>
+            <p>Sie rufen an oder schreiben uns. Wir vereinbaren einen Besichtigungstermin – meist innerhalb von zwei bis drei Werktagen. Kein Call-Center, direkter Kontakt.</p>
+          </div>
+
+          <div class="process-step" role="listitem" aria-label="Schritt 2: Vor-Ort-Analyse">
+            <div class="process-step__number" aria-hidden="true">2</div>
+            <h4>Vor-Ort-Analyse</h4>
+            <p>Wir schauen uns die Situation an, messen und stellen Fragen. Aus diesen Grundlagen erstellen wir ein konkretes Angebot – ohne Musterlösungen von der Stange.</p>
+          </div>
+
+          <div class="process-step" role="listitem" aria-label="Schritt 3: Angebot & Auftrag">
+            <div class="process-step__number" aria-hidden="true">3</div>
+            <h4>Klares Angebot</h4>
+            <p>Sie erhalten ein schriftliches Angebot mit Festpreisgarantie. Wir erklären, was drin ist und was nicht. Kein Kleingedrucktes, das den Preis nachher verändert.</p>
+          </div>
+
+          <div class="process-step" role="listitem" aria-label="Schritt 4: Ausführung & Übergabe">
+            <div class="process-step__number" aria-hidden="true">4</div>
+            <h4>Ausführung & Übergabe</h4>
+            <p>Wir führen die Arbeiten termingerecht aus, halten die Baustelle sauber und erklären Ihnen die neue Anlage persönlich. Alle Unterlagen erhalten Sie vollständig.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         CTA BLOCK
+    =========================== -->
+    <section class="cta-section" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-block">
+          <div class="cta-block__content">
+            <h2 id="cta-heading">Bereit für den nächsten Schritt?</h2>
+            <p>Erzählen Sie uns, was Sie vorhaben – oder was gerade nicht funktioniert. Wir schauen es uns an und machen Ihnen ein konkretes Angebot. Kostenlos, ohne Verpflichtung.</p>
+          </div>
+
+          <div class="cta-block__actions">
+            <a href="kontakt.html" class="btn btn-primary">
+              Jetzt Anfrage stellen →
+            </a>
+            <a href="tel:+41XXXXXXXXX" class="cta-phone-link" aria-label="Direkt anrufen">
+              <span aria-hidden="true">📞</span>
+              <span>Oder direkt: <strong>+41 XX XXX XX XX</strong></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===========================
+       FOOTER
+  =========================== -->
+  <footer class="footer" aria-label="Seitenfooter">
+    <div class="container">
+      <div class="footer__grid">
+
+        <div>
+          <div class="footer__brand-name">Hofer Haustechnik GmbH</div>
+          <div class="footer__brand-sub">Sanitär · Heizung · Klima</div>
+          <p class="footer__brand-desc">
+            Fachbetrieb für nachhaltige Haustechnik in der DACH-Region. Wärmepumpen, Solarenergie, Badumbauten und Notdienst – aus einer Hand, mit handwerklicher Sorgfalt.
+          </p>
+
+          <ul class="footer__contact-list" role="list">
+            <li class="footer__contact-item">
+              <span aria-hidden="true">📍</span>
+              <span>Musterstrasse 1, PLZ Ort</span>
+            </li>
+            <li class="footer__contact-item">
+              <span aria-hidden="true">📞</span>
+              <a href="tel:+41XXXXXXXXX">+41 XX XXX XX XX</a>
+            </li>
+            <li class="footer__contact-item">
+              <span aria-hidden="true">✉️</span>
+              <a href="mailto:info@hofer-haustechnik.ch">info@hofer-haustechnik.ch</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Leistungen</div>
+          <nav class="footer__links" aria-label="Leistungsnavigation">
+            <a href="leistungen.html#service-waermepumpe">Wärmepumpen</a>
+            <a href="leistungen.html#service-solar">Solarenergie</a>
+            <a href="leistungen.html#service-heizung">Heizungsmodernisierung</a>
+            <a href="leistungen.html#service-bad">Badumbauten</a>
+            <a href="leistungen.html#service-klima">Lüftung & Klima</a>
+            <a href="leistungen.html#service-wartung">Wartung & Service</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Unternehmen</div>
+          <nav class="footer__links" aria-label="Unternehmensnavigation">
+            <a href="index.html">Startseite</a>
+            <a href="ueber-uns.html">Über uns</a>
+            <a href="projekte.html">Referenzprojekte</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="kontakt.html">Notdienst</a>
+          </nav>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 Hofer Haustechnik GmbH – Alle Rechte vorbehalten</p>
+        <div class="footer__bottom-links">
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html">Impressum</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const isOpen = menu.classList.contains('open');
+      menu.classList.toggle('open', !isOpen);
+      const burger = document.querySelector('.nav__burger');
+      burger.setAttribute('aria-
