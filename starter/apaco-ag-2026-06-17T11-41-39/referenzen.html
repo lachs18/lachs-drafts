@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referenzen – Apaco AG</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:   #1A2B3C;
+      --accent:    #C8960C;
+      --bg:        #F4F6F8;
+      --neutral:   #5A6A7A;
+      --white:     #FFFFFF;
+      --border:    #D8DEE4;
+      --card-bg:   #FFFFFF;
+      --dark-card: #0F1C28;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--bg);
+      color: var(--primary);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Inter', sans-serif;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { display: block; max-width: 100%; }
+
+    /* ───────────── UTILITY ───────────── */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .accent { color: var(--accent); }
+
+    .tag {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 3px;
+      letter-spacing: .03em;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: #a87a0a; transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid var(--white);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: 3px;
+      letter-spacing: .03em;
+      transition: background .2s, color .2s;
+    }
+    .btn-outline:hover { background: var(--white); color: var(--primary); }
+
+    /* ───────────── NAV ───────────── */
+    .nav {
+      background: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav__logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      color: var(--white);
+      letter-spacing: .04em;
+    }
+
+    .nav__logo span { color: var(--accent); }
+
+    .nav__links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,.75);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+
+    .nav__links a:hover { color: var(--white); border-color: var(--accent); }
+    .nav__links a.active { color: var(--white); border-color: var(--accent); }
+
+    .nav__cta {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      background: var(--accent);
+      color: var(--white);
+      padding: 9px 20px;
+      border-radius: 3px;
+      letter-spacing: .04em;
+      transition: background .2s;
+    }
+    .nav__cta:hover { background: #a87a0a; }
+
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: .3s;
+    }
+
+    /* ───────────── HERO ───────────── */
+    .hero {
+      background: var(--primary);
+      padding: 96px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(200,150,12,.04) 0px,
+        rgba(200,150,12,.04) 1px,
+        transparent 1px,
+        transparent 80px
+      );
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero__eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .hero__headline {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .hero__sub {
+      font-size: 18px;
+      color: rgba(255,255,255,.72);
+      max-width: 620px;
+      line-height: 1.7;
+    }
+
+    .hero__divider {
+      width: 56px;
+      height: 3px;
+      background: var(--accent);
+      margin: 28px 0;
+    }
+
+    /* ───────────── SECTION HEADERS ───────────── */
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .section-intro {
+      font-size: 17px;
+      color: var(--neutral);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .section-header { margin-bottom: 52px; }
+
+    /* ───────────── BRANCHEN-SEKTION ───────────── */
+    .branchen {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .branchen__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .branchen__item {
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 20px 22px;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg);
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .branchen__item:hover {
+      box-shadow: 0 4px 16px rgba(26,43,60,.08);
+      border-color: var(--accent);
+    }
+
+    .branchen__icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .branchen__name {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* ───────────── PROJEKT-KARTEN ───────────── */
+    .projekte {
+      padding: 88px 0;
+      background: var(--bg);
+    }
+
+    .projekte__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 28px;
+    }
+
+    .projekt-card {
+      background: var(--dark-card);
+      border-radius: 4px;
+      overflow: hidden;
+      border-top: 3px solid var(--accent);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .projekt-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(15,28,40,.28);
+    }
+
+    .projekt-card__head {
+      padding: 28px 28px 0;
+    }
+
+    .projekt-card__meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .projekt-card__type {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .projekt-card__dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.3);
+    }
+
+    .projekt-card__region {
+      font-size: 12px;
+      color: rgba(255,255,255,.45);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .projekt-card__title {
+      font-family: 'Inter', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .projekt-card__body {
+      padding: 0 28px 24px;
+    }
+
+    .projekt-card__desc {
+      font-size: 14px;
+      color: rgba(255,255,255,.62);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .projekt-card__facts {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .projekt-card__fact {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,.7);
+    }
+
+    .projekt-card__fact-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      min-width: 72px;
+      margin-top: 1px;
+    }
+
+    /* ───────────── CASE STUDIES ───────────── */
+    .cases {
+      padding: 88px 0;
+      background: var(--primary);
+    }
+
+    .cases .section-title { color: var(--white); }
+    .cases .section-intro { color: rgba(255,255,255,.65); }
+
+    .cases__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 28px;
+    }
+
+    .case-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 4px;
+      padding: 32px;
+      transition: background .2s, border-color .2s;
+    }
+
+    .case-card:hover {
+      background: rgba(255,255,255,.08);
+      border-color: var(--accent);
+    }
+
+    .case-card__industry {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(200,150,12,.4);
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .case-card__title {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    .case-card__block {
+      margin-bottom: 18px;
+    }
+
+    .case-card__block-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .case-card__block-text {
+      font-size: 14px;
+      color: rgba(255,255,255,.68);
+      line-height: 1.65;
+    }
+
+    .case-card__results {
+      display: flex;
+      gap: 20px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    .case-card__result {
+      text-align: center;
+    }
+
+    .case-card__result-number {
+      font-family: 'Inter', sans-serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--accent);
+      display: block;
+    }
+
+    .case-card__result-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,.5);
+      line-height: 1.4;
+    }
+
+    /* ───────────── ZAHLEN ───────────── */
+    .zahlen {
+      padding: 88px 0;
+      background: var(--white);
+    }
+
+    .zahlen__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .zahlen__item {
+      background: var(--white);
+      padding: 44px 32px;
+      text-align: center;
+    }
+
+    .zahlen__number {
+      font-family: 'Inter', sans-serif;
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .zahlen__number span {
+      color: var(--accent);
+    }
+
+    .zahlen__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--neutral);
+    }
+
+    /* ───────────── PROZESS-SEKTION (vertrauen) ───────────── */
+    .vertrauen {
+      padding: 88px 0;
+      background: var(--bg);
+    }
+
+    .vertrauen__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 52px;
+    }
+
+    .vertrauen__item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 32px 28px;
+    }
+
+    .vertrauen__num {
+      font-family: 'Inter', sans-serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: rgba(200,150,12,.2);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .vertrauen__title {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .vertrauen__text {
+      font-size: 14px;
+      color: var(--neutral);
+      line-height: 1.65;
+    }
+
+    /* ───────────── CTA ───────────── */
+    .cta {
+      padding: 96px 0;
+      background: var(--accent);
+      text-align: center;
+    }
+
+    .cta__inner { max-width: 700px; margin: 0 auto; }
+
+    .cta__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      margin-bottom: 16px;
+    }
+
+    .cta__headline {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .cta__sub {
+      font-size: 17px;
+      color: rgba(255,255,255,.8);
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    .cta__actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-cta-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 15px 34px;
+      border-radius: 3px;
+      letter-spacing: .03em;
+      transition: background .2s, transform .15s;
+    }
+    .btn-cta-primary:hover { background: #0F1C28; transform: translateY(-1px); }
+
+    /* ───────────── FOOTER ───────────── */
+    .footer {
+      background: #0F1C28;
+      padding: 64px 0 0;
+      color: rgba(255,255,255,.6);
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .footer__brand-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer__brand-name span { color: var(--accent); }
+
+    .footer__tagline {
+      font-size: 13px;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      color: rgba(255,255,255,.5);
+    }
+
+    .footer__contact a {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,.65);
+      margin-bottom: 6px;
+      transition: color .2s;
+    }
+    .footer__contact a:hover { color: var(--accent); }
+
+    .footer__col-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer__links a {
+      font-size: 14px;
+      color: rgba(255,255,255,.6);
+      transition: color .2s;
+    }
+    .footer__links a:hover { color: var(--accent); }
+
+    .footer__bottom {
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer__copy {
+      font-size: 13px;
+      color: rgba(255,255,255,.35);
+    }
+
+    .footer__legal {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer__legal a {
+      font-size: 13px;
+      color: rgba(255,255,255,.35);
+      transition: color .2s;
+    }
+    .footer__legal a:hover { color: rgba(255,255,255,.7); }
+
+    /* ───────────── RESPONSIVE ───────────── */
+    @media (max-width: 900px) {
+      .footer__grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__hamburger { display: flex; }
+      .projekte__grid { grid-template-columns: 1fr; }
+      .cases__grid { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+      .case-card__results { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Apaco<span>.</span></a>
+        <ul class="nav__links">
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="referenzen.html" class="active" aria-current="page">Referenzen</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <a href="kontakt.html" class="nav__cta">Anfrage stellen</a>
+        <button class="nav__hamburger" aria-label="Menü öffnen">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       PAGE HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero" aria-label="Seiteneinführung">
+    <div class="container">
+      <div class="hero__inner">
+        <p class="hero__eyebrow">Referenzen &amp; Projekte</p>
+        <h1 class="hero__headline">
+          Projekte, auf die wir<br />
+          <span class="accent">stolz sind.</span>
+        </h1>
+        <div class="hero__divider"></div>
+        <p class="hero__sub">
+          Seit 1932 realisieren wir massgeschneiderte Anlagen für Industrie, Chemie und Pharma –
+          in der Schweiz und im gesamten DACH-Raum. Eine Auswahl repräsentativer Projekttypen
+          aus über 90 Jahren Praxiserfahrung mit rund 120 Mitarbeitenden.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       BRANCHEN
+  ═══════════════════════════════════════ -->
+  <section class="branchen" aria-labelledby="branchen-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Unsere Kundenbranchen</p>
+        <h2 class="section-title" id="branchen-title">
+          Wir arbeiten für Unternehmen aus:
+        </h2>
+        <p class="section-intro">
+          Apaco AG ist Industriepartner für Entscheidungsträger, die keine Kompromisse bei
+          Qualität und Termintreue eingehen. Diese Branchen vertrauen uns seit Jahrzehnten.
+        </p>
+      </div>
+      <div class="branchen__grid">
+        <div class="branchen__item">
+          <span class="branchen__icon">⚗️</span>
+          <span class="branchen__name">Chemische Industrie</span>
+        </div>
+        <div class="branchen__item">
+          <span class="branchen__icon">💊</span>
+          <span class="branchen__name">Pharmazeutische Industrie</span>
+        </div>
+        <div class="branchen__item">
+          <span class="branchen__icon">🏭</span>
+          <span class="branchen__name">Prozessindustrie</span>
+        </div>
+        <div class="branchen__item">
+          <span class="branchen__icon">🔩</span>
+          <span class="branchen__name">Maschinenbau</span>
+        </div>
+        <div class="branchen__item">
+          <span class="branchen__icon">🌡️</span>
+          <span class="branchen__name">Wärme- und Energietechnik</span>
+        </div>
+        <div class="branchen__item">
+          <span class="branchen__icon">🏗️</span>
+          <span class="branchen__name">Fernwärme &amp; Gebäudetechnik</span>
+        </div>
+        <div class="branchen__item">
+          <span class="branchen__icon">🧪</span>
+          <span class="branchen__name">Laboranlagen &amp; Forschung</span>
+        </div>
+        <div class="branchen__item">
+          <span class="branchen__icon">⚡</span>
+          <span class="branchen__name">Energieversorgung</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PROJEKT-KARTEN
+  ═══════════════════════════════════════ -->
+  <section class="projekte" aria-labelledby="projekte-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Ausgeführte Projekte</p>
+        <h2 class="section-title" id="projekte-title">
+          Referenzprojekte nach Projekttyp
+        </h2>
+        <p class="section-intro">
+          Aus Diskretionsgründen nennen wir keine Kundennamen. Projekttypen, Umfang
+          und Ergebnisse zeigen die Bandbreite unserer Leistungsfähigkeit.
+        </p>
+      </div>
+      <div class="projekte__grid">
+
+        <!-- Karte 1 -->
+        <article class="projekt-card">
+          <div class="projekt-card__head">
+            <div class="projekt-card__meta">
+              <span class="projekt-card__type">Reaktortechnik</span>
+              <span class="projekt-card__dot"></span>
+              <span class="projekt-card__region">Nordwestschweiz</span>
+            </div>
+            <h3 class="projekt-card__title">Druckbehälteranlage für Syntheseprozess</h3>
+          </div>
+          <div class="projekt-card__body">
+            <p class="projekt-card__desc">
+              Planung, Konstruktion und Montage einer Druckbehälteranlage für einen
+              kontinuierlichen chemischen Syntheseprozess. Alle Komponenten wurden
+              nach PED-Richtlinie gefertigt und druckgeprüft.
+            </p>
+            <div class="projekt-card__facts">
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Umfang</span>
+                <span>Engineering, Fertigung, Montage, Inbetriebnahme</span>
+              </div>
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Ergebnis</span>
+                <span>Termingerechte Inbetriebnahme, Normkonformität nach EN 13445</span>
+              </div>
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Branche</span>
+                <span>Chemische Industrie</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Karte 2 -->
+        <article class="projekt-card">
+          <div class="projekt-card__head">
+            <div class="projekt-card__meta">
+              <span class="projekt-card__type">Wärmetauscher</span>
+              <span class="projekt-card__dot"></span>
+              <span class="projekt-card__region">Mittelland, Schweiz</span>
+            </div>
+            <h3 class="projekt-card__title">Rohrbündel-Wärmetauscher für Pharmabetrieb</h3>
+          </div>
+          <div class="projekt-card__body">
+            <p class="projekt-card__desc">
+              Massgeschneiderter Rohrbündel-Wärmetauscher für die Prozesskühlung
+              in einer pharmazeutischen Produktionslinie. Werkstoffe gemäss GMP-Anforderungen,
+              vollständig dokumentiert und qualifiziert.
+            </p>
+            <div class="projekt-card__facts">
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Umfang</span>
+                <span>Engineering, Fertigung, FAT, Lieferung und Dokumentation</span>
+              </div>
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Ergebnis</span>
+                <span>GMP-konforme Abnahme, vollständiges DQ/IQ-Paket übergeben</span>
+              </div>
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Branche</span>
+                <span>Pharmaindustrie</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Karte 3 -->
+        <article class="projekt-card">
+          <div class="projekt-card__head">
+            <div class="projekt-card__meta">
+              <span class="projekt-card__type">Fernwärme</span>
+              <span class="projekt-card__dot"></span>
+              <span class="projekt-card__region">Ostschweiz</span>
+            </div>
+            <h3 class="projekt-card__title">Fernwärme-Übergabestation Neubauquartier</h3>
+          </div>
+          <div class="projekt-card__body">
+            <p class="projekt-card__desc">
+              Planung und Realisierung von mehreren Wärmeübergabestationen für ein
+              neu erschlossenes Wohnquartier. Integration in das bestehende Fernwärmenetz
+              des kommunalen Versorgers.
+            </p>
+            <div class="projekt-card__facts">
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Umfang</span>
+                <span>Konzept, Detail-Engineering, Montage, Inbetriebnahme</span>
+              </div>
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Ergebnis</span>
+                <span>8 Stationen, termingerecht vor Heizperiode in Betrieb</span>
+              </div>
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Branche</span>
+                <span>Wärme- und Energietechnik</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Karte 4 -->
+        <article class="projekt-card">
+          <div class="projekt-card__head">
+            <div class="projekt-card__meta">
+              <span class="projekt-card__type">Rohrleitungsbau</span>
+              <span class="projekt-card__dot"></span>
+              <span class="projekt-card__region">Basel-Region</span>
+            </div>
+            <h3 class="projekt-card__title">Prozessrohrleitung Erweiterungsbau Chemiewerk</h3>
+          </div>
+          <div class="projekt-card__body">
+            <p class="projekt-card__desc">
+              Isometrische Planung und Montage eines umfangreichen Prozessrohrleitungssystems
+              für einen Erweiterungsbau im Chemiepark. Betrieb unter erhöhtem Druck und
+              bei korrosiven Medien.
+            </p>
+            <div class="projekt-card__facts">
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Umfang</span>
+                <span>Isometrie, Vorfertigung, Montage, Druckprüfung</span>
+              </div>
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Ergebnis</span>
+                <span>Störungsfreier Parallelbetrieb zum Bestandsbetrieb sichergestellt</span>
+              </div>
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Branche</span>
+                <span>Chemische Industrie</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Karte 5 -->
+        <article class="projekt-card">
+          <div class="projekt-card__head">
+            <div class="projekt-card__meta">
+              <span class="projekt-card__type">Anlagenbau</span>
+              <span class="projekt-card__dot"></span>
+              <span class="projekt-card__region">Deutschschweiz</span>
+            </div>
+            <h3 class="projekt-card__title">Prozessanlage für Flüssigkeitsaufbereitung</h3>
+          </div>
+          <div class="projekt-card__body">
+            <p class="projekt-card__desc">
+              Schlüsselfertige Prozessanlage zur kontinuierlichen Aufbereitung
+              industrieller Prozessflüssigkeiten. Inklusive Mess-, Steuer- und Regeltechnik,
+              schlüsselfertig übergeben.
+            </p>
+            <div class="projekt-card__facts">
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Umfang</span>
+                <span>Basic Engineering bis Inbetriebnahme (schlüsselfertig)</span>
+              </div>
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Ergebnis</span>
+                <span>Vollautomatischer Betrieb, Anlagenkapazität um 30% gesteigert</span>
+              </div>
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Branche</span>
+                <span>Prozessindustrie</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Karte 6 -->
+        <article class="projekt-card">
+          <div class="projekt-card__head">
+            <div class="projekt-card__meta">
+              <span class="projekt-card__type">Apparatebau</span>
+              <span class="projekt-card__dot"></span>
+              <span class="projekt-card__region">DACH-Raum</span>
+            </div>
+            <h3 class="projekt-card__title">Kondensatoren und Verdampfer Serienfertigung</h3>
+          </div>
+          <div class="projekt-card__body">
+            <p class="projekt-card__desc">
+              Serienfertigung von Plattenwärmetauschern und Verdampfersystemen für
+              einen OEM-Auftraggeber im Maschinenbau. Lieferung über mehrere Jahre
+              mit konstanter Qualitätssicherung.
+            </p>
+            <div class="projekt-card__facts">
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Umfang</span>
+                <span>Serienfertigung, QS, Logistik, Langzeitbelieferung</span>
+              </div>
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Ergebnis</span>
+                <span>Nullfehler-Quote im Feldbetrieb, Liefertermine eingehalten</span>
+              </div>
+              <div class="projekt-card__fact">
+                <span class="projekt-card__fact-label">Branche</span>
+                <span>Maschinenbau / OEM</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CASE STUDIES
+  ═══════════════════════════════════════ -->
+  <section class="cases" aria-labelledby="cases-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color:var(--accent)">Anonymisierte Fallstudien</p>
+        <h2 class="section-title" id="cases-title">Komplexe Aufgaben –<br />messbare Ergebnisse</h2>
+        <p class="section-intro">
+          Drei repräsentative Projekte illustrieren, wie wir von der Ausgangslage über
+          die technische Umsetzung zu einem klaren Ergebnis kommen.
+        </p>
+      </div>
+      <div class="cases__grid">
+
+        <!-- Case 1 -->
+        <article class="case-card">
+          <span class="case-card__industry">Pharmaindustrie</span>
+          <h3 class="case-card__title">Kapazitätserweiterung einer sterilen Produktionslinie</h3>
+          <div class="case-card__block">
+            <p class="case-card__block-label">Ausgangslage</p>
+            <p class="case-card__block-text">
+              Ein pharmazeutischer Hersteller musste seine Produktionskapazität
+              innert 18 Monaten verdoppeln, ohne den Betrieb der bestehenden
+              Anlage zu unterbrechen.
+            </p>
+          </div>
+          <div class="case-card__block">
+            <p class="case-card__block-label">Vorgehen</p>
+            <p class="case-card__block-text">
+              Apaco übernahm das Gesamt-Engineering der Erweiterung: Prozessdesign,
+              GMP-konforme Apparatefertigung, Rohrleitungsplanung, MSR-Integration
+              und Qualifizierungsdokumentation (DQ/IQ/OQ).
+            </p>
+          </div>
+          <div class="case-card__block">
+            <p class="case-card__block-label">Ergebnis</p>
+            <p class="case-card__block-text">
+              Termingerechte Inbetriebnahme. Erster Validierungslauf nach
+              14 Monaten erfolgreich abgeschlossen.
+            </p>
+          </div>
+          <div class="case-card__results">
+            <div class="case-card__result">
+              <span class="case-card__result-number">+100%</span>
+              <span class="case-card__result-desc">Produktions-kapazität</span>
+            </div>
+            <div class="case-card__result">
+              <span class="case-card__result-number">14 Mt.</span>
+              <span class="case-card__result-desc">Bis erster Validierungslauf</span>
+            </div>
+            <div class="case-card__result">
+              <span class="case-card__result-number">0</span>
+              <span class="case-card__result-desc">Betriebsunter-brechungen</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 2 -->
+        <article class="case-card">
+          <span class="case-card__industry">Chemische Industrie</span>
+          <h3 class="case-card__title">Revision und Modernisierung eines Reaktorsystems</h3>
+          <div class="case-card__block">
+            <p class="case-card__block-label">Ausgangslage</p>
+            <p class="case-card__block-text">
+              Eine veraltete Reaktorstrecke entsprach nicht mehr den aktuellen
+              Sicherheitsanforderungen. Der Betreiber suchte einen Partner für
+              Revision, Nachrüstung und Neuzertifizierung unter laufendem Betrieb.
+            </p>
+          </div>
+          <div class="case-card__block">
+            <p class="case-card__block-label">Vorgehen</p>
+            <p class="case-card__block-text">
+              Zustandsbewertung, Risikoanalyse, Ausarbeitung eines Revisions-
+              konzepts mit minimalem Produktionsstillstand. Fertigung der
+              Ersatzkomponenten parallel zum Betrieb, Montage in einem
+              geplanten Wartungsfenster.
+            </p>
+          </div>
+          <div class="case-card__block">
+            <p class="case-card__block-label">Ergebnis</p>
+            <p class="case-card__block-text">
+              Anlage entspricht nun aktuellen PED- und ATEX-Anforderungen.
+              Stillstandszeit unter 72 Stunden.
+            </p>
+          </div>
+          <div class="case-card__results">
+            <div class="case-card__result">
+              <span class="case-card__result-number">&lt;72h</span>
+              <span class="case-card__result-desc">Produktions-stillstand</span>
+            </div>
+            <div class="case-card__result">
+              <span class="case-card__result-number">100%</span>
+              <span class="case-card__result-desc">PED/ATEX Konformität</span>
+            </div>
+            <div class="case-card__result">
+              <span class="case-card__result-number">+15 J.</span>
+              <span class="case-card__result-desc">Verlängerte Anlagen-lebensdauer</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 3 -->
+        <article class="case-card">
+          <span class="case-card__industry">Fernwärme / Energietechnik</span>
+          <h3 class="case-card__title">Fernwärme-Integration für Industriepark</h3>
+          <div class="case-card__block">
+            <p class="case-card__block-label">Ausgangslage</p>
+            <p class="case-card__block-text">
+              Ein Industriepark mit mehreren Gebäuden sollte von Einzelheizungen
+              auf ein zentrales Fernwärmenetz umgestellt werden – mit unterschiedlichen
+              Lastprofilen je Gebäude.
+            </p>
+          </div>
+          <div class="case-card__block">
+            <p class="case-card__block-label">Vorgehen</p>
+            <p class="case-card__block-text">
+              Hydraulisches Gesamtkonzept, Auslegung und Fertigung aller
+              Übergabestationen, Verlegung der Primärleitungen, MSR-Vernetzung
+              für zentrale Betriebsführung.
+            </p>
+          </div>
+          <div class="case-card__block">
+            <p class="case-card__block-label">Ergebnis</p>
+            <p class="case-card__block-text">
+              Alle Gebäude vollständig integriert. Zentrale Betriebsführung
+              reduziert den Wartungsaufwand erheblich.
+            </p>
+          </div>
+          <div class="case-card__results">
+            <div class="case-card__result">
+              <span class="case-card__result-number">11</span>
+              <span class="case-card__result-desc">Gebäude integriert</span>
+            </div>
+            <div class="case-card__result">
+              <span class="case-card__result-number">–40%</span>
+              <span class="case-card__result-desc">Betriebs-aufwand</span>
+            </div>
+            <div class="case-card__result">
+              <span class="case-card__result-number">1</span>
+              <span class="case-card__result-desc">Zentrale Leit-warte</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ZAHLEN
+  ═══════════════════════════════════════ -->
+  <section class="zahlen" aria-labelledby="zahlen-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Apaco in Zahlen</p>
+        <h2 class="section-title" id="zahlen-title">Substanz, die für sich spricht</h2>
+        <p class="section-intro">
+          Zahlen sind keine Marketingaussagen – sie sind das Ergebnis von
+          Ingenieursarbeit über Jahrzehnte.
+        </p>
+      </div>
+      <div class="zahlen__grid">
+        <div class="zahlen__item">
+          <div class="zahlen__number">1932<span>.</span></div>
+          <div class="zahlen__label">Gründungsjahr</div>
+        </div>
+        <div class="zahlen__item">
+          <div class="zahlen__number">90<span>+</span></div>
+          <div class="zahlen__label">Jahre Erfahrung</div>
+        </div>
+        <div class="zahlen__item">
+          <div class="zahlen__number">120<span>+</span></div>
+          <div class="zahlen__label">Mitarbeitende</div>
+        </div>
+        <div class="zahlen__item">
+          <div class="zahlen__number">4<span>+</span></div>
+          <div class="zahlen__label">Kernbranchen</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       WARUM APACO (Vertrauen)
+  ═══════════════════════════════════════ -->
+  <section class="vertrauen" aria-labelledby="vertrauen-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Warum Auftraggeber wiederkommen</p>
+        <h2 class="section-title" id="vertrauen-title">
+          Unsere Arbeitsweise im Überblick
+        </h2>
+        <p class="section-intro">
+          Langfristige Partnerschaften entstehen, wenn Engineering-Qualität und
+          Verlässlichkeit konstant zusammenpassen.
+        </p>
+      </div>
+      <div class="vertrauen__grid">
+        <div class="vertrauen__item">
+          <div class="vertrauen__num">01</div>
+          <h3 class="vertrauen__title">Eine Quelle – alles aus einer Hand</h3>
+          <p class="vertrauen__text">
+            Von Basic Engineering über Fertigung und Montage bis zur Inbetriebnahme
+            koordinieren wir das gesamte Projekt intern. Keine Schnittstellenverluste,
+            klare Verantwortlichkeit.
+          </p>
+        </div>
+        <div class="vertrauen__item">
+          <div class="vertrauen__num">02</div>
+          <h3 class="vertrauen__title">Normkonformität als Standard</h3>
+          <p class="vertrauen__text">
+            Alle Apparate und Anlagen werden nach geltenden Normen (PED, ATEX,
+            EN 13445, GMP) ausgelegt, gefertigt und dokumentiert –
+            Zertifizierungen inklusive.
+          </p>
+        </div>
+        <div class="vertrauen__item">
+          <div class="vertrauen__num">03</div>
+          <h3 class="vertrauen__title">Termintreue als Versprechen</h3>
+          <p class="vertrauen__text">
+            In regulierten Industrien kostet jeder Verzugstag. Wir planen
+            Puffer bewusst ein, kommunizieren frühzeitig und halten, was
+            wir terminlich zusagen.
+          </p>
+        </div>
+        <div class="vertrauen__item">
+          <div class="vertrauen__num">04</div>
+          <h3 class="vertrauen__title">Langzeitpartnerschaft statt Einzelauftrag</h3>
+          <p class="vertrauen__text">
+            Viele Auftraggeber arbeiten seit Jahren oder Jahrzehnten mit
+            Apaco zusammen. Wir kennen ihre Anlagen, ihre Standards und
+            ihre Prozesse – das spart Zeit und Kosten.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CTA
+  ═══════════════════════════════════════ -->
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta__inner">
+        <p class="cta__label">Ihr nächstes Projekt</p>
+        <h2 class="cta__headline" id="cta-title">
+          Werden Sie unser nächstes Referenzprojekt.
+        </h2>
+        <p class="cta__sub">
+          Komplexe Anforderungen in Chemie, Pharma oder Industrie – sprechen Sie mit
+          unseren Ingenieuren. Unverbindlich, direkt und auf Augenhöhe.
+        </p>
+        <div class="cta__actions">
+          <a href="kontakt.html" class="btn-cta-primary">Anfrage stellen</a>
+          <a href="leistungen.html" class="btn-outline">Leistungsübersicht</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Brand -->
+        <div>
+          <div class="footer__brand-name">Apaco<span>.</span></div>
+          <p class="footer__tagline">
+            Präzision seit 1932. Massgeschneiderter Anlagen- und Apparatebau
+            für Chemie, Pharma und Industrie im DACH-Raum.
+          </p>
+          <div class="footer__contact">
+            <a href="tel:+41XXXXXXXX">+41 XX XXX XX XX</a>
+            <a href="mailto:info@apaco.ch">info@apaco.ch</a>
+            <a href="#">Musterstrasse 1, Schweiz</a>
+          </div>
+        </div>
+        <!-- Leistungen -->
+        <div>
+          <p class="footer__col-title">Leistungen</p>
+          <ul class="footer__links">
+            <li><a href="leistungen.html">Apparatebau</a></li>
+            <li><a href="leistungen.html">Anlagenbau</a></li>
+            <li><a href="leistungen.html">Rohrleitungsbau</a></li>
+            <li><a href="leistungen.html">Wärmetechnik</a></li>
+            <li><a href="leistungen.html">Fernwärme</a></li>
+          </ul>
+        </div>
+        <!-- Unternehmen -->
+        <div>
+          <p class="footer__col-title">Unternehmen</p>
+          <ul class="footer__links">
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="referenzen.html">Referenzen</a></li>
+            <li><a href="ueber-uns.html#geschichte">Geschichte</a></li>
+            <li><a href="ueber-uns.html#karriere">Karriere</a></li>
+          </ul>
+        </div>
+        <!-- Kontakt -->
+        <div>
+          <p class="footer__col-title">Kontakt</p>
+          <ul class="footer__links">
+            <li><a href="kontakt.html">Anfrage stellen</a></li>
+            <li><a href="kontakt.html">Standort &amp; Anfahrt</a></li>
+            <li><a href="kontakt.html">Technische Beratung</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">© 2025 Apaco AG – Alle Rechte vorbehalten.</span>
+        <ul class="footer__legal">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
