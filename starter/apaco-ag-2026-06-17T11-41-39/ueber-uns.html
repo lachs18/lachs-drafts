@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Über uns – Apaco AG | Anlagen- und Apparatebau seit 1932</title>
+  <meta name="description" content="Apaco AG – über 90 Jahre Erfahrung im Anlagen- und Apparatebau für Chemie, Pharma und Industrie. Lernen Sie das Team und die Geschichte hinter der Apaco kennen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:    #1A2B3C;
+      --accent:     #C8960C;
+      --bg:         #F4F6F8;
+      --neutral:    #5A6A7A;
+      --white:      #FFFFFF;
+      --border:     #DDE2E8;
+      --font-display: 'Inter', sans-serif;
+      --font-body:    'IBM Plex Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg);
+      color: var(--primary);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 900; }
+    h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; }
+    h3 { font-size: 1.2rem; font-weight: 600; }
+    p  { color: var(--neutral); }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      background: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.35rem;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-links a.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--primary) !important;
+      font-weight: 700 !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover { opacity: 0.88; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--primary);
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 80px,
+        rgba(200,150,12,0.03) 80px,
+        rgba(200,150,12,0.03) 81px
+      );
+    }
+
+    .page-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero .eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .page-hero h1 {
+      color: var(--white);
+      max-width: 760px;
+      margin-bottom: 1.25rem;
+    }
+
+    .page-hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .page-hero .lead {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      max-width: 600px;
+      line-height: 1.75;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin: 1.5rem 0;
+      border-radius: 2px;
+    }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0.7rem 0;
+    }
+
+    .breadcrumb-inner {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--neutral);
+    }
+
+    .breadcrumb-inner a { color: var(--accent); }
+    .breadcrumb-inner a:hover { text-decoration: underline; }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 0; }
+
+    section:nth-of-type(even) { background: var(--white); }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      margin-bottom: 1.25rem;
+      color: var(--primary);
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      max-width: 680px;
+      color: var(--neutral);
+      line-height: 1.8;
+    }
+
+    /* ── GESCHICHTE ── */
+    .geschichte-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .geschichte-text p + p {
+      margin-top: 1.1rem;
+    }
+
+    .geschichte-text p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.25rem;
+      position: relative;
+    }
+
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 34px;
+      top: 44px;
+      bottom: -1px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-dot {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.72rem;
+      color: var(--accent);
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-content {
+      padding-bottom: 2rem;
+    }
+
+    .timeline-content strong {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* ── TEAM / INHABER ── */
+    .inhaber-block {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .inhaber-card {
+      background: var(--bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .inhaber-photo-placeholder {
+      background: linear-gradient(135deg, var(--primary) 0%, #2a3f54 100%);
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .inhaber-photo-placeholder svg {
+      opacity: 0.25;
+    }
+
+    .inhaber-card-body {
+      padding: 1.5rem;
+    }
+
+    .inhaber-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .inhaber-role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .inhaber-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.65rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--neutral);
+      font-weight: 500;
+    }
+
+    .inhaber-text p + p {
+      margin-top: 1.1rem;
+    }
+
+    .inhaber-text p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    .inhaber-text h3 {
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+
+    .credentials-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .credentials-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--neutral);
+    }
+
+    .credentials-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 0.55rem;
+    }
+
+    /* ── WERTE ── */
+    .werte-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .wert-card {
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 2rem;
+      border-left: 4px solid var(--accent);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .wert-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26,43,60,0.08);
+    }
+
+    .wert-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(200,150,12,0.1);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .wert-card h3 {
+      margin-bottom: 0.6rem;
+      color: var(--primary);
+      font-size: 1.05rem;
+    }
+
+    .wert-card p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* ── FAKTEN ── */
+    .fakten-section {
+      background: var(--primary);
+    }
+
+    .fakten-section .section-label { color: rgba(200,150,12,0.9); }
+    .fakten-section .section-title { color: var(--white); }
+    .fakten-section .section-intro { color: rgba(255,255,255,0.65); }
+
+    .fakten-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .fakt-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fakt-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .fakt-zahl {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .fakt-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .fakt-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--white);
+      padding: 5rem 0;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--primary) 0%, #243548 100%);
+      border-radius: 12px;
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(200,150,12,0.06);
+    }
+
+    .cta-box::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: 80px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(200,150,12,0.04);
+    }
+
+    .cta-text { position: relative; z-index: 1; }
+
+    .cta-text h2 {
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+    }
+
+    .cta-text p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+      max-width: 520px;
+    }
+
+    .cta-actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-width: 220px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: var(--primary);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 4px;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: border-color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary);
+      color: rgba(255,255,255,0.65);
+      padding: 4rem 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-brand .footer-logo span { color: var(--accent); }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.5);
+      max-width: 280px;
+    }
+
+    .footer-tagline {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col ul a {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--accent); }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      margin-bottom: 0.75rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .footer-contact-item svg { flex-shrink: 0; margin-top: 2px; color: var(--accent); }
+
+    .footer-contact-item a { color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .footer-contact-item a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      padding: 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-bottom a { color: rgba(255,255,255,0.35); transition: color 0.2s; }
+    .footer-bottom a:hover { color: rgba(255,255,255,0.6); }
+
+    .footer-bottom-links { display: flex; gap: 1.5rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .geschichte-grid,
+      .inhaber-block {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .inhaber-block { grid-template-columns: 1fr; }
+
+      .inhaber-card {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+      }
+
+      .inhaber-photo-placeholder { height: auto; min-height: 160px; }
+
+      .werte-grid { grid-template-columns: 1fr; }
+
+      .fakten-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .cta-box {
+        grid-template-columns: 1fr;
+        padding: 2.5rem;
+        gap: 2rem;
+      }
+
+      .cta-actions { flex-direction: row; min-width: auto; }
+
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px; left: 0; right: 0;
+        background: var(--primary);
+        padding: 1.5rem;
+        gap: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .nav-links.open .nav-cta {
+        text-align: center;
+      }
+
+      .fakten-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .cta-actions { flex-direction: column; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+
+      .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+
+      .inhaber-card { grid-template-columns: 1fr; }
+
+      .timeline-item:not(:last-child)::after { left: 21px; }
+
+      .timeline-dot { width: 44px; height: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Apaco<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="ueber-uns.html" class="active">Über uns</a></li>
+        <li><a href="referenzen.html">Referenzen</a></li>
+        <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Navigation öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <span class="eyebrow">Über Apaco AG</span>
+      <h1>45 Jahre Präzision.<br>Für Kunden, die das <em>schätzen.</em></h1>
+      <div class="hero-divider"></div>
+      <p class="lead">
+        Was 1932 als Handwerksbetrieb begann, ist heute ein Schweizer Kompetenzzentrum für komplexe Anlagen in Chemie, Pharma und Industrie. Mit über 120 Fachleuten und neun Jahrzehnten gesammeltem Wissen.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── BREADCRUMB ── -->
+  <div class="breadcrumb">
+    <div class="container">
+      <div class="breadcrumb-inner">
+        <a href="index.html">Start</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Über uns</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GESCHICHTE ── -->
+  <section>
+    <div class="container">
+      <div class="geschichte-grid">
+        <div class="geschichte-text">
+          <span class="section-label">Unsere Geschichte</span>
+          <h2 class="section-title">Gegründet 1932. Nie stehengeblieben.</h2>
+          <p>
+            Die Apaco AG entstand in einer Zeit, in der Schweizer Ingenieurskunst noch weitgehend Handarbeit bedeutete. Zeichnen auf Papier, Messen mit dem Schieblehre, Verantwortung tragen mit dem eigenen Namen. Diese Haltung ist geblieben – auch wenn die Werkzeuge sich verändert haben.
+          </p>
+          <p>
+            Über neun Jahrzehnte hat die Apaco AG erlebt, wie sich die Industrie gewandelt hat: neue Materialien, strengere Normen, komplexere Anforderungen in Reinräumen und explosionsgefährdeten Zonen. Wir haben mitgewachsen. Aus eigenem Antrieb, nicht aus Zwang.
+          </p>
+          <p>
+            Heute plant, konstruiert, fertigt, montiert und nimmt die Apaco AG massgeschneiderte Anlagen in Betrieb – für Kunden, denen es nicht um den günstigsten Preis geht, sondern um die verlässlichste Lösung. Das war 1932 so. Das ist heute so.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot">1932</div>
+            <div class="timeline-content">
+              <strong>Gründung der Apaco AG</strong>
+              <p>Der Grundstein wird gelegt: Anlagen- und Apparatebau als Handwerk mit Haltung – in der Schweiz, für die Schweiz.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">1960er</div>
+            <div class="timeline-content">
+              <strong>Einstieg Chemie & Pharma</strong>
+              <p>Die Apaco erschliesst neue Branchen mit besonders hohen Anforderungen an Präzision und Materialkunde.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">1990er</div>
+            <div class="timeline-content">
+              <strong>Ausbau Fernwärme & Gebäudetechnik</strong>
+              <p>Das Leistungsportfolio wächst. Wärmetechnik und energieeffiziente Systeme werden zu einem zweiten Standbein.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">Heute</div>
+            <div class="timeline-content">
+              <strong>120 Fachleute. Ein Anspruch.</strong>
+              <p>Von der Planung bis zur Inbetriebnahme – komplett aus einer Hand. Für Kunden in der gesamten DACH-Region.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INHABER / MANAGEMENT ── -->
+  <section>
+    <div class="container">
+      <div class="inhaber-block">
+        <div class="inhaber-card">
+          <div class="inhaber-photo-placeholder">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="inhaber-card-body">
+            <div class="inhaber-name">Thomas Helfenstein</div>
+            <div class="inhaber-role">Geschäftsführung</div>
+            <div class="inhaber-tags">
+              <span class="tag">Anlagenbau</span>
+              <span class="tag">Prozessindustrie</span>
+              <span class="tag">Pharma GMP</span>
+              <span class="tag">Projektleitung</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="inhaber-text">
+          <span class="section-label">Wer steckt dahinter</span>
+          <h2 class="section-title">Eine Führung, die den Betrieb kennt.</h2>
+          <p>
+            Thomas Helfenstein steht für das, wofür die Apaco AG seit über neun Jahrzehnten bekannt ist: technische Präzision, verbindliches Auftreten und ein tiefes Verständnis dafür, was es bedeutet, wenn eine Anlage in einem Pharmabetrieb oder einer chemischen Produktion steht und laufen muss.
+          </p>
+          <p>
+            In seiner Arbeit verbindet er ingenieurstechnisches Fachwissen mit dem Blick auf das Ganze – den Projektzeitplan, das Kundenbudget, die regulatorischen Anforderungen. Kunden schätzen an ihm, dass er nicht verspricht, was nicht gehalten werden kann, und dass er im Problemfall selbst anruft – nicht seine Assistentin.
+          </p>
+          <p>
+            Die Apaco AG ist kein anonymes Industrieunternehmen. Hier tragen Menschen Verantwortung mit ihrem Namen. Das beginnt an der Spitze.
+          </p>
+
+          <h3>Fachgebiete & Expertise</h3>
+          <ul class="credentials-list">
+            <li>Planung und Realisierung komplexer Anlagen für Chemie und Pharma</li>
+            <li>Prozessanlagen unter GMP- und ATEX-Anforderungen</li>
+            <li>Fernwärme- und Wärmetechniklösungen für Industrie und Gebäude</li>
+            <li>Gesamtprojektverantwortung von der Anfrage bis zur Inbetriebnahme</li>
+            <li>Langjährige Zusammenarbeit mit Kunden im DACH-Raum</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WERTE ── -->
+  <section>
+    <div class="container">
+      <span class="section-label">Wie wir arbeiten</span>
+      <h2 class="section-title">Werte, die man spürt – nicht nur liest.</h2>
+      <p class="section-intro">
+        Wir formulieren keine Unternehmenswerte für Imagebroschüren. Diese vier Grundsätze bestimmen täglich, wie wir Entscheidungen treffen und mit Kunden umgehen.
+      </p>
+
+      <div class="werte-grid">
+        <div class="wert-card">
+          <div class="wert-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8960C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h3>Verbindlichkeit ohne Wenn und Aber</h3>
+          <p>Wer einen Termin von uns bekommt, kann damit planen. Wenn sich etwas ändert, erfahren Sie es zuerst von uns – nicht als letztes. Verlässlichkeit ist kein Bonus, sie ist die Grundlage.</p>
+        </div>
+
+        <div class="wert-card">
+          <div class="wert-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8960C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.07 4.93A10 10 0 1 0 21 12"/>
+            </svg>
+          </div>
+          <h3>Präzision bis ins Detail</h3>
+          <p>Anlagen in der Prozessindustrie verzeihen keine Halbherzigkeit. Deshalb prüfen wir zweimal, dokumentieren lückenlos und nehmen uns die Zeit, die ein Projekt braucht – nicht die, die das Budget vorsieht.</p>
+        </div>
+
+        <div class="wert-card">
+          <div class="wert-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8960C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Erfahrung, die weitergegeben wird</h3>
+          <p>Über neun Jahrzehnte Wissen stecken in unseren Teams. Wir bilden intern aus, fördern Fachkarrieren und sichern so, dass das Know-how bleibt – auch wenn ein Projekt Jahre dauert.</p>
+        </div>
+
+        <div class="wert-card">
+          <div class="wert-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8960C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Klarheit statt Beschönigung</h3>
+          <p>Wenn eine Anforderung technisch nicht realisierbar ist, sagen wir das – mit Begründung und einer alternativen Empfehlung. Wir sind Ingenieure, keine Verkäufer. Das merken unsere Kunden schnell.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAKTEN ── -->
+  <section class="fakten-section">
+    <div class="container">
+      <span class="section-label">Apaco in Zahlen</span>
+      <h2 class="section-title">Substanz, die man messen kann.</h2>
+      <p class="section-intro">
+        Hinter diesen Zahlen stehen echte Projekte, echte Mitarbeitende und echte Verantwortung.
+      </p>
+
+      <div class="fakten-grid">
+        <div class="fakt-card">
+          <div class="fakt-zahl">1932</div>
+          <div class="fakt-label">Gegründet</div>
+          <div class="fakt-desc">Über neun Jahrzehnte Erfahrung im Anlagen- und Apparatebau</div>
+        </div>
+
+        <div class="fakt-card">
+          <div class="fakt-zahl">120+</div>
+          <div class="fakt-label">Mitarbeitende</div>
+          <div class="fakt-desc">Fachleute aus Ingenieurwesen, Fertigung, Montage und Projektmanagement</div>
+        </div>
+
+        <div class="fakt-card">
+          <div class="fakt-zahl">3</div>
+          <div class="fakt-label">Kernbranchen</div>
+          <div class="fakt-desc">Chemie, Pharma und Industrie – ergänzt durch Fernwärme und Gebäudetechnik</div>
+        </div>
+
+        <div class="fakt-card">
+          <div class="fakt-zahl">CH</div>
+          <div class="fakt-label">Standort</div>
+          <div class="fakt-desc">Schweizer Unternehmen mit Projekttätigkeit im gesamten DACH-Raum</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-text">
+          <h2>Lernen Sie uns kennen – ohne Verkaufsgespräch.</h2>
+          <p>
+            Im ersten Gespräch hören wir zu. Sie schildern Ihr Vorhaben, wir stellen die richtigen Fragen. Kein Pitch, keine Präsentation – nur ein offenes Fachgespräch zwischen Ingenieuren.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a href="kontakt.html" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Erstgespräch anfragen
+          </a>
+          <a href="tel:+41XXXXXXXXX" class="btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +41 XX XXX XX XX
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Apaco<span>.</span></div>
+          <p>Schweizer Anlagen- und Apparatebauer für Chemie, Pharma und Industrie. Planung, Fertigung, Montage und Inbetriebnahme – komplett aus einer Hand.</p>
+          <span class="footer-tagline">Präzision seit 1932</span>
+        </div>
+
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul>
+            <li><a href="leistungen.html">Anlagenbau</a></li>
+            <li><a href="leistungen.html">Apparatebau</a></li>
+            <li><a href="leistungen.html">Fernwärmetechnik</a></li>
+            <li><a href="leistungen.html">Gebäudetechnik</a></li>
+            <li><a href="leistungen.html">Inbetriebnahme</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Unternehmen</h4>
+          <ul>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="referenzen.html">Referenzen</a></li>
+            <li><a href="karriere.html">Karriere</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <div class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Musterstrasse 1<br>PLZ Ort, Schweiz</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+41XXXXXXXXX">+41 XX XXX XX XX</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@apaco.ch">info@apaco.ch</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2024 Apaco AG. Alle Rechte vorbehalten.</span>
+        <div class="footer-bottom-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', () => {
+        links.classList.toggle('open');
+      });
+    }
+  </script>
+
+</body>
+</html>
