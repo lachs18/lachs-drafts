@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referenzen – Hofer Haustechnik GmbH</title>
+<meta name="description" content="Projekte, auf die wir stolz sind. Heizung, Sanitär und Klima in der Region Rudelzhausen – sehen Sie, was Hofer Haustechnik für Kunden geleistet hat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #1C2B3A;
+    --accent: #E8611A;
+    --bg: #F5F2EE;
+    --neutral: #6B7A8D;
+    --white: #FFFFFF;
+    --card-dark: #162230;
+    --font-display: 'Archivo Black', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --radius: 6px;
+    --shadow: 0 4px 24px rgba(28,43,58,0.10);
+    --transition: 0.22s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  /* ── NAVIGATION ── */
+  .nav {
+    background: var(--primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  }
+
+  .nav-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  .nav-logo span {
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.78);
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: var(--radius);
+    transition: color var(--transition), background var(--transition);
+  }
+
+  .nav-links a:hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .nav-links a.active {
+    color: var(--accent);
+    background: rgba(232,97,26,0.12);
+  }
+
+  .nav-cta {
+    background: var(--accent) !important;
+    color: var(--white) !important;
+    font-weight: 600 !important;
+    padding: 8px 20px !important;
+    border-radius: var(--radius) !important;
+    transition: opacity var(--transition) !important;
+  }
+
+  .nav-cta:hover {
+    opacity: 0.88;
+    background: var(--accent) !important;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: var(--transition);
+  }
+
+  /* ── PAGE HERO ── */
+  .hero {
+    background: var(--primary);
+    padding: 80px 24px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      rgba(232,97,26,0.04) 40px,
+      rgba(232,97,26,0.04) 41px
+    );
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--white);
+    line-height: 1.12;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.08rem;
+    color: rgba(255,255,255,0.72);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ── WRAPPER ── */
+  .section {
+    padding: 80px 24px;
+  }
+
+  .section-alt {
+    background: var(--white);
+  }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.80rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    color: var(--primary);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--neutral);
+    max-width: 620px;
+    line-height: 1.7;
+    margin-bottom: 52px;
+  }
+
+  /* ── PROJEKT-KARTEN ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .project-card {
+    background: var(--card-dark);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent);
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.28);
+  }
+
+  .project-type {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .project-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.18rem;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .project-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.86rem;
+    color: rgba(255,255,255,0.52);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .project-location svg {
+    flex-shrink: 0;
+  }
+
+  .project-desc {
+    font-size: 0.93rem;
+    color: rgba(255,255,255,0.70);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .project-result {
+    background: rgba(232,97,26,0.12);
+    border: 1px solid rgba(232,97,26,0.25);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .project-result-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .project-result-icon svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .project-result p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.55;
+    font-weight: 500;
+  }
+
+  /* ── ZAHLEN-SEKTION ── */
+  .stats-section {
+    background: var(--accent);
+    padding: 64px 24px;
+  }
+
+  .stats-grid {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: center;
+  }
+
+  .stat-item {}
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.82);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* ── LEISTUNGSBREITE ── */
+  .leistungen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .leistung-tag {
+    background: var(--bg);
+    border: 1.5px solid rgba(28,43,58,0.10);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: border-color var(--transition), box-shadow var(--transition);
+  }
+
+  .leistung-tag:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(232,97,26,0.10);
+  }
+
+  .leistung-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(232,97,26,0.10);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .leistung-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--accent);
+  }
+
+  .leistung-text {
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  /* ── REGION-SEKTION ── */
+  .region-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .region-badge {
+    background: var(--primary);
+    color: var(--white);
+    font-size: 0.86rem;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 100px;
+  }
+
+  /* ── VERTRAUEN-BOX ── */
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .trust-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 28px;
+    border-left: 4px solid var(--accent);
+  }
+
+  .trust-card h4 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+
+  .trust-card p {
+    font-size: 0.94rem;
+    color: var(--neutral);
+    line-height: 1.65;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--primary);
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 60px,
+      rgba(232,97,26,0.03) 60px,
+      rgba(232,97,26,0.03) 61px
+    );
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .cta-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+
+  .cta-section h2 span {
+    color: var(--accent);
+  }
+
+  .cta-section p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.70);
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity var(--transition), transform var(--transition);
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn:hover {
+    opacity: 0.90;
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.30);
+    margin-left: 12px;
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(255,255,255,0.60);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #111C26;
+    padding: 56px 24px 32px;
+  }
+
+  .footer-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .footer-brand-name span {
+    color: var(--accent);
+  }
+
+  .footer-tagline {
+    font-size: 0.90rem;
+    color: rgba(255,255,255,0.50);
+    line-height: 1.65;
+    margin-bottom: 20px;
+    max-width: 280px;
+  }
+
+  .footer-contact-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.62);
+    margin-bottom: 8px;
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .footer-contact-line:hover {
+    color: var(--accent);
+  }
+
+  .footer-contact-line svg {
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  .footer-col h5 {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.40);
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-col ul a {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.62);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .footer-col ul a:hover {
+    color: var(--accent);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-copy {
+    font-size: 0.84rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-legal a {
+    font-size: 0.84rem;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .footer-legal a:hover {
+    color: var(--accent);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-top > *:first-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--primary);
+      flex-direction: column;
+      padding: 16px 24px 24px;
+      gap: 4px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    .nav-links a {
+      padding: 12px 16px;
+      width: 100%;
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .btn-outline {
+      margin-left: 0;
+      margin-top: 12px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Hofer <span>Haustechnik</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="leistungen.html">Leistungen</a></li>
+      <li><a href="referenzen.html" class="active">Referenzen</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="kontakt.html" class="nav-cta">Anfrage stellen</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Unsere Arbeit spricht für sich</span>
+    <h1>Projekte, auf die wir <em>stolz</em> sind.</h1>
+    <p class="hero-sub">Über 200 abgeschlossene Projekte in der Region Rudelzhausen und dem Landkreis Freising – von der Einzelsanierung bis zur Komplettausstattung im Neubau.</p>
+  </div>
+</section>
+
+<!-- PROJEKT-KARTEN -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">Abgeschlossene Projekte</p>
+    <h2 class="section-title">Was wir für unsere Kunden leisten</h2>
+    <p class="section-intro">Keine leeren Versprechen – hier sehen Sie, welche Aufgaben wir gelöst haben. Projekttyp, Region und das konkrete Ergebnis.</p>
+
+    <div class="projects-grid">
+
+      <!-- Karte 1 -->
+      <div class="project-card">
+        <p class="project-type">Heizungssanierung</p>
+        <h3>Wärmepumpen-Umstellung Einfamilienhaus</h3>
+        <div class="project-location">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.52)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Rudelzhausen, Landkreis Freising
+        </div>
+        <p class="project-desc">Vollständiger Austausch einer veralteten Ölheizung durch eine Luft-Wasser-Wärmepumpe. Inklusive Pufferspeicher, neuer Verrohrung und Einbindung in die bestehende Fussbodenheizung.</p>
+        <div class="project-result">
+          <div class="project-result-icon">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.2">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          <p>Heizkosten laut Kunde um rund 55 % gesenkt – staatliche Förderung vollständig beantragt und durchgeführt.</p>
+        </div>
+      </div>
+
+      <!-- Karte 2 -->
+      <div class="project-card">
+        <p class="project-type">Badezimmersanierung</p>
+        <h3>Kompletterneuerung Bad und WC</h3>
+        <div class="project-location">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.52)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Mauern, Landkreis Freising
+        </div>
+        <p class="project-desc">Kernsanierung eines Badezimmers aus den 1980er-Jahren – neue Dusche, Badewanne, Waschtisch und bodengleicher Einstieg. Sämtliche Sanitär-Anschlüsse neu verlegt, Fliesen durch Fachpartner.</p>
+        <div class="project-result">
+          <div class="project-result-icon">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.2">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          <p>Fertigstellung in 8 Werktagen – termingerecht und ohne Nacharbeiten.</p>
+        </div>
+      </div>
+
+      <!-- Karte 3 -->
+      <div class="project-card">
+        <p class="project-type">Neubau Haustechnik</p>
+        <h3>Heizung & Sanitär Einfamilienhaus Neubau</h3>
+        <div class="project-location">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.52)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Wolnzach, Landkreis Pfaffenhofen
+        </div>
+        <p class="project-desc">Komplette Haustechnik-Ausstattung eines Neubaus – Fussbodenheizung auf 180 m², Gastherme, drei Badezimmer, Aussenanlage und Regenwassernutzung. Koordination mit Bauleitung vor Ort.</p>
+        <div class="project-result">
+          <div class="project-result-icon">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.2">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          <p>Übergabe gemäss Bauplan pünktlich zum Einzugstermin – alle Abnahmen auf Anhieb bestanden.</p>
+        </div>
+      </div>
+
+      <!-- Karte 4 -->
+      <div class="project-card">
+        <p class="project-type">Solaranlage & Warmwasser</p>
+        <h3>Solarthermie-Integration Bestandsgebäude</h3>
+        <div class="project-location">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.52)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Rudelzhausen, Landkreis Freising
+        </div>
+        <p class="project-desc">Nachrüstung einer Solarthermieanlage zur Warmwasserbereitung an einem Bestandsgebäude aus den 1970er-Jahren. Integration in bestehende Heizanlage, neuer 400-Liter-Kombispeicher.</p>
+        <div class="project-result">
+          <div class="project-result-icon">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.2">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          <p>Warmwasserkosten in den Sommermonaten nahezu auf null – Amortisation in unter 10 Jahren kalkuliert.</p>
+        </div>
+      </div>
+
+      <!-- Karte 5 -->
+      <div class="project-card">
+        <p class="project-type">Rohrleitungssanierung</p>
+        <h3>Wasserleitungstausch Mehrfamilienhaus</h3>
+        <div class="project-location">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.52)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Zolling, Landkreis Freising
+        </div>
+        <p class="project-desc">Austausch veralteter Kupferleitungen in einem Dreifamilienhaus – neue Trinkwasserinstallation nach aktueller DIN-Norm, Druckprüfung und Protokollierung für Eigentümergemeinschaft.</p>
+        <div class="project-result">
+          <div class="project-result-icon">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.2">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          <p>Alle drei Wohneinheiten blieben während der Arbeiten bewohnbar – minimale Beeinträchtigung der Mieter.</p>
+        </div>
+      </div>
+
+      <!-- Karte 6 -->
+      <div class="project-card">
+        <p class="project-type">Notfalldienst & Wartung</p>
+        <h3>Heizungsausfall im Winter – Soforteinsatz</h3>
+        <div class="project-location">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.52)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Fahrenzhausen, Landkreis Freising
+        </div>
+        <p class="project-desc">Totalausfall einer Gasheizung an einem Freitagabend im Januar. Notruf entgegengenommen, Techniker innerhalb von 90 Minuten vor Ort, defektes Steuermodul identifiziert und ersetzt.</p>
+        <div class="project-result">
+          <div class="project-result-icon">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.2">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          <p>Familie mit zwei Kleinkindern wieder mit Wärme versorgt – Heizung noch am selben Abend wieder in Betrieb.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ZAHLEN-SEKTION -->
+<div class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">200+</div>
+      <div class="stat-label">Abgeschlossene Projekte<br>in der Region</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">10+</div>
+      <div class="stat-label">Jahre Erfahrung<br>im Haustechnik-Bereich</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">6–15</div>
+      <div class="stat-label">Qualifizierte Fachkräfte<br>im Team</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">1 Tag</div>
+      <div class="stat-label">Reaktionszeit<br>im Notfalldienst</div>
+    </div>
+  </div>
+</div>
+
+<!-- LEISTUNGSBREITE -->
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-label">Was wir abdecken</p>
+    <h2 class="section-title">Unsere Leistungsbereiche</h2>
+    <p class="section-intro">Von der Einzelreparatur bis zum Komplett-Neubau – das sind die Bereiche, in denen unsere Projekte entstehen.</p>
+
+    <div class="leistungen-grid">
+      <div class="leistung-tag">
+        <div class="leistung-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12m0-8v4M4 6l4 4m8-4l-4 4M4 18l4-4m8 4l-4-4"/></svg>
+        </div>
+        <span class="leistung-text">Heizungssanierung & -tausch</span>
+      </div>
+      <div class="leistung-tag">
+        <div class="leistung-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <span class="leistung-text">Wärmepumpen-Anlagen</span>
+      </div>
+      <div class="leistung-tag">
+        <div class="leistung-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <span class="leistung-text">Solarthermie-Integration</span>
+      </div>
+      <div class="leistung-tag">
+        <div class="leistung-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <span class="leistung-text">Badezimmersanierung</span>
+      </div>
+      <div class="leistung-tag">
+        <div class="leistung-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </div>
+        <span class="leistung-text">Sanitär Neubau & Umbau</span>
+      </div>
+      <div class="leistung-tag">
+        <div class="leistung-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <span class="leistung-text">Notfall- & Entstördienst</span>
+      </div>
+      <div class="leistung-tag">
+        <div class="leistung-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M6 20V10l6-6 6 6v10"/></svg>
+        </div>
+        <span class="leistung-text">Fussbodenheizung</span>
+      </div>
+      <div class="leistung-tag">
+        <div class="leistung-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        </div>
+        <span class="leistung-text">Klimaanlagen & Lüftung</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGION -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">Unser Einzugsgebiet</p>
+    <h2 class="section-title">Regional verwurzelt – überall in der Region zuverlässig</h2>
+    <p class="section-intro">Wir arbeiten hauptsächlich im Landkreis Freising und den angrenzenden Regionen. Kurze Anfahrtszeiten bedeuten schnelle Hilfe – auch im Notfall.</p>
+    <div class="region-list">
+      <span class="region-badge">Rudelzhausen</span>
+      <span class="region-badge">Landkreis Freising</span>
+      <span class="region-badge">Mauern</span>
+      <span class="region-badge">Wolnzach</span>
+      <span class="region-badge">Zolling</span>
+      <span class="region-badge">Fahrenzhausen</span>
+      <span class="region-badge">Landshut (Umgebung)</span>
+      <span class="region-badge">Landkreis Pfaffenhofen</span>
+    </div>
+  </div>
+</section>
+
+<!-- VERTRAUENS-ARGUMENTE -->
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-label">Warum Hofer Haustechnik</p>
+    <h2 class="section-title">Was unsere Kunden an uns schätzen</h2>
+    <p class="section-intro">Direkt, verlässlich, ehrlich. Das sind die Rückmeldungen, die wir am häufigsten hören.</p>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <h4>Klare Kommunikation</h4>
+        <p>Kein Fachchinesisch, keine versteckten Kosten. Wir erklären, was gemacht wird und warum – bevor wir anfangen.</p>
+      </div>
+      <div class="trust-card">
+        <h4>Sauberkeit auf der Baustelle</h4>
+        <p>Nach unserer Arbeit räumen wir auf. Das ist für uns selbstverständlich, nicht optional.</p>
+      </div>
+      <div class="trust-card">
+        <h4>Termine werden eingehalten</h4>
+        <p>Wenn wir einen Termin zusagen, halten wir ihn. Sollte sich etwas ändern, melden wir uns proaktiv.</p>
+      </div>
+      <div class="trust-card">
+        <h4>Förderung komplett aus einer Hand</h4>
+        <p>Wir übernehmen die Antragsstellung für BAFA- und KfW-Förderung – Sie müssen sich um nichts kümmern.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Werden Sie unser nächstes <span>Referenzprojekt.</span></h2>
+    <p>Egal ob Sanierung, Neubau oder Notfall – wir sind der richtige Ansprechpartner in der Region. Kontaktieren Sie uns für ein kostenloses Erstgespräch.</p>
+    <div class="cta-buttons">
+      <a href="kontakt.html" class="btn btn-primary">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Jetzt Anfrage stellen
+      </a>
+      <a href="tel:+49XXXXXXXXXX" class="btn btn-outline">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        Direkt anrufen
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Hofer <span>Haustechnik</span> GmbH</div>
+        <p class="footer-tagline">Ihr regionaler Fachbetrieb für Heizung, Sanitär und Klima im Landkreis Freising und Umgebung.</p>
+        <a href="tel:+49XXXXXXXXXX" class="footer-contact-line">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          +49 XXX XXX XXXX
+        </a>
+        <a href="mailto:info@hofer-haustechnik.de" class="footer-contact-line">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          info@hofer-haustechnik.de
+        </a>
+        <span class="footer-contact-line" style="cursor:default;">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Musterstrasse 1, 84104 Rudelzhausen
+        </span>
+      </div>
+
+      <div class="footer-col">
+        <h5>Leistungen</h5>
+        <ul>
+          <li><a href="leistungen.html">Heizungssanierung</a></li>
+          <li><a href="leistungen.html">Wärmepumpen</a></li>
+          <li><a href="leistungen.html">Sanitär & Bad</a></li>
+          <li><a href="leistungen.html">Solarthermie</a></li>
+          <li><a href="leistungen.html">Klimaanlagen</a></li>
+          <li><a href="leistungen.html">Notfalldienst</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Unternehmen</h5>
+        <ul>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="referenzen.html">Referenzen</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 Hofer Haustechnik GmbH · Alle Rechte vorbehalten</p>
+      <div class="footer-legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
