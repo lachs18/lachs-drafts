@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apaco AG – Massgeschneiderter Anlagen- und Apparatebau für Chemie, Pharma und Industrie. Seit 1932. 120 Mitarbeitende. Schweiz.">
+  <title>Apaco AG – Anlagen- und Apparatebau seit 1932</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       CSS-VARIABLEN – DESIGN-SYSTEM APACO AG
+    ============================================================ */
+    :root {
+      --primaer:       #1A2B3C;
+      --akzent:        #C8960C;
+      --hintergrund:   #F4F6F8;
+      --neutral:       #5A6A7A;
+      --weiss:         #FFFFFF;
+      --dunkel:        #0D1820;
+      --rand:          #DDE3EA;
+
+      --display-font:  'Inter', sans-serif;
+      --body-font:     'IBM Plex Sans', sans-serif;
+
+      --space-xs:  0.5rem;
+      --space-s:   1rem;
+      --space-m:   1.5rem;
+      --space-l:   2.5rem;
+      --space-xl:  4rem;
+      --space-xxl: 6rem;
+
+      --radius:    4px;
+      --radius-m:  8px;
+      --shadow:    0 2px 12px rgba(26,43,60,0.10);
+      --shadow-l:  0 8px 32px rgba(26,43,60,0.14);
+
+      --max-width: 1160px;
+      --nav-h:     72px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--body-font);
+      background: var(--hintergrund);
+      color: var(--primaer);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul { list-style: none; }
+
+    /* ============================================================
+       UTILITY
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding-inline: var(--space-m);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--display-font);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      padding: 0.8125rem 1.625rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn--primary {
+      background: var(--akzent);
+      color: var(--weiss);
+      border-color: var(--akzent);
+    }
+
+    .btn--primary:hover {
+      background: #b07e0a;
+      border-color: #b07e0a;
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--primaer);
+      border-color: var(--primaer);
+    }
+
+    .btn--outline:hover {
+      background: var(--primaer);
+      color: var(--weiss);
+    }
+
+    .btn--outline-light {
+      background: transparent;
+      color: var(--weiss);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    .btn--outline-light:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: var(--weiss);
+    }
+
+    .section-label {
+      font-family: var(--display-font);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--akzent);
+      margin-bottom: var(--space-s);
+    }
+
+    .section-title {
+      font-family: var(--display-font);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3vw, 2.125rem);
+      line-height: 1.2;
+      color: var(--primaer);
+      margin-bottom: var(--space-m);
+    }
+
+    .section-intro {
+      font-size: 1.0625rem;
+      color: var(--neutral);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--weiss);
+      border-bottom: 1px solid var(--rand);
+      box-shadow: var(--shadow);
+      height: var(--nav-h);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      gap: var(--space-m);
+    }
+
+    .nav__logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      text-decoration: none;
+    }
+
+    .nav__logo-name {
+      font-family: var(--display-font);
+      font-weight: 900;
+      font-size: 1.375rem;
+      color: var(--primaer);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .nav__logo-claim {
+      font-family: var(--body-font);
+      font-size: 0.6875rem;
+      font-weight: 400;
+      color: var(--neutral);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav__links {
+      display: none;
+      gap: var(--space-m);
+      align-items: center;
+    }
+
+    .nav__links a {
+      font-family: var(--display-font);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--neutral);
+      transition: color 0.2s;
+      letter-spacing: 0.01em;
+    }
+
+    .nav__links a:hover { color: var(--primaer); }
+
+    .nav__cta {
+      display: none;
+      align-items: center;
+      gap: var(--space-s);
+    }
+
+    .nav__phone {
+      font-family: var(--display-font);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--primaer);
+      background: var(--hintergrund);
+      border: 1.5px solid var(--rand);
+      padding: 0.5625rem 1.125rem;
+      border-radius: var(--radius);
+      transition: background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav__phone:hover {
+      background: var(--primaer);
+      color: var(--weiss);
+      border-color: var(--primaer);
+    }
+
+    .nav__hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      border: none;
+      background: none;
+    }
+
+    .nav__hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--primaer);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* Mobile menu open state */
+    .nav__mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--weiss);
+      z-index: 99;
+      padding: var(--space-l) var(--space-m);
+      flex-direction: column;
+      gap: var(--space-m);
+    }
+
+    .nav__mobile-menu.is-open { display: flex; }
+
+    .nav__mobile-menu a {
+      font-family: var(--display-font);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primaer);
+      padding-bottom: var(--space-m);
+      border-bottom: 1px solid var(--rand);
+    }
+
+    .nav__mobile-menu .btn { margin-top: var(--space-s); align-self: flex-start; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      background: var(--primaer);
+      padding: var(--space-xxl) 0 var(--space-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: rgba(200, 150, 12, 0.06);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -120px;
+      left: -60px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(200, 150, 12, 0.04);
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: var(--space-xl);
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(200, 150, 12, 0.12);
+      border: 1px solid rgba(200, 150, 12, 0.3);
+      color: var(--akzent);
+      font-family: var(--display-font);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.375rem 0.875rem;
+      border-radius: 2px;
+      margin-bottom: var(--space-m);
+    }
+
+    .hero__badge::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--akzent);
+      border-radius: 50%;
+    }
+
+    .hero__headline {
+      font-family: var(--display-font);
+      font-weight: 900;
+      font-size: clamp(2rem, 5.5vw, 3.5rem);
+      line-height: 1.08;
+      color: var(--weiss);
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-m);
+    }
+
+    .hero__headline em {
+      font-style: normal;
+      color: var(--akzent);
+    }
+
+    .hero__subline {
+      font-family: var(--body-font);
+      font-size: clamp(1rem, 2vw, 1.1875rem);
+      font-weight: 400;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+      max-width: 560px;
+      margin-bottom: var(--space-l);
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+      align-items: center;
+    }
+
+    .hero__signature {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-l);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-m);
+    }
+
+    .hero__stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .hero__stat-num {
+      font-family: var(--display-font);
+      font-weight: 900;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      color: var(--weiss);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .hero__stat-num span {
+      color: var(--akzent);
+    }
+
+    .hero__stat-label {
+      font-family: var(--body-font);
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       LEISTUNGS-TEASER
+    ============================================================ */
+    .leistungen {
+      padding: var(--space-xxl) 0;
+      background: var(--weiss);
+    }
+
+    .leistungen__header {
+      margin-bottom: var(--space-xl);
+    }
+
+    .leistungen__grid {
+      display: grid;
+      gap: var(--space-m);
+    }
+
+    .leistung-card {
+      background: var(--hintergrund);
+      border: 1px solid var(--rand);
+      border-radius: var(--radius-m);
+      padding: var(--space-l) var(--space-m);
+      position: relative;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .leistung-card:hover {
+      border-color: var(--akzent);
+      box-shadow: var(--shadow-l);
+    }
+
+    .leistung-card__icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primaer);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-m);
+    }
+
+    .leistung-card__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--akzent);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .leistung-card__title {
+      font-family: var(--display-font);
+      font-weight: 700;
+      font-size: 1.0625rem;
+      color: var(--primaer);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .leistung-card__text {
+      font-size: 0.9375rem;
+      color: var(--neutral);
+      line-height: 1.6;
+    }
+
+    .leistungen__footer {
+      margin-top: var(--space-l);
+      display: flex;
+      align-items: center;
+      gap: var(--space-s);
+    }
+
+    .leistungen__link {
+      font-family: var(--display-font);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--akzent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      transition: gap 0.2s;
+    }
+
+    .leistungen__link:hover { gap: 0.625rem; }
+
+    .leistungen__link svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ============================================================
+       VERTRAUEN
+    ============================================================ */
+    .vertrauen {
+      padding: var(--space-xxl) 0;
+      background: var(--primaer);
+    }
+
+    .vertrauen__inner {
+      display: grid;
+      gap: var(--space-xl);
+    }
+
+    .vertrauen__header .section-label { color: var(--akzent); }
+
+    .vertrauen__header .section-title { color: var(--weiss); }
+
+    .vertrauen__header .section-intro { color: rgba(255,255,255,0.65); }
+
+    .vertrauen__grid {
+      display: grid;
+      gap: var(--space-m);
+    }
+
+    .vertrauen-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-m);
+      padding: var(--space-l) var(--space-m);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .vertrauen-item__num {
+      font-family: var(--display-font);
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--akzent);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .vertrauen-item__label {
+      font-family: var(--display-font);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--weiss);
+    }
+
+    .vertrauen-item__desc {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       ÜBER UNS TEASER
+    ============================================================ */
+    .ueber-uns {
+      padding: var(--space-xxl) 0;
+      background: var(--hintergrund);
+    }
+
+    .ueber-uns__inner {
+      display: grid;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .ueber-uns__content {}
+
+    .ueber-uns__text {
+      font-size: 1.0625rem;
+      color: var(--neutral);
+      line-height: 1.75;
+      margin-bottom: var(--space-l);
+    }
+
+    .ueber-uns__text strong {
+      color: var(--primaer);
+      font-weight: 600;
+    }
+
+    .ueber-uns__visual {
+      background: var(--primaer);
+      border-radius: var(--radius-m);
+      padding: var(--space-l);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-m);
+    }
+
+    .ueber-uns__visual-label {
+      font-family: var(--display-font);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--akzent);
+    }
+
+    .ueber-uns__timeline {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-m);
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: var(--space-s);
+      align-items: flex-start;
+    }
+
+    .timeline-item__year {
+      font-family: var(--display-font);
+      font-weight: 700;
+      font-size: 0.8125rem;
+      color: var(--akzent);
+      min-width: 40px;
+      padding-top: 2px;
+    }
+
+    .timeline-item__text {
+      font-family: var(--body-font);
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.5;
+      padding-bottom: var(--space-m);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .timeline-item:last-child .timeline-item__text { border-bottom: none; padding-bottom: 0; }
+
+    /* ============================================================
+       CTA-BLOCK
+    ============================================================ */
+    .cta-block {
+      padding: var(--space-xxl) 0;
+      background: var(--weiss);
+      border-top: 1px solid var(--rand);
+    }
+
+    .cta-block__inner {
+      text-align: center;
+      max-width: 680px;
+      margin-inline: auto;
+    }
+
+    .cta-block__title {
+      font-family: var(--display-font);
+      font-weight: 900;
+      font-size: clamp(1.625rem, 3.5vw, 2.5rem);
+      color: var(--primaer);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: var(--space-m);
+    }
+
+    .cta-block__text {
+      font-size: 1.0625rem;
+      color: var(--neutral);
+      line-height: 1.65;
+      margin-bottom: var(--space-l);
+    }
+
+    .cta-block__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+      justify-content: center;
+      margin-bottom: var(--space-l);
+    }
+
+    .cta-block__contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-m);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cta-block__contact {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--display-font);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--primaer);
+      transition: color 0.2s;
+    }
+
+    .cta-block__contact:hover { color: var(--akzent); }
+
+    .cta-block__contact svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--akzent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .cta-block__divider {
+      color: var(--rand);
+      font-size: 1.25rem;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--dunkel);
+      color: rgba(255,255,255,0.65);
+      padding: var(--space-xl) 0 var(--space-l);
+    }
+
+    .footer__grid {
+      display: grid;
+      gap: var(--space-l);
+      margin-bottom: var(--space-xl);
+    }
+
+    .footer__brand {}
+
+    .footer__brand-name {
+      font-family: var(--display-font);
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: var(--weiss);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer__brand-claim {
+      font-family: var(--body-font);
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: var(--space-m);
+    }
+
+    .footer__brand-text {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+      max-width: 300px;
+    }
+
+    .footer__col-title {
+      font-family: var(--display-font);
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--weiss);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-m);
+    }
+
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .footer__links a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+
+    .footer__links a:hover { color: var(--akzent); }
+
+    .footer__contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.625rem;
+      line-height: 1.5;
+    }
+
+    .footer__contact-item svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--akzent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer__contact-item a {
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+
+    .footer__contact-item a:hover { color: var(--akzent); }
+
+    .footer__bottom {
+      padding-top: var(--space-m);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer__copy {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer__legal {
+      display: flex;
+      gap: var(--space-m);
+    }
+
+    .footer__legal a {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.35);
+      transition: color 0.2s;
+    }
+
+    .footer__legal a:hover { color: var(--weiss); }
+
+    /* ============================================================
+       RESPONSIVE – 768px
+    ============================================================ */
+    @media (min-width: 768px) {
+      .nav__links { display: flex; }
+      .nav__cta   { display: flex; }
+      .nav__hamburger { display: none; }
+
+      .hero__inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero__signature {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .leistungen__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .vertrauen__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ueber-uns__inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ============================================================
+       RESPONSIVE – 1024px
+    ============================================================ */
+    @media (min-width: 1024px) {
+      .leistungen__grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .vertrauen__inner {
+        grid-template-columns: 1fr 2fr;
+        align-items: start;
+      }
+
+      .vertrauen__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer__grid {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+      }
+    }
+
+    /* Akkordeon-Akzentlinie links bei Leistungskarte */
+    .leistung-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--akzent);
+      border-radius: var(--radius-m) 0 0 var(--radius-m);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .leistung-card:hover::before { opacity: 1; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+
+        <a href="index.html" class="nav__logo">
+          <span class="nav__logo-name">Apaco AG</span>
+          <span class="nav__logo-claim">Anlagen- &amp; Apparatebau</span>
+        </a>
+
+        <ul class="nav__links">
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="referenzen.html">Referenzen</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+
+        <div class="nav__cta">
+          <a href="tel:+41XXXXXXXXX" class="nav__phone">+41 XX XXX XX XX</a>
+        </div>
+
+        <button class="nav__hamburger" aria-label="Menü öffnen" onclick="document.querySelector('.nav__mobile-menu').classList.toggle('is-open')">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="nav__mobile-menu">
+      <a href="leistungen.html" onclick="this.closest('.nav__mobile-menu').classList.remove('is-open')">Leistungen</a>
+      <a href="ueber-uns.html" onclick="this.closest('.nav__mobile-menu').classList.remove('is-open')">Über uns</a>
+      <a href="referenzen.html" onclick="this.closest('.nav__mobile-menu').classList.remove('is-open')">Referenzen</a>
+      <a href="kontakt.html" onclick="this.closest('.nav__mobile-menu').classList.remove('is-open')">Kontakt</a>
+      <a href="tel:+41XXXXXXXXX" class="btn btn--primary">+41 XX XXX XX XX</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN
+  ============================================================ -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Einleitung">
+      <div class="container">
+        <div class="hero__inner">
+
+          <div class="hero__content">
+            <div class="hero__badge">Präzision seit 1932</div>
+            <h1 class="hero__headline">
+              Anlagen, die<br>
+              <em>technisch versagen</em><br>
+              dürfen nicht.
+            </h1>
+            <p class="hero__subline">
+              Apaco AG plant, konstruiert und baut massgeschneiderte Anlagen und Apparate für Chemie, Pharma und Industrie – von der ersten Skizze bis zur Inbetriebnahme. In der Schweiz. Mit 120 Fachleuten. Seit über 90 Jahren.
+            </p>
+            <div class="hero__actions">
+              <a href="tel:+41XXXXXXXXX" class="btn btn--primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.09 1.25 2 2 0 012.11 0h3a2 2 0 012 1.72 13 13 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 13 13 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                Jetzt anrufen
+              </a>
+              <a href="leistungen.html" class="btn btn--outline-light">Leistungen ansehen</a>
+            </div>
+          </div>
+
+          <div class="hero__signature">
+            <div class="hero__stat">
+              <div class="hero__stat-num">1932<span>.</span></div>
+              <div class="hero__stat-label">Gründungsjahr – über 90 Jahre Erfahrung im Anlagenbau</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-num">120<span>+</span></div>
+              <div class="hero__stat-label">Fachleute in Konstruktion, Fertigung und Montage</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-num">3<span></span></div>
+              <div class="hero__stat-label">Branchen: Chemie, Pharma &amp; Industrie</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LEISTUNGS-TEASER -->
+    <section class="leistungen" aria-label="Leistungen">
+      <div class="container">
+
+        <div class="leistungen__header">
+          <p class="section-label">Was wir tun</p>
+          <h2 class="section-title">Vom Engineering bis zur Inbetriebnahme – alles aus einer Hand</h2>
+          <p class="section-intro">Wir liefern keine Standardlösungen. Jede Anlage wird auf Ihre Prozessanforderungen ausgelegt – konstruiert und gefertigt in der Schweiz.</p>
+        </div>
+
+        <div class="leistungen__grid">
+
+          <div class="leistung-card">
+            <div class="leistung-card__icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="leistung-card__title">Apparatebau &amp; Behälterbau</div>
+            <p class="leistung-card__text">Druckbehälter, Wärmetauscher und Reaktoren für chemische und pharmazeutische Prozesse – gefertigt nach Norm und Kundenvorgabe.</p>
+          </div>
+
+          <div class="leistung-card">
+            <div class="leistung-card__icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07M8.46 8.46a5 5 0 000 7.07"/></svg>
+            </div>
+            <div class="leistung-card__title">Anlagenplanung &amp; Engineering</div>
+            <p class="leistung-card__text">Verfahrenstechnische Planung, 3D-Konstruktion und Projektmanagement – von der Machbarkeitsstudie bis zum genehmigungsfähigen Entwurf.</p>
+          </div>
+
+          <div class="leistung-card">
+            <div class="leistung-card__icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div class="leistung-card__title">Wärme- &amp; Gebäudetechnik</div>
+            <p class="leistung-card__text">Fernwärmeanlagen, industrielle Wärmeversorgung und gebäudetechnische Systeme – effizient konzipiert und langlebig ausgeführt.</p>
+          </div>
+
+          <div class="leistung-card">
+            <div class="leistung-card__icon">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div class="leistung-card__title">Montage &amp; Inbetriebnahme</div>
+            <p class="leistung-card__text">Unser Montageteam übernimmt die fachgerechte Installation vor Ort und begleitet die Anlage bis zum sicheren Betrieb.</p>
+          </div>
+
+        </div>
+
+        <div class="leistungen__footer">
+          <a href="leistungen.html" class="leistungen__link">
+            Alle Leistungen ansehen
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VERTRAUENS-SEKTION -->
+    <section class="vertrauen" aria-label="Fakten und Vertrauen">
+      <div class="container">
+        <div class="vertrauen__inner">
+
+          <div class="vertrauen__header">
+            <p class="section-label">Warum Apaco</p>
+            <h2 class="section-title">Substanz, die man messen kann</h2>
+            <p class="section-intro">Keine Versprechen ohne Grundlage. Zahlen und Eigenschaften, die unsere Arbeit seit Jahrzehnten beschreiben.</p>
+          </div>
+
+          <div class="vertrauen__grid">
+
+            <div class="vertrauen-item">
+              <div class="vertrauen-item__num">91</div>
+              <div class="vertrauen-item__label">Jahre Erfahrung</div>
+              <div class="vertrauen-item__desc">Gegründet 1932, kontinuierlich weiterentwickelt – mit nachgewiesenem Know-how in komplexen Industrieprojekten.</div>
+            </div>
+
+            <div class="vertrauen-item">
+              <div class="vertrauen-item__num">120</div>
+              <div class="vertrauen-item__label">Mitarbeitende</div>
+              <div class="vertrauen-item__desc">Ingenieure, Konstrukteure, Schweisser und Montagespezialisten – alle unter einem Dach, direkt koordiniert.</div>
+            </div>
+
+            <div class="vertrauen-item">
+              <div class="vertrauen-item__num">100%</div>
+              <div class="vertrauen-item__label">Eigene Fertigung</div>
+              <div class="vertrauen-item__desc">Wir produzieren in der Schweiz mit eigener Werkstatt – ohne Abhängigkeit von Drittlieferanten bei kritischen Komponenten.</div>
+            </div>
+
+            <div class="vertrauen-item">
+              <div class="vertrauen-item__num">3</div>
+              <div class="vertrauen-item__label">Fachbereiche</div>
+              <div class="vertrauen-item__desc">Chemie &amp; Pharma, Industrie sowie Fernwärme und Gebäudetechnik – Tiefgang in jedem Bereich, keine Flächendeckung auf Kosten der Qualität.</div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ÜBER UNS TEASER -->
+    <section class="ueber-uns" aria-label="Über Apaco AG">
+      <div class="container">
+        <div class="ueber-uns__inner">
+
+          <div class="ueber-uns__content">
+            <p class="section-label">Über uns</p>
+            <h2 class="section-title">Ein Ingenieurbetrieb, dem man komplexe Anlagen anvertraut</h2>
+            <p class="ueber-uns__text">
+              Die <strong>Apaco AG</strong> steht seit 1932 für massgeschneiderten Anlagen- und Apparatebau in der Schweiz. Wir arbeiten für Kunden in der Chemie, Pharmaindustrie und im Industriebereich – überall dort, wo Fehler keine Option sind und Zuverlässigkeit keine Verhandlungssache ist.<br><br>
+              Mit <strong>120 Fachleuten</strong> in Engineering, Fertigung und Montage planen und realisieren wir Anlagen, die auf Ihre Prozesse zugeschnitten sind – von der ersten Konzeptskizze bis zum qualifizierten Betrieb.
+            </p>
+            <a href="ueber-uns.html" class="btn btn--outline">Mehr über uns erfahren</a>
+          </div>
+
+          <div class="ueber-uns__visual">
+            <div class="ueber-uns__visual-label">Meilensteine</div>
+            <div class="ueber-uns__timeline">
+              <div class="timeline-item">
+                <div class="timeline-item__year">1932</div>
+                <div class="timeline-item__text">Gründung des Unternehmens in der Schweiz – spezialisiert auf industriellen Anlagen- und Apparatebau.</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-item__year">Heute</div>
+                <div class="timeline-item__text">120 Mitarbeitende, eigene Fertigungshallen, Kunden in Chemie, Pharma und Industrie in der gesamten DACH-Region.</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-item__year">Morgen</div>
+                <div class="timeline-item__text">Kontinuierliche Weiterentwicklung – in Werkstoffen, Verfahren und digitalen Planungswerkzeugen.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA-BLOCK -->
+    <section class="cta-block" aria-label="Kontaktaufnahme">
+      <div class="container">
+        <div class="cta-block__inner">
+          <p class="section-label" style="text-align:center;">Nächster Schritt</p>
+          <h2 class="cta-block__title">Bereit für ein technisches Gespräch?</h2>
+          <p class="cta-block__text">
+            Teilen Sie uns Ihre Anforderungen mit – wir melden uns innert einem Werktag mit einer ersten Einschätzung. Kein Umweg über Kontaktformulare, kein Verkaufsgespräch: direkt mit unseren Ingenieuren.
+          </p>
+          <div class="cta-block__actions">
+            <a href="kontakt.html" class="btn btn--primary">Anfrage senden</a>
+            <a href="tel:+41XXXXXXXXX" class="btn btn--outline">Direkt anrufen</a>
+          </div>
+          <div class="cta-block__contacts">
+            <a href="tel:+41XXXXXXXXX" class="cta-block__contact">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.09 1.25 2 2 0 012.11 0h3a2 2 0 012 1.72 13 13 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 13 13 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              +41 XX XXX XX XX
+            </a>
+            <span class="cta-block__divider">|</span>
+            <a href="mailto:info@apaco.ch" class="cta-block__contact">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              info@apaco.ch
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="container">
+
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <div class="footer__brand-name">Apaco AG</div>
+          <div class="footer__brand-claim">Anlagen- &amp; Apparatebau seit 1932</div>
+          <p class="footer__brand-text">Massgeschneiderter Anlagen- und Apparatebau für Chemie, Pharma und Industrie. Engineering, Fertigung und Montage aus einer Hand – in der Schweiz.</p>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Seiten</div>
+          <ul class="footer__links">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="referenzen.html">Referenzen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Leistungen</div>
+          <ul class="footer__links">
+            <li><a href="leistungen.html">Apparatebau</a></li>
+            <li><a href="leistungen.html">Anlagenplanung</a></li>
+            <li><a href="leistungen.html">Wärmetechnik</a></li>
+            <li><a href="leistungen.html">Montage</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Kontakt</div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Musterstrasse 1<br>PLZ Ort</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.09 1.25 2 2 0 012.11 0h3a2 2 0 012 1.72 13 13 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 13 13 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+41XXXXXXXXX">+41 XX XXX XX XX</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@apaco.ch">info@apaco.ch</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2024 Apaco AG. Alle Rechte vorbehalten.</span>
+        <nav class="footer__legal" aria-label="Rechtliches">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
