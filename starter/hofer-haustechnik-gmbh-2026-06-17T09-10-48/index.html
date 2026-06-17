@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hofer Haustechnik GmbH – Sanitär, Heizung & Klima in Rudelzhausen</title>
+  <meta name="description" content="Hofer Haustechnik GmbH aus Rudelzhausen – Ihr regionaler Fachbetrieb für Sanitär, Heizung und Klima. Wärmepumpen, Badumbauten und mehr aus einer Hand.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── CSS-Variablen Design-System ── */
+    :root {
+      --primaer: #1C2B3A;
+      --akzent: #E87722;
+      --hintergrund: #F5F3EF;
+      --neutral: #6B7B8D;
+      --weiss: #FFFFFF;
+      --dunkel: #111820;
+      --hell-grau: #E8E5DF;
+      --font-display: 'Archivo Black', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius: 4px;
+      --radius-lg: 8px;
+      --shadow: 0 2px 12px rgba(28,43,58,0.10);
+      --shadow-lg: 0 8px 32px rgba(28,43,58,0.14);
+      --transition: 0.2s ease;
+      --max-width: 1200px;
+      --section-pad: 80px 24px;
+    }
+
+    /* ── Reset & Basis ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--hintergrund);
+      color: var(--primaer);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Utility ── */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+      white-space: nowrap;
+      border: 2px solid transparent;
+      text-align: center;
+    }
+    .btn-primary {
+      background: var(--akzent);
+      color: var(--weiss);
+      border-color: var(--akzent);
+    }
+    .btn-primary:hover {
+      background: #cf6818;
+      border-color: #cf6818;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--primaer);
+      border-color: var(--primaer);
+    }
+    .btn-secondary:hover {
+      background: var(--primaer);
+      color: var(--weiss);
+      transform: translateY(-1px);
+    }
+    .btn-outline-weiss {
+      background: transparent;
+      color: var(--weiss);
+      border-color: var(--weiss);
+    }
+    .btn-outline-weiss:hover {
+      background: var(--weiss);
+      color: var(--primaer);
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--akzent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.15;
+      color: var(--primaer);
+      margin-bottom: 16px;
+    }
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--neutral);
+      max-width: 580px;
+      margin-bottom: 40px;
+    }
+
+    /* ── NAVIGATION ── */
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--primaer);
+      box-shadow: var(--shadow);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 24px;
+      height: 68px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--weiss);
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+    .nav-logo span {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.70rem;
+      letter-spacing: 0.08em;
+      color: var(--akzent);
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.90rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.80);
+      transition: color var(--transition);
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover {
+      color: var(--weiss);
+      border-bottom-color: var(--akzent);
+    }
+    .nav-cta {
+      flex-shrink: 0;
+      font-size: 0.90rem;
+      padding: 10px 20px;
+    }
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--weiss);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Mobile Nav Open */
+    .nav-mobile-open .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--primaer);
+      padding: 24px;
+      gap: 20px;
+      align-items: flex-start;
+      box-shadow: var(--shadow-lg);
+    }
+    .nav-mobile-open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-mobile-open .nav-hamburger span:nth-child(2) { opacity: 0; }
+    .nav-mobile-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (min-width: 768px) {
+      .nav-hamburger { display: none; }
+      .nav-links { display: flex; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--primaer);
+      color: var(--weiss);
+      padding: 80px 24px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -80px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(232,119,34,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--akzent);
+    }
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--akzent);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 2px;
+      background: var(--akzent);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      line-height: 1.08;
+      color: var(--weiss);
+      margin-bottom: 24px;
+      max-width: 720px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--akzent);
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: rgba(255,255,255,0.78);
+      max-width: 540px;
+      margin-bottom: 40px;
+      line-height: 1.65;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .hero-badge {
+      margin-top: 56px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.70);
+    }
+    .hero-badge strong {
+      color: var(--weiss);
+      font-weight: 600;
+    }
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--akzent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 768px) {
+      .hero-ctas { flex-direction: row; }
+      .hero { padding: 100px 24px 88px; }
+    }
+
+    /* ── LEISTUNGEN TEASER ── */
+    .leistungen {
+      padding: var(--section-pad);
+      background: var(--weiss);
+    }
+    .leistungen-header {
+      margin-bottom: 48px;
+    }
+    .leistungen-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .leistung-card {
+      background: var(--hintergrund);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      border-left: 4px solid var(--akzent);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .leistung-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+    .leistung-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .leistung-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--primaer);
+      margin-bottom: 10px;
+    }
+    .leistung-card p {
+      font-size: 0.92rem;
+      color: var(--neutral);
+      line-height: 1.55;
+    }
+
+    @media (min-width: 768px) {
+      .leistungen-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .leistungen-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* ── VERTRAUEN ── */
+    .vertrauen {
+      background: var(--primaer);
+      padding: var(--section-pad);
+    }
+    .vertrauen-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .vertrauen-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .vertrauen-item {
+      text-align: center;
+      padding: 24px 16px;
+    }
+    .vertrauen-zahl {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      color: var(--akzent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .vertrauen-label {
+      font-size: 0.90rem;
+      color: rgba(255,255,255,0.70);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .vertrauen-label strong {
+      display: block;
+      color: var(--weiss);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    @media (min-width: 768px) {
+      .vertrauen-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* ── ÜBER UNS TEASER ── */
+    .ueber-uns {
+      padding: var(--section-pad);
+      background: var(--hintergrund);
+    }
+    .ueber-uns-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .ueber-uns-visual {
+      background: var(--primaer);
+      border-radius: var(--radius-lg);
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ueber-uns-visual::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: rgba(232,119,34,0.15);
+      border-radius: 50%;
+    }
+    .ueber-uns-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: var(--weiss);
+      line-height: 1.35;
+      position: relative;
+    }
+    .ueber-uns-quote::before {
+      content: '„';
+      font-size: 4rem;
+      color: var(--akzent);
+      font-family: var(--font-display);
+      line-height: 0.6;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .ueber-uns-content p {
+      font-size: 1rem;
+      color: var(--neutral);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .ueber-uns-content p:last-of-type { margin-bottom: 32px; }
+
+    @media (min-width: 1024px) {
+      .ueber-uns-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── CTA BLOCK ── */
+    .cta-block {
+      background: var(--akzent);
+      padding: 72px 24px;
+    }
+    .cta-block-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .cta-block h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--weiss);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .cta-block p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 40px;
+    }
+    .cta-kontakt-liste {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .cta-kontakt-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--weiss);
+    }
+    .cta-kontakt-item a {
+      color: var(--weiss);
+      border-bottom: 2px solid rgba(255,255,255,0.40);
+      transition: border-color var(--transition);
+    }
+    .cta-kontakt-item a:hover { border-bottom-color: var(--weiss); }
+    .cta-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.20);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .cta-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .cta-kontakt-liste { flex-direction: row; justify-content: center; gap: 40px; }
+      .cta-btns { flex-direction: row; justify-content: center; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dunkel);
+      color: rgba(255,255,255,0.65);
+      padding: 56px 24px 32px;
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--weiss);
+      margin-bottom: 8px;
+    }
+    .footer-logo span {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--akzent);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .footer-tagline {
+      font-size: 0.88rem;
+      margin-top: 12px;
+      line-height: 1.6;
+      max-width: 260px;
+    }
+    .footer-col h4 {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.80rem;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--weiss);
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col ul a {
+      font-size: 0.90rem;
+      color: rgba(255,255,255,0.60);
+      transition: color var(--transition);
+    }
+    .footer-col ul a:hover { color: var(--akzent); }
+    .footer-kontakt-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.90rem;
+      margin-bottom: 12px;
+    }
+    .footer-kontakt-item .fi { flex-shrink: 0; margin-top: 2px; }
+    .footer-kontakt-item a {
+      color: rgba(255,255,255,0.60);
+      transition: color var(--transition);
+    }
+    .footer-kontakt-item a:hover { color: var(--akzent); }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      margin-bottom: 24px;
+    }
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.82rem;
+    }
+    .footer-bottom-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-bottom-links a {
+      color: rgba(255,255,255,0.45);
+      transition: color var(--transition);
+    }
+    .footer-bottom-links a:hover { color: var(--weiss); }
+
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+      .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
+    @media (min-width: 1024px) {
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
+    }
+
+    /* ── Akzentlinie für Sektionen ── */
+    .section-accent-line {
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: var(--akzent);
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <div class="nav-wrapper" id="nav-wrapper">
+    <nav>
+      <a href="index.html" class="nav-logo">
+        Hofer Haustechnik
+        <span>Sanitär · Heizung · Klima</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="referenzen.html">Referenzen</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <a href="tel:+49XXXXXXXXX" class="btn btn-primary nav-cta" aria-label="Jetzt anrufen">
+        📞 Jetzt anrufen
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section class="hero" aria-label="Startbereich">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Ihr Haustechnik-Fachbetrieb in Rudelzhausen</p>
+        <h1>
+          Von der <em>Wärmepumpe</em><br>
+          bis zum Traumbad –<br>
+          alles aus einer Hand.
+        </h1>
+        <p class="hero-sub">
+          Sanitär, Heizung und Klima mit über 125 Jahren Handwerkserfahrung. Wir beraten, planen und bauen – termingerecht und ohne Umwege.
+        </p>
+        <div class="hero-ctas">
+          <a href="tel:+49XXXXXXXXX" class="btn btn-primary">📞 Jetzt anrufen</a>
+          <a href="leistungen.html" class="btn btn-outline-weiss">Leistungen ansehen</a>
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          <span>Seit <strong>1897</strong> im Handwerk – regional, zuverlässig, aus einer Hand</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LEISTUNGEN TEASER ── -->
+    <section class="leistungen" aria-labelledby="leistungen-titel">
+      <div class="container">
+        <div class="leistungen-header">
+          <span class="tag">Unsere Leistungen</span>
+          <span class="section-accent-line"></span>
+          <h2 class="section-title" id="leistungen-titel">Was wir für Sie tun</h2>
+          <p class="section-lead">Ob Neubau, Sanierung oder Modernisierung – wir decken die gesamte Haustechnik ab und liefern saubere Arbeit vom ersten Gespräch bis zur Übergabe.</p>
+        </div>
+        <div class="leistungen-grid">
+          <div class="leistung-card">
+            <span class="leistung-icon">🌡️</span>
+            <h3>Heizung & Wärmepumpe</h3>
+            <p>Moderne Wärmepumpensysteme, Pellets- und Holzheizungen sowie klassische Heizungsanlagen – effizient geplant und fachgerecht installiert.</p>
+          </div>
+          <div class="leistung-card">
+            <span class="leistung-icon">☀️</span>
+            <h3>Solar & Erneuerbare Energien</h3>
+            <p>Thermische Solaranlagen und Photovoltaik-Integration für Ihr Zuhause oder Ihren Betrieb. Wir berechnen, was sich für Sie wirklich lohnt.</p>
+          </div>
+          <div class="leistung-card">
+            <span class="leistung-icon">🛁</span>
+            <h3>Badumbau & Sanitär</h3>
+            <p>Vom schnellen Sanitärservice bis zum vollständigen Badumbau – wir setzen Ihre Vorstellungen handwerklich sauber um.</p>
+          </div>
+          <div class="leistung-card">
+            <span class="leistung-icon">❄️</span>
+            <h3>Klima & Lüftung</h3>
+            <p>Klimaanlagen und kontrollierte Wohnraumlüftung für angenehme Raumluft das ganze Jahr – Installation und Wartung inklusive.</p>
+          </div>
+        </div>
+        <a href="leistungen.html" class="btn btn-secondary">Alle Leistungen ansehen</a>
+      </div>
+    </section>
+
+    <!-- ── VERTRAUEN ── -->
+    <section class="vertrauen" aria-label="Zahlen und Fakten">
+      <div class="vertrauen-inner">
+        <div class="vertrauen-grid">
+          <div class="vertrauen-item">
+            <div class="vertrauen-zahl">1897</div>
+            <div class="vertrauen-label">
+              <strong>Gegründet</strong>
+              Über 125 Jahre Handwerkserfahrung in der Region
+            </div>
+          </div>
+          <div class="vertrauen-item">
+            <div class="vertrauen-zahl">3.</div>
+            <div class="vertrauen-label">
+              <strong>Generation</strong>
+              Familiengeführt mit persönlicher Verantwortung
+            </div>
+          </div>
+          <div class="vertrauen-item">
+            <div class="vertrauen-zahl">10+</div>
+            <div class="vertrauen-label">
+              <strong>Fachleute</strong>
+              Eingespieltes Team vor Ort – kein Subfirmen-Chaos
+            </div>
+          </div>
+          <div class="vertrauen-item">
+            <div class="vertrauen-zahl">1×</div>
+            <div class="vertrauen-label">
+              <strong>Ansprechperson</strong>
+              Von der Planung bis zur Übergabe – alles aus einer Hand
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ÜBER UNS TEASER ── -->
+    <section class="ueber-uns" aria-labelledby="ueber-uns-titel">
+      <div class="ueber-uns-inner">
+        <div class="ueber-uns-visual">
+          <p class="ueber-uns-quote">
+            Klare Handwerker-Kraft trifft moderne Energiekompetenz.
+          </p>
+        </div>
+        <div class="ueber-uns-content">
+          <span class="tag">Über uns</span>
+          <span class="section-accent-line"></span>
+          <h2 class="section-title" id="ueber-uns-titel">Ein Betrieb. Ein Wort. Seit 1897.</h2>
+          <p>Hofer Haustechnik GmbH ist Ihr regionaler Fachbetrieb für Sanitär, Heizung und Klima in Rudelzhausen und Umgebung. Was 1897 als Handwerksbetrieb begann, ist heute ein modernes Unternehmen mit dem Fachwissen für energieeffiziente Heizsysteme, Badsanierungen und Klimatechnik.</p>
+          <p>Wir sind kein anonymes Grossunternehmen. Bei uns kennen Sie Ihren Ansprechpartner persönlich – und der steht auch nach der Fertigstellung für Sie da.</p>
+          <a href="ueber-uns.html" class="btn btn-secondary">Mehr über uns erfahren</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA BLOCK ── -->
+    <section class="cta-block" aria-label="Kontaktaufforderung">
+      <div class="cta-block-inner">
+        <h2>Kostenlose Erstberatung – direkt beim Fachmann</h2>
+        <p>Schildern Sie uns Ihr Vorhaben. Wir melden uns innerhalb eines Werktages und beraten Sie unverbindlich – telefonisch oder vor Ort.</p>
+        <div class="cta-kontakt-liste">
+          <div class="cta-kontakt-item">
+            <div class="cta-icon">📞</div>
+            <a href="tel:+49XXXXXXXXX">+49 XX XXX XX XX</a>
+          </div>
+          <div class="cta-kontakt-item">
+            <div class="cta-icon">✉️</div>
+            <a href="mailto:info@hofer-haustechnik.de">info@hofer-haustechnik.de</a>
+          </div>
+        </div>
+        <div class="cta-btns">
+          <a href="tel:+49XXXXXXXXX" class="btn btn-primary">Jetzt anrufen</a>
+          <a href="kontakt.html" class="btn btn-outline-weiss">Termin anfragen</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            Hofer Haustechnik GmbH
+            <span>Sanitär · Heizung · Klima</span>
+          </div>
+          <p class="footer-tagline">Ihr verlässlicher Haustechnik-Partner in der Region – von der Wärmepumpe bis zum Badumbau.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Seiten</h4>
+          <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="referenzen.html">Referenzen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <div class="footer-kontakt-item">
+            <span class="fi">📍</span>
+            <span>Musterstrasse 1<br>84095 Rudelzhausen</span>
+          </div>
+          <div class="footer-kontakt-item">
+            <span class="fi">📞</span>
+            <a href="tel:+49XXXXXXXXX">+49 XX XXX XX XX</a>
+          </div>
+          <div class="footer-kontakt-item">
+            <span class="fi">✉️</span>
+            <a href="mailto:info@hofer-haustechnik.de">info@hofer-haustechnik.de</a>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom">
+        <span>© 2025 Hofer Haustechnik GmbH – Alle Rechte vorbehalten.</span>
+        <div class="footer-bottom-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Navigation Toggle
+    const hamburger = document.getElementById('nav-hamburger');
+    const navWrapper = document.getElementById('nav-wrapper');
+
+    hamburger.addEventListener('click', function () {
+      const isOpen = navWrapper.classList.toggle('nav-mobile-open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Nav-Links schliessen bei Klick (mobile)
+    document.querySelectorAll('#nav-links a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navWrapper.classList.remove('nav-mobile-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html>
