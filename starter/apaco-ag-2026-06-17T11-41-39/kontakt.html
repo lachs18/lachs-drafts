@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – Apaco AG</title>
+  <meta name="description" content="Nehmen Sie Kontakt mit der Apaco AG auf. Wir beraten Sie zu massgeschneiderten Anlagen- und Apparatebaulösungen für Chemie, Pharma und Industrie." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary:    #1A2B3C;
+      --accent:     #C8960C;
+      --bg:         #F4F6F8;
+      --neutral:    #5A6A7A;
+      --white:      #FFFFFF;
+      --border:     #D6DCE3;
+      --font-display: 'Inter', sans-serif;
+      --font-body:    'IBM Plex Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg);
+      color: var(--primary);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────────────── */
+    .nav {
+      background-color: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    .nav__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav__logo {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .nav__logo-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+
+    .nav__logo-claim {
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav__links a:hover {
+      color: var(--white);
+    }
+
+    .nav__links a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .nav__cta {
+      background-color: var(--accent);
+      color: var(--primary) !important;
+      border-bottom: none !important;
+      padding: 0.5rem 1.25rem !important;
+      border-radius: 2px;
+      font-weight: 700 !important;
+      transition: background-color 0.2s, opacity 0.2s !important;
+    }
+
+    .nav__cta:hover {
+      background-color: #b0820a !important;
+      color: var(--primary) !important;
+    }
+
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav__toggle span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+
+    /* ─── PAGE HERO ───────────────────────────────────────────────── */
+    .page-hero {
+      background-color: var(--primary);
+      padding: 4rem 2rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent) 0%, transparent 70%);
+    }
+
+    .page-hero__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-hero__label {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .page-hero__title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .page-hero__sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+    }
+
+    /* ─── MAIN LAYOUT ─────────────────────────────────────────────── */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    /* ─── CONTACT GRID ────────────────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ─── CONTACT INFO ────────────────────────────────────────────── */
+    .contact-info__block {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+      padding: 2.5rem;
+      border-radius: 2px;
+    }
+
+    .contact-info__title {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--neutral);
+      margin-bottom: 2rem;
+    }
+
+    .contact-info__item {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-info__item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .contact-info__label {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--neutral);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-info__phone {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+      line-height: 1.2;
+      transition: color 0.2s;
+    }
+
+    .contact-info__phone:hover {
+      color: var(--accent);
+    }
+
+    .contact-info__email {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--accent);
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+
+    .contact-info__email:hover {
+      opacity: 0.75;
+    }
+
+    .contact-info__address {
+      font-size: 0.95rem;
+      color: var(--primary);
+      line-height: 1.8;
+    }
+
+    .contact-info__hours {
+      font-size: 0.9rem;
+      color: var(--primary);
+      line-height: 1.8;
+    }
+
+    .contact-info__hours strong {
+      display: inline-block;
+      min-width: 160px;
+      font-weight: 500;
+      color: var(--neutral);
+    }
+
+    .contact-info__reaction {
+      background-color: var(--bg);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.1rem;
+      border-radius: 0 2px 2px 0;
+      margin-top: 2.5rem;
+    }
+
+    .contact-info__reaction p {
+      font-size: 0.85rem;
+      color: var(--neutral);
+      line-height: 1.5;
+    }
+
+    .contact-info__reaction strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* ─── CONTACT FORM ────────────────────────────────────────────── */
+    .contact-form__block {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      padding: 2.5rem;
+      border-radius: 2px;
+    }
+
+    .contact-form__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-form__sub {
+      font-size: 0.875rem;
+      color: var(--neutral);
+      margin-bottom: 2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neutral);
+    }
+
+    label .required {
+      color: var(--accent);
+      margin-left: 2px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--primary);
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 0.7rem 0.9rem;
+      transition: border-color 0.2s, background-color 0.2s;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      background-color: var(--white);
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235A6A7A' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .form-notice {
+      font-size: 0.8rem;
+      color: var(--neutral);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .form-notice::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .btn-submit {
+      background-color: var(--accent);
+      color: var(--primary);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    .btn-submit:hover {
+      background-color: #b0820a;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.98);
+    }
+
+    .form-privacy {
+      font-size: 0.75rem;
+      color: var(--neutral);
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+
+    .form-privacy a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* ─── DIVIDER ─────────────────────────────────────────────────── */
+    .divider {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── MAP SECTION ─────────────────────────────────────────────── */
+    .map-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    .map-section__label {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--neutral);
+      margin-bottom: 1rem;
+    }
+
+    .map-section__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+
+    .map-wrapper {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      background-color: var(--primary);
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.75rem;
+      background-color: #0e1c2a;
+    }
+
+    .map-placeholder__icon {
+      width: 40px;
+      height: 40px;
+      opacity: 0.25;
+    }
+
+    .map-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(10,20,30,0.92));
+      padding: 2rem 2rem 1.5rem;
+    }
+
+    .map-overlay__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .map-overlay__address {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .map-overlay__link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      transition: opacity 0.2s;
+    }
+
+    .map-overlay__link:hover {
+      opacity: 0.75;
+    }
+
+    /* ─── ANFAHRT SECTION ─────────────────────────────────────────── */
+    .anfahrt-section {
+      background-color: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .anfahrt-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .anfahrt-inner__label {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--neutral);
+      margin-bottom: 1rem;
+    }
+
+    .anfahrt-inner__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 2.5rem;
+    }
+
+    .anfahrt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .anfahrt-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .anfahrt-card__icon-wrap {
+      width: 44px;
+      height: 44px;
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .anfahrt-card__icon-wrap svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--accent);
+    }
+
+    .anfahrt-card__heading {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--primary);
+      letter-spacing: 0.02em;
+    }
+
+    .anfahrt-card__text {
+      font-size: 0.875rem;
+      color: var(--neutral);
+      line-height: 1.7;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────────────── */
+    .footer {
+      background-color: var(--primary);
+      color: rgba(255,255,255,0.65);
+      padding: 4rem 2rem 2rem;
+      border-top: 3px solid var(--accent);
+    }
+
+    .footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer__logo-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer__logo-claim {
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer__tagline {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer__col-title {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer__links a {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+
+    .footer__links a:hover {
+      color: var(--white);
+    }
+
+    .footer__contact-line {
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .footer__contact-line a {
+      color: rgba(255,255,255,0.75);
+      transition: color 0.2s;
+    }
+
+    .footer__contact-line a:hover {
+      color: var(--accent);
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer__copy {
+      font-size: 0.78rem;
+    }
+
+    .footer__legal {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer__legal a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+    }
+
+    .footer__legal a:hover {
+      color: var(--white);
+    }
+
+    .footer__badge {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .footer__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .anfahrt-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav__links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background-color: var(--primary);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding: 1rem 0;
+      }
+
+      .nav__links.open {
+        display: flex;
+      }
+
+      .nav__links li {
+        width: 100%;
+      }
+
+      .nav__links a {
+        display: block;
+        padding: 0.75rem 2rem;
+        border-bottom: none !important;
+      }
+
+      .nav__cta {
+        margin: 0.5rem 2rem;
+        display: inline-block;
+        border-radius: 2px;
+      }
+
+      .nav__toggle {
+        display: flex;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .form-submit {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-submit {
+        text-align: center;
+        width: 100%;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer__tagline {
+        max-width: 100%;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .anfahrt-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-hero {
+        padding: 3rem 2rem 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ──────────────────────────────────────────────── -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Apaco AG – Startseite">
+        <span class="nav__logo-name">Apaco AG</span>
+        <span class="nav__logo-claim">Präzision seit 1932</span>
+      </a>
+
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="referenzen.html">Referenzen</a></li>
+        <li><a href="unternehmen.html">Unternehmen</a></li>
+        <li><a href="kontakt.html" class="active">Kontakt</a></li>
+        <li><a href="kontakt.html" class="nav__cta">Anfrage stellen</a></li>
+      </ul>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── PAGE HERO ────────────────────────────────────────────────── -->
+  <header class="page-hero" aria-label="Seiten-Header">
+    <div class="page-hero__inner">
+      <p class="page-hero__label">Kontakt</p>
+      <h1 class="page-hero__title">Sprechen wir.</h1>
+      <p class="page-hero__sub">Teilen Sie uns Ihr Anliegen mit – unsere Fachabteilung meldet sich zeitnah und mit der nötigen Substanz.</p>
+    </div>
+  </header>
+
+  <!-- ─── CONTACT GRID ─────────────────────────────────────────────── -->
+  <main>
+    <section class="section" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="sr-only">Kontaktdaten und Anfrageformular</h2>
+
+      <div class="contact-grid">
+
+        <!-- Linke Spalte: Kontaktdaten -->
+        <div class="contact-info__block" role="complementary" aria-label="Kontaktinformationen">
+          <p class="contact-info__title">Direktkontakt</p>
+
+          <!-- Telefon -->
+          <div class="contact-info__item">
+            <p class="contact-info__label">Telefon</p>
+            <a href="tel:+41XXXXXXXXX" class="contact-info__phone" aria-label="Apaco AG anrufen">+41 XX XXX XX XX</a>
+            <p style="font-size:0.8rem;color:var(--neutral);margin-top:0.35rem;">Mo–Fr 07:30 – 17:00 Uhr</p>
+          </div>
+
+          <!-- E-Mail -->
+          <div class="contact-info__item">
+            <p class="contact-info__label">E-Mail</p>
+            <a href="mailto:info@apaco.ch" class="contact-info__email">info@apaco.ch</a>
+          </div>
+
+          <!-- Adresse -->
+          <div class="contact-info__item">
+            <p class="contact-info__label">Adresse</p>
+            <address class="contact-info__address" style="font-style:normal;">
+              Apaco AG<br />
+              Musterstrasse 1<br />
+              PLZ Ort<br />
+              Schweiz
+            </address>
+          </div>
+
+          <!-- Öffnungszeiten -->
+          <div class="contact-info__item">
+            <p class="contact-info__label">Bürozeiten</p>
+            <div class="contact-info__hours">
+              <div><strong>Montag – Donnerstag</strong> 07:30 – 17:00</div>
+              <div><strong>Freitag</strong> 07:30 – 16:00</div>
+              <div style="margin-top:0.4rem;font-size:0.82rem;color:var(--neutral);">Samstag &amp; Sonntag geschlossen</div>
+            </div>
+          </div>
+
+          <!-- Reaktionszeit -->
+          <div class="contact-info__reaction" role="note" aria-label="Reaktionszeit">
+            <p><strong>Antwortzeit:</strong> Anfragen werden innerhalb von <strong>1 Werktag</strong> durch die zuständige Fachabteilung beantwortet. Bei dringenden technischen Fragen empfehlen wir den direkten Telefonkontakt.</p>
+          </div>
+        </div>
+
+        <!-- Rechte Spalte: Kontaktformular -->
+        <div class="contact-form__block">
+          <h2 class="contact-form__title">Anfrage stellen</h2>
+          <p class="contact-form__sub">Füllen Sie das Formular aus – wir melden uns innerhalb von 24 Stunden mit einem qualifizierten Ansprechpartner.</p>
+
+          <form action="#" method="post" novalidate aria-label="Kontaktformular">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name<span class="required" aria-label="Pflichtfeld">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Vor- und Nachname"
+                  required
+                  autocomplete="name"
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="unternehmen">Unternehmen<span class="required" aria-label="Pflichtfeld">*</span></label>
+                <input
+                  type="text"
+                  id="unternehmen"
+                  name="unternehmen"
+                  placeholder="Firma / Organisation"
+                  required
+                  autocomplete="organization"
+                  aria-required="true"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="telefon">Telefon</label>
+                <input
+                  type="tel"
+                  id="telefon"
+                  name="telefon"
+                  placeholder="+41 XX XXX XX XX"
+                  autocomplete="tel"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">E-Mail<span class="required" aria-label="Pflichtfeld">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="ihre@email.ch"
+                  required
+                  autocomplete="email"
+                  aria-required="true"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="thema">Thema der Anfrage<span class="required" aria-label="Pflichtfeld">*</span></label>
+              <select id="thema" name="thema" required aria-required="true">
+                <option value="" disabled selected>Bitte wählen …</option>
+                <option value="anlagenbau">Anlagenbau &amp; Apparatebau</option>
+                <option value="chemie-pharma">Chemie- und Pharmaprojekte</option>
+                <option value="fernwaerme">Fernwärme- &amp; Wärmetechnik</option>
+                <option value="gebaeudetechnik">Gebäudetechnik</option>
+                <option value="service">Service &amp; Wartung</option>
+                <option value="engineering">Engineering &amp; Planung</option>
+                <option value="karriere">Karriere / Stellenanfrage</option>
+                <option value="anderes">Anderes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="nachricht">Nachricht<span class="required" aria-label="Pflichtfeld">*</span></label>
+              <textarea
+                id="nachricht"
+                name="nachricht"
+                placeholder="Beschreiben Sie Ihr Projekt oder Ihre Fragestellung – je mehr Details, desto gezielter können wir antworten."
+                required
+                aria-required="true"
+              ></textarea>
+            </div>
+
+            <div class="form-submit">
+              <span class="form-notice">Antwort innerhalb von 24 Stunden</span>
+              <button type="submit" class="btn-submit">Anfrage senden →</button>
+            </div>
+
+            <p class="form-privacy">
+              Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäss unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu. Ihre Daten werden ausschliesslich zur Bearbeitung Ihrer Anfrage verwendet.
+            </p>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── MAP SECTION ───────────────────────────────────────────── -->
+    <section class="map-section" aria-labelledby="map-heading">
+      <p class="map-section__label">Standort</p>
+      <h2 class="map-section__title" id="map-heading">Apaco AG – Ihr Standort</h2>
+
+      <div class="map-wrapper" role="img" aria-label="Kartenplatzhalter für den Standort der Apaco AG, Musterstrasse 1, PLZ Ort">
+        <!-- Google Maps iframe hier einfügen -->
+        <!-- Beispiel: <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="380" style="border:0;" allowfullscreen loading="lazy"></iframe> -->
+
+        <div class="map-placeholder" aria-hidden="true">
+          <svg class="map-placeholder__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="24" cy="20" r="8" stroke="white" stroke-width="2.5"/>
+            <path d="M24 4C15.163 4 8 11.163 8 20c0 13.5 16 28 16 28s16-14.5 16-28c0-8.837-7.163-16-16-16z" stroke="white" stroke-width="2.5" fill="none"/>
+          </svg>
+        </div>
+
+        <div class="map-overlay">
+          <p class="map-overlay__name">Apaco AG</p>
+          <p class="map-overlay__address">Musterstrasse 1 · PLZ Ort · Schweiz</p>
+          <a
+            href="https://maps.google.com/?q=Musterstrasse+1+PLZ+Ort+Schweiz"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="map-overlay__link"
+            aria-label="Route zu Apaco AG in Google Maps öffnen"
+          >
+            In Google Maps öffnen →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ANFAHRT ──────────────────────────────────────────────── -->
+    <section class="anfahrt-section" aria-labelledby="anfahrt-heading">
+      <div class="anfahrt-inner">
+        <p class="anfahrt-inner__label">Anreise</p>
+        <h2 class="anfahrt-inner__title" id="anfahrt-heading">So erreichen Sie uns</h2>
+
+        <div class="anfahrt-grid">
+
+          <div class="anfahrt-card">
+            <div class="anfahrt-card__icon-wrap" aria-hidden="true">
+              <!-- Auto-Icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 17H3v-5l2-5h14l2 5v5h-2"/>
+                <circle cx="7.5" cy="17" r="1.5"/>
+                <circle cx="16.5" cy="17" r="1.5"/>
+                <path d="M5 12h14"/>
+              </svg>
+            </div>
+            <p class="anfahrt-card__heading">Mit dem Auto</p>
+            <p class="anfahrt-card__text">
+              Verlassen Sie die Autobahn an der Ausfahrt [Ort] und folgen Sie der Beschilderung Richtung Industriezone. Die Apaco AG befindet sich an der Musterstrasse 1.<br /><br />
+              <strong>Parkierung:</strong> Besucherparkplätze stehen kostenfrei direkt vor dem Gebäude zur Verfügung.
+            </p>
+          </div>
+
+          <div class="anfahrt-card">
+            <div class="anfahrt-card__icon-wrap" aria-hidden="true">
+              <!-- Zug-Icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="3" width="16" height="13" rx="2"/>
+                <path d="M4 10h16"/>
+                <path d="M9 16l-2 4"/>
+                <path d="M15 16l2 4"/>
+                <path d="M8 20h8"/>
+                <circle cx="9" cy="13.5" r="0.5" fill="currentColor"/>
+                <circle cx="15" cy="13.5" r="0.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <p class="anfahrt-card__heading">Mit öffentlichem Verkehr</p>
+            <p class="anfahrt-card__text">
+              Ab Bahnhof [Ort] erreichen Sie uns mit dem Bus Linie [X] bis Haltestelle [Name], Fahrtzeit ca. [X] Minuten. Von dort sind es wenige Gehminuten zur Musterstrasse 1.<br /><br />
+              Aktuelle Fahrpläne finden Sie auf <a href="https://www.sbb.ch" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">sbb.ch</a>.
+            </p>
+          </div>
+
+          <div class="anfahrt-card">
+            <div class="anfahrt-card__icon-wrap" aria-hidden="true">
+              <!-- Info-Icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <p class="anfahrt-card__heading">Hinweis für Besucher</p>
+            <p class="anfahrt-card__text">
+              Bitte melden Sie sich vorab telefonisch an, damit wir den Empfang und einen Ansprechpartner vorbereiten können. Besuche ohne Voranmeldung sind im Produktionsbereich aus Sicherheitsgründen nicht möglich.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__grid">
+
+        <div>
+          <p class="footer__logo-name">Apaco AG</p>
+          <p class="footer__logo-claim">Präzision seit 1932</p>
+          <p class="footer__tagline">
+            Massgeschneiderter Anlagen- und Apparatebau für Chemie, Pharma und Industrie. Seit über 90 Jahren zuverlässiger Partner für komplexe Anlagenprojekte in der Schweiz und im DACH-Raum.
+          </p>
+        </div>
+
+        <div>
+          <p class="footer__col-title">Leistungen</p>
+          <ul class="footer__links">
+            <li><a href="leistungen.html#anlagenbau">Anlagenbau</a></li>
+            <li><a href="leistungen.html#apparatebau">Apparatebau</a></li>
+            <li><a href="leistungen.html#fernwaerme">Fernwärmetechnik</a></li>
+            <li><a href="leistungen.html#engineering">Engineering</a></li>
+            <li><a href="leistungen.html#service">Service &amp; Wartung</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__col-title">Unternehmen</p>
+          <ul class="footer__links">
+            <li><a href="unternehmen.html">Über Apaco</a></li>
+            <li><a href="unternehmen.html#geschichte">Geschichte</a></li>
+            <li><a href="referenzen.html">Referenzen</a></li>
+            <li><a href="karriere.html">Karriere</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__col-title">Kontakt</p>
+          <p class="footer__contact-line">
+            <a href="tel:+41XXXXXXXXX">+41 XX XXX XX XX</a>
+          </p>
+          <p class="footer__contact-line">
+            <a href="mailto:info@apaco.ch">info@apaco.ch</a>
+          </p>
+          <p class="footer__contact-line" style="margin-top:0.75rem;">
+            Musterstrasse 1<br />
+            PLZ Ort<br />
+            Schweiz
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 Apaco AG. Alle Rechte vorbehalten.</p>
+        <ul class="footer__legal">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+          <li><a href="agb.html">AGB</a></li>
+        </ul>
+        <p class="footer__badge">Gestaltet von Lachs Media, Zürich</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── MINIMAL JS: Mobile Nav Toggle ───────────────────────────── -->
+  <script>
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var links  = document.getElementById('navLinks');
+      if (!toggle || !links) return;
+      toggle.addEventListener('click', function () {
+        var isOpen = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        toggle.setAttribute('aria-label', isOpen ? 'Menü schliessen' : 'Menü öffnen');
+      });
+    })();
+  </script>
+
+</body>
+</html>
