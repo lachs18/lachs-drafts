@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leistungen – Apaco AG | Anlagen- und Apparatebau seit 1932</title>
+  <meta name="description" content="Apaco AG plant, konstruiert, fertigt und montiert massgeschneiderte Anlagen für Chemie, Pharma und Industrie. 120 Mitarbeitende, Schweizer Präzision seit 1932." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* =============================================
+       DESIGN TOKENS
+    ============================================= */
+    :root {
+      --color-primary:    #1A2B3C;
+      --color-accent:     #C8960C;
+      --color-bg:         #F4F6F8;
+      --color-neutral:    #5A6A7A;
+      --color-white:      #FFFFFF;
+      --color-border:     #D6DCE3;
+      --color-dark-bg:    #0F1C28;
+
+      --font-display:     'Inter', sans-serif;
+      --font-body:        'IBM Plex Sans', sans-serif;
+
+      --space-xs:  0.5rem;
+      --space-sm:  1rem;
+      --space-md:  1.5rem;
+      --space-lg:  2.5rem;
+      --space-xl:  4rem;
+      --space-2xl: 6rem;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+
+      --shadow-sm: 0 1px 3px rgba(26,43,60,0.08);
+      --shadow-md: 0 4px 16px rgba(26,43,60,0.10);
+      --shadow-lg: 0 8px 32px rgba(26,43,60,0.13);
+
+      --max-width: 1200px;
+      --nav-height: 72px;
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-primary);
+    }
+
+    h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); }
+    h3 { font-size: clamp(1.125rem, 2.5vw, 1.375rem); }
+    h4 { font-size: 1rem; font-weight: 600; }
+
+    p {
+      font-size: 1rem;
+      color: var(--color-neutral);
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       LAYOUT UTILITIES
+    ============================================= */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .section {
+      padding: var(--space-xl) 0;
+    }
+
+    .section--lg {
+      padding: var(--space-2xl) 0;
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius-sm);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn--primary {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border-color: var(--color-accent);
+    }
+
+    .btn--primary:hover {
+      background: #b07d08;
+      border-color: #b07d08;
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--color-white);
+      border-color: var(--color-white);
+    }
+
+    .btn--outline:hover {
+      background: var(--color-white);
+      color: var(--color-primary);
+    }
+
+    .btn--outline-dark {
+      background: transparent;
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    .btn--outline-dark:hover {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    /* =============================================
+       NAVIGATION
+    ============================================= */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-border);
+      height: var(--nav-height);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .nav__logo {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav__logo-name {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.375rem;
+      color: var(--color-primary);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .nav__logo-claim {
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav__links {
+      display: none;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .nav__link {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--color-neutral);
+      transition: color 0.2s;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+
+    .nav__link:hover {
+      color: var(--color-primary);
+    }
+
+    .nav__link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav__link--active {
+      color: var(--color-primary);
+    }
+
+    .nav__link--active::after {
+      transform: scaleX(1);
+    }
+
+    .nav__cta {
+      display: none;
+    }
+
+    .nav__burger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: var(--space-xs);
+      background: none;
+      border: none;
+    }
+
+    .nav__burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-primary);
+      transition: transform 0.3s, opacity 0.3s;
+      border-radius: 2px;
+    }
+
+    .nav__mobile {
+      display: none;
+      position: absolute;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-md);
+      flex-direction: column;
+      gap: var(--space-sm);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav__mobile.is-open {
+      display: flex;
+    }
+
+    .nav__mobile-link {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-neutral);
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid var(--color-border);
+      transition: color 0.2s;
+    }
+
+    .nav__mobile-link:last-child {
+      border-bottom: none;
+    }
+
+    .nav__mobile-link:hover,
+    .nav__mobile-link--active {
+      color: var(--color-primary);
+    }
+
+    @media (min-width: 768px) {
+      .nav__links {
+        display: flex;
+      }
+      .nav__cta {
+        display: inline-flex;
+      }
+      .nav__burger {
+        display: none;
+      }
+    }
+
+    /* =============================================
+       PAGE HERO (COMPACT)
+    ============================================= */
+    .page-hero {
+      margin-top: var(--nav-height);
+      background: var(--color-primary);
+      padding: var(--space-xl) 0 var(--space-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        linear-gradient(135deg, rgba(200,150,12,0.06) 0%, transparent 60%),
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 40px,
+          rgba(255,255,255,0.015) 40px,
+          rgba(255,255,255,0.015) 41px
+        );
+      pointer-events: none;
+    }
+
+    .page-hero__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero__breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-md);
+      font-size: 0.8125rem;
+      font-family: var(--font-body);
+      color: rgba(255,255,255,0.5);
+    }
+
+    .page-hero__breadcrumb a {
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+    }
+
+    .page-hero__breadcrumb a:hover {
+      color: var(--color-accent);
+    }
+
+    .page-hero__breadcrumb-sep {
+      font-size: 0.75rem;
+      opacity: 0.4;
+    }
+
+    .page-hero__breadcrumb-current {
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    .page-hero__content {
+      max-width: 720px;
+    }
+
+    .page-hero__tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: rgba(200,150,12,0.12);
+      border: 1px solid rgba(200,150,12,0.25);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .page-hero h1 {
+      color: var(--color-white);
+      margin-bottom: var(--space-md);
+    }
+
+    .page-hero h1 span {
+      color: var(--color-accent);
+    }
+
+    .page-hero__lead {
+      font-size: 1.0625rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 580px;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    /* =============================================
+       LEISTUNGEN OVERVIEW STRIP
+    ============================================= */
+    .leistungen-strip {
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-md) 0;
+    }
+
+    .leistungen-strip__inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    .leistungen-strip__label {
+      font-family: var(--font-display);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-neutral);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-right: var(--space-xs);
+      white-space: nowrap;
+    }
+
+    .leistungen-strip__item {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-primary);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 0.3rem 0.875rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .leistungen-strip__item:hover {
+      background: rgba(200,150,12,0.08);
+      border-color: var(--color-accent);
+    }
+
+    /* =============================================
+       LEISTUNGEN GRID
+    ============================================= */
+    .leistungen-section {
+      background: var(--color-bg);
+    }
+
+    .leistungen-section__header {
+      max-width: 600px;
+      margin-bottom: var(--space-xl);
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-sm);
+    }
+
+    .leistungen-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 768px) {
+      .leistungen-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .leistungen-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .leistung-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      transition: box-shadow 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .leistung-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--color-accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .leistung-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+      border-color: rgba(200,150,12,0.25);
+    }
+
+    .leistung-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .leistung-card--featured {
+      border-color: var(--color-accent);
+      background: linear-gradient(135deg, var(--color-white) 0%, rgba(200,150,12,0.03) 100%);
+    }
+
+    .leistung-card--featured::before {
+      transform: scaleX(1);
+    }
+
+    .leistung-card__icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(200,150,12,0.1);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-md);
+      flex-shrink: 0;
+    }
+
+    .leistung-card__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .leistung-card__title {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: var(--space-sm);
+      line-height: 1.3;
+    }
+
+    .leistung-card__text {
+      font-size: 0.9375rem;
+      color: var(--color-neutral);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+
+    .leistung-card__details {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .leistung-card__detail {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 0.875rem;
+      color: var(--color-neutral);
+      font-family: var(--font-body);
+    }
+
+    .leistung-card__detail::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    .leistung-card__badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      font-family: var(--font-display);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: rgba(200,150,12,0.1);
+      border: 1px solid rgba(200,150,12,0.2);
+      padding: 0.2rem 0.625rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* =============================================
+       BRANCHEN SEKTION
+    ============================================= */
+    .branchen-section {
+      background: var(--color-white);
+    }
+
+    .branchen-section__header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto var(--space-xl);
+    }
+
+    .branchen-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 768px) {
+      .branchen-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .branche-item {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg) var(--space-md);
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .branche-item:hover {
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
+
+    .branche-item__icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(26,43,60,0.06);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-sm);
+    }
+
+    .branche-item__icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--color-primary);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .branche-item__name {
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .branche-item__note {
+      font-size: 0.8125rem;
+      color: var(--color-neutral);
+    }
+
+    /* =============================================
+       PROZESS SEKTION
+    ============================================= */
+    .prozess-section {
+      background: var(--color-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prozess-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 80px,
+        rgba(255,255,255,0.015) 80px,
+        rgba(255,255,255,0.015) 81px
+      );
+      pointer-events: none;
+    }
+
+    .prozess-section__header {
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto var(--space-xl);
+      position: relative;
+      z-index: 1;
+    }
+
+    .prozess-section__header h2 {
+      color: var(--color-white);
+      margin-bottom: var(--space-sm);
+    }
+
+    .prozess-section__header p {
+      color: rgba(255,255,255,0.65);
+    }
+
+    .prozess-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 768px) {
+      .prozess-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .prozess-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .prozess-step {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      position: relative;
+    }
+
+    .prozess-step__number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(200,150,12,0.2);
+      line-height: 1;
+      margin-bottom: var(--space-sm);
+    }
+
+    .prozess-step__title {
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: var(--space-sm);
+    }
+
+    .prozess-step__text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+    }
+
+    .prozess-step__duration {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-display);
+      color: var(--color-accent);
+      background: rgba(200,150,12,0.12);
+      border: 1px solid rgba(200,150,12,0.2);
+      padding: 0.2rem 0.625rem;
+      border-radius: var(--radius-sm);
+      margin-top: var(--space-sm);
+    }
+
+    /* =============================================
+       KENNZAHLEN
+    ============================================= */
+    .kennzahlen-section {
+      background: var(--color-bg);
+    }
+
+    .kennzahlen-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 768px) {
+      .kennzahlen-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .kennzahl-item {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg) var(--space-md);
+      text-align: center;
+    }
+
+    .kennzahl-item__value {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 900;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 0.375rem;
+    }
+
+    .kennzahl-item__value span {
+      color: var(--color-accent);
+    }
+
+    .kennzahl-item__label {
+      font-size: 0.875rem;
+      color: var(--color-neutral);
+      font-family: var(--font-body);
+    }
+
+    /* =============================================
+       CTA BLOCK
+    ============================================= */
+    .cta-section {
+      background: linear-gradient(135deg, #0F1C28 0%, var(--color-primary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(200,150,12,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section__inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .cta-section__inner {
+        grid-template-columns: 1fr auto;
+      }
+    }
+
+    .cta-section__tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-sm);
+    }
+
+    .cta-section h2 {
+      color: var(--color-white);
+      margin-bottom: var(--space-sm);
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+    }
+
+    .cta-section__lead {
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+      max-width: 520px;
+    }
+
+    .cta-section__actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      align-items: flex-start;
+    }
+
+    @media (min-width: 768px) {
+      .cta-section__actions {
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
+
+    .cta-section__buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .cta-section__phone {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      color: rgba(255,255,255,0.55);
+      font-size: 0.875rem;
+      font-family: var(--font-body);
+    }
+
+    .cta-section__phone a {
+      color: var(--color-white);
+      font-weight: 600;
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      transition: color 0.2s;
+    }
+
+    .cta-section__phone a:hover {
+      color: var(--color-accent);
+    }
+
+    .cta-section__phone svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .footer {
+      background: var(--color-dark-bg);
+      color: rgba(255,255,255,0.6);
+      padding: var(--space-xl) 0 var(--space-lg);
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+
+    @media (min-width: 768px) {
+      .footer__grid {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer__grid {
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      }
+    }
+
+    .footer__logo-name {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.375rem;
+      color: var(--color-white);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer__logo-claim {
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-md);
+    }
+
+    .footer__about {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.5);
+      max-width: 300px;
+    }
+
+    .footer__col-title {
+      font-family: var(--font-display);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-white);
+      margin-bottom: var(--space-md);
+    }
+
+    .footer__link-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .footer__link {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+    }
+
+    .footer__link:hover {
+      color: var(--color-accent);
+    }
+
+    .footer__contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-xs);
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: var(--space-sm);
+      line-height: 1.5;
+    }
+
+    .footer__contact-item svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer__contact-link {
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+    }
+
+    .footer__contact-link:hover {
+      color: var(--color-accent);
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      align-items: flex-start;
+    }
+
+    @media (min-width: 768px) {
+      .footer__bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer__copy {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer__legal-links {
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .footer__legal-link {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.3);
+      transition: color 0.2s;
+    }
+
+    .footer__legal-link:hover {
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* =============================================
+       CERTIFICATIONS STRIP
+    ============================================= */
+    .cert-strip {
+      background: var(--color-white);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-md) 0;
+    }
+
+    .cert-strip__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .cert-strip__label {
+      font-family: var(--font-display);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-neutral);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .cert-strip__divider {
+      width: 1px;
+      height: 20px;
+      background: var(--color-border);
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .cert-strip__divider {
+        display: block;
+      }
+    }
+
+    .cert-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .cert-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-family: var(--font-display);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 0.35rem 0.75rem;
+    }
+
+    .cert-badge svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* =============================================
+       SCROLLBAR
+    ============================================= */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--color-bg); }
+    ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--color-neutral); }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       NAVIGATION
+  =========================================== -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container">
+      <div class="nav__inner">
+
+        <a href="index.html" class="nav__logo" aria-label="Apaco AG – Startseite">
+          <span class="nav__logo-name">Apaco AG</span>
+          <span class="nav__logo-claim">Präzision seit 1932</span>
+        </a>
+
+        <ul class="nav__links" role="list">
+          <li><a href="index.html" class="nav__link">Startseite</a></li>
+          <li><a href="leistungen.html" class="nav__link nav__link--active" aria-current="page">Leistungen</a></li>
+          <li><a href="referenzen.html" class="nav__link">Referenzen</a></li>
+          <li><a href="ueber-uns.html" class="nav__link">Über uns</a></li>
+          <li><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+        </ul>
+
+        <a href="kontakt.html" class="btn btn--primary nav__cta">Anfrage stellen</a>
+
+        <button class="nav__burger" aria-label="Menü öffnen" id="burgerBtn" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+
+    <div class="nav__mobile" id="mobileMenu" role="list">
+      <a href="index.html" class="nav__mobile-link">Startseite</a>
+      <a href="leistungen.html" class="nav__mobile-link nav__mobile-link--active" aria-current="page">Leistungen</a>
+      <a href="referenzen.html" class="nav__mobile-link">Referenzen</a>
+      <a href="ueber-uns.html" class="nav__mobile-link">Über uns</a>
+      <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       PAGE HERO
+  =========================================== -->
+  <section class="page-hero" aria-labelledby="hero-heading">
+    <div class="container">
+      <div class="page-hero__inner">
+
+        <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Startseite</a>
+          <span class="page-hero__breadcrumb-sep" aria-hidden="true">›</span>
+          <span class="page-hero__breadcrumb-current">Leistungen</span>
+        </nav>
+
+        <div class="page-hero__content">
+          <span class="page-hero__tag" aria-hidden="true">Leistungsübersicht</span>
+          <h1 id="hero-heading">Von der Planung bis zur<br /><span>Inbetriebnahme</span></h1>
+          <p class="page-hero__lead">Apaco AG übernimmt den vollständigen Lebenszyklus Ihrer Anlage: Wir planen, konstruieren, fertigen, montieren und betreuen – alles aus einer Hand, mit 120 Mitarbeitenden und über 90 Jahren Erfahrung im Anlagen- und Apparatebau für Chemie, Pharma und Industrie.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       QUICK-NAV STRIP
+  =========================================== -->
+  <div class="leistungen-strip" aria-label="Leistungsübersicht">
+    <div class="container">
+      <div class="leistungen-strip__inner">
+        <span class="leistungen-strip__label">Leistungen:</span>
+        <a href="#engineering" class="leistungen-strip__item">Engineering</a>
+        <a href="#apparatebau" class="leistungen-strip__item">Apparatebau</a>
+        <a href="#rohrleitungsbau" class="leistungen-strip__item">Rohrleitungsbau</a>
+        <a href="#montage" class="leistungen-strip__item">Montage</a>
+        <a href="#waermetechnik" class="leistungen-strip__item">Wärmetechnik</a>
+        <a href="#instandhaltung" class="leistungen-strip__item">Instandhaltung</a>
+        <a href="#fernwaerme" class="leistungen-strip__item">Fernwärme</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       KENNZAHLEN
+  =========================================== -->
+  <section class="kennzahlen-section section" aria-label="Kennzahlen">
+    <div class="container">
+      <div class="kennzahlen-grid">
+        <div class="kennzahl-item">
+          <div class="kennzahl-item__value">seit <span>1932</span></div>
+          <div class="kennzahl-item__label">Gegründet in der Schweiz</div>
+        </div>
+        <div class="kennzahl-item">
+          <div class="kennzahl-item__value"><span>120</span></div>
+          <div class="kennzahl-item__label">Mitarbeitende</div>
+        </div>
+        <div class="kennzahl-item">
+          <div class="kennzahl-item__value"><span>3</span></div>
+          <div class="kennzahl-item__label">Kernsektoren: Chemie, Pharma, Industrie</div>
+        </div>
+        <div class="kennzahl-item">
+          <div class="kennzahl-item__value"><span>1</span></div>
+          <div class="kennzahl-item__label">Ansprechpartner, komplette Abwicklung</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       LEISTUNGEN GRID
+  =========================================== -->
+  <section class="leistungen-section section--lg" aria-labelledby="leistungen-heading">
+    <div class="container">
+
+      <div class="leistungen-section__header">
+        <span class="section-tag" aria-hidden="true">Unsere Leistungen</span>
+        <h2 id="leistungen-heading">Was wir für Sie leisten</h2>
+        <p>Jede Anlage ist anders – deshalb arbeiten wir konsequent nach Ihren Anforderungen, von der ersten Konzeptskizze bis zur dokumentierten Übergabe.</p>
+      </div>
+
+      <div class="leistungen-grid">
+
+        <!-- 1. Engineering -->
+        <article class="leistung-card leistung-card--featured" id="engineering">
+          <div class="leistung-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+            </svg>
+          </div>
+          <span class="leistung-card__badge">Kernkompetenz</span>
+          <h3 class="leistung-card__title">Engineering & Planung</h3>
+          <p class="leistung-card__text">Wir entwickeln Ihr Anlagenkonzept von Grund auf: Verfahrenstechnik, Auslegung, P&ID-Schemata, 3D-Konstruktion und Dokumentation nach Norm. Unsere Ingenieure arbeiten mit modernen CAD-Systemen und stimmen sich eng mit Ihrer Prozessabteilung ab – damit die Anlage beim ersten Betrieb funktioniert, wie geplant.</p>
+          <ul class="leistung-card__details" aria-label="Details Engineering">
+            <li class="leistung-card__detail">Verfahrenstechnische Auslegung</li>
+            <li class="leistung-card__detail">3D-Konstruktion und Rohrleitungsführung</li>
+            <li class="leistung-card__detail">Druckbehälterberechnung nach PED / ASME</li>
+            <li class="leistung-card__detail">Anlagendokumentation und Revision</li>
+          </ul>
+        </article>
+
+        <!-- 2. Apparatebau -->
+        <article class="leistung-card" id="apparatebau">
+          <div class="leistung-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 21V9"/>
+            </svg>
+          </div>
+          <h3 class="leistung-card__title">Apparatebau & Behälterbau</h3>
+          <p class="leistung-card__text">Wir fertigen massgeschneiderte Druckbehälter, Reaktoren, Kolonnen, Wärmetauscher und Sonderapparate in unserer eigenen Werkstatt in der Schweiz. Jedes Bauteil wird nach Ihren Prozessbedingungen ausgelegt – Werkstoff, Wandstärke, Schweissnahtklasse und Oberflächenbehandlung inklusive. Für Chemie- und Pharmaprojekte mit GMP-Anforderungen selbstverständlich.</p>
+          <ul class="leistung-card__details" aria-label="Details Apparatebau">
+            <li class="leistung-card__detail">Druckbehälter und Reaktorbehälter</li>
+            <li class="leistung-card__detail">Wärmetauscher (Shell & Tube, Platte)</li>
+            <li class="leistung-card__detail">Kolonnen und Absorber</li>
+            <li class="leistung-card__detail">GMP-konforme Oberflächen auf Anfrage</li>
+          </ul>
+        </article>
+
+        <!-- 3. Rohrleitungsbau -->
+        <article class="leistung-card" id="rohrleitungsbau">
+          <div class="leistung-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 12h18M3 6h18M3 18h18"/>
+            </svg>
+          </div>
+          <h3 class="leistung-card__title">Rohrleitungsbau</h3>
+          <p class="leistung-card__text">Vom Rohrleitungsisometrie bis zur druckgeprüften Inbetriebnahme. Wir planen und montieren Rohrleitungssysteme in Stahl, Edelstahl, Sonderlegierungen und Kunststoff – für aggressive Medien, Hochdruck, Tieftemperatur oder sterile Pharmaanwendungen. Die Schweissarbeiten werden durch zertifizierte Schweisser nach EN ISO 9606 ausgeführt.</p>
+          <ul class="leistung-card__details" aria-label="Details Rohrleitungsbau">
+            <li class="leistung-card__detail">Isometrie-Planung und Vorfertigung</li>
+            <li class="leistung-card__detail">Edelstahl, Duplex, Hastelloy, PP, PVDF</li>
+            <li class="leistung-card__detail">Zertifizierte Schweisser EN ISO 9606</li>
+            <li class="leistung-card__detail">Druckprüfung und Dichtigkeitsnachweis</li>
+          </ul>
+        </article>
+
+        <!-- 4. Montage & Inbetriebnahme -->
+        <article class="leistung-card leistung-card--featured" id="montage">
+          <div class="leistung-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <span class="leistung-card__badge">Schlüsselfertig</span>
+          <h3 class="leistung-card__title">Montage & Inbetriebnahme</h3>
+          <p class="leistung-card__text">Unsere eigenen Montageteams übernehmen den Aufbau auf Ihrer Liegenschaft – weltweit. Wir koordinieren Lieferungen, Hebearbeiten, elektrische Einbindung und Instrumentierung. Die Inbetriebnahme erfolgt durch Apaco-Spezialisten, die die Anlage von der Konstruktionsphase kennen. Das reduziert Fehler und verkürzt die Anlaufzeit erheblich.</p>
+          <ul class="leistung-card__details" aria-label="Details Montage">
+            <li class="leistung-card__detail">Eigene Montageteams, weltweit einsetzbar</li>
+            <li class="leistung-card__detail">Koordination von Gewerken und Lieferanten</li>
+            <li class="leistung-card__detail">Inbetriebnahme durch Projektkonstrukteure</li>
+            <li class="leistung-card__detail">Übergabedokumentation und Einweisung</li>
+          </ul>
+        </article>
+
+        <!-- 5. Wärmetechnik -->
+        <article class="leistung-card" id="waermetechnik">
+          <div class="leistung-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/>
+              <circle cx="12" cy="9" r="2"/>
+            </svg>
+          </div>
+          <h3 class="leistung-card__title">Gebäude- & Wärmetechnik</h3>
+          <p class="leistung-card__text">Über den Industriebereich hinaus plant und realisiert Apaco wärmetechnische Anlagen für Gebäude und Liegenschaften: Heizungsanlagen, Wärmepumpen-Einbindung, Kaltwasser- und Kühlsysteme sowie die zugehörige Steuerungstechnik. Damit sind wir auch für gemischt genutzte Industrie- und Verwaltungsobjekte der richtige Partner.</p>
+          <ul class="leistung-card__details" aria-label="Details Wärmetechnik">
+            <li class="leistung-card__detail">Heizungsanlagen und Wärmeverteilung</li>
+            <li class="leistung-card__detail">Kälte- und Kühlwassersysteme</li>
+            <li class="leistung-card__detail">Hydraulische Einbindung Wärmepumpe</li>
+            <li class="leistung-card__detail">MSR-Technik und Regelung</li>
+          </ul>
+        </article>
+
+        <!-- 6. Fernwärme -->
+        <article class="leistung-card" id="fernwaerme">
+          <div class="leistung-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3 class="leistung-card__title">Fernwärmenetze</h3>
+          <p class="leistung-card__text">Apaco plant und baut Fernwärmeleitungen, Übergabestationen und Verteilnetze – von der Trassierung bis zur betriebsbereiten Übergabe. Ob Neubau eines lokalen Wärmenetzes oder Anbindung an ein bestehendes Fernwärmenetz: Wir liefern die Rohrleitungstechnik, Druckprüfung und hydraulische Simulation inklusive.</p>
+          <ul class="leistung-card__details" aria-label="Details Fernwärme">
+            <li class="leistung-card__detail">Fernwärmeleitungen und Trassenbau</li>
+            <li class="leistung-card__detail">Hausübergabestationen</li>
+            <li class="leistung-card__detail">Hydraulische Berechnung und Simulation</li>
+            <li class="leistung-card__detail">Druckprüfung und Netzabnahme</li>
+          </ul>
+        </article>
+
+        <!-- 7. Instandhaltung & Revision -->
+        <article class="leistung-card" id="instandhaltung">
+          <div class="leistung-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"/>
+              <polyline points="1 20 1 14 7 14"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+          </div>
+          <h3 class="leistung-card__title">Instandhaltung & Revision</h3>
+          <p class="leistung-card__text">Produktionsanlagen müssen laufen – auch nach Jahren. Apaco übernimmt planmässige Revisionen, Inspektionen nach Druckgeräteverordnung sowie Reparaturen und Umbauten. Dank eigener Werkstatt und Montageteams sind wir flexibel einsetzbar, auch kurzfristig bei ungeplanten Ausfällen. Wir kennen unsere eigenen Anlagen – und viele fremde.</p>
+          <ul class="leistung-card__details" aria-label="Details Instandhaltung">
+            <li class="leistung-card__detail">Geplante Jahresrevisionen</li>
+            <li class="leistung-card__detail">Wiederkehrende Druckbehälterprüfungen</li>
+            <li class="leistung-card__detail">Reparatur und Umbau bestehender Anlagen</li>
+            <li class="leistung-card__detail">Kurzfristige Einsätze bei Ausfall möglich</li>
+          </ul>
+        </article>
+
+        <!-- 8. Projektmanagement -->
+        <article class="leistung-card">
+          <div class="leistung-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+              <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+            </svg>
+          </div>
+          <h3 class="leistung-card__title">Gesamtprojektleitung</h3>
+          <p class="leistung-card__text">Für Grossprojekte übernehmen wir die vollständige Projektleitung: Terminplanung, Beschaffung, Subunternehmer-Koordination, Budgetkontrolle und Behördenabwicklung. Ihr Ansprechpartner bei Apaco koordiniert alle Gewerke und hält Sie mit klaren Statusberichten auf dem Laufenden – ohne dass Sie selbst Schnittstellenprobleme managen müssen.</p>
+          <ul class="leistung-card__details" aria-label="Details Projektleitung">
+            <li class="leistung-card__detail">Termin- und Kostenkontrolle</li>
+            <li class="leistung-card__detail">Beschaffungsmanagement und Lieferantenaudit</li>
+            <li class="leistung-card__detail">Behörden- und Gutachterkoordination</li>
+            <li class="leistung-card__detail">Ein Ansprechpartner für das Gesamtprojekt</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       ZERTIFIZIERUNGEN
+  =========================================== -->
+  <div class="cert-strip" aria-label="Zertifizierungen und Normen">
+    <div class="container">
+      <div class="cert-strip__inner">
+        <span class="cert-strip__label">Normen & Zulassungen</span>
+        <div class="cert-strip__divider" aria-hidden="true"></div>
+        <div class="cert-badges">
+          <div class="cert-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            EN 13480 Rohrleitungen
+          </div>
+          <div class="cert-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            PED 2014/68/EU Druckgeräte
+          </div>
+          <div class="cert-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 
