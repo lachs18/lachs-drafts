@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – Hofer Haustechnik GmbH</title>
+  <meta name="description" content="Kontaktieren Sie Hofer Haustechnik GmbH in Rudelzhausen. Sanitär, Heizung, Notdienst – wir sind für Sie da." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primaer: #1C2B3A;
+      --akzent: #E8611A;
+      --hintergrund: #F5F2EE;
+      --neutral: #6B7A8D;
+      --weiss: #FFFFFF;
+      --border: #DDD8D2;
+      --display: 'Archivo Black', sans-serif;
+      --body: 'Inter', sans-serif;
+      --radius: 6px;
+      --shadow: 0 2px 12px rgba(28,43,58,0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--body);
+      background-color: var(--hintergrund);
+      color: var(--primaer);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      background-color: var(--primaer);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      color: var(--weiss);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    .nav-logo span {
+      color: var(--akzent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: var(--body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--weiss);
+    }
+
+    .nav-links a.active {
+      color: var(--akzent);
+    }
+
+    .nav-cta {
+      background-color: var(--akzent);
+      color: var(--weiss) !important;
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      transition: background-color 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background-color: #d05510 !important;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--weiss);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      background-color: var(--primaer);
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-family: var(--display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--weiss);
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+
+    .page-hero h1 span {
+      color: var(--akzent);
+    }
+
+    .page-hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ─── NOTDIENST BANNER ─── */
+    .notdienst-banner {
+      background-color: var(--akzent);
+      padding: 14px 24px;
+      text-align: center;
+    }
+
+    .notdienst-banner p {
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--weiss);
+      letter-spacing: 0.01em;
+    }
+
+    .notdienst-banner a {
+      color: var(--weiss);
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    /* ─── KONTAKT SECTION ─── */
+    .kontakt-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+
+    .kontakt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ─── LINKE SPALTE – KONTAKTDATEN ─── */
+    .kontakt-daten {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .kontakt-phone-block {
+      background-color: var(--primaer);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      text-align: center;
+    }
+
+    .kontakt-phone-block .label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 10px;
+    }
+
+    .phone-number {
+      font-family: var(--display);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      color: var(--akzent);
+      text-decoration: none;
+      display: block;
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+    }
+
+    .phone-number:hover {
+      color: #ff7a35;
+    }
+
+    .kontakt-phone-block .subline {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 8px;
+    }
+
+    .kontakt-notdienst {
+      background-color: #fff4ee;
+      border: 2px solid var(--akzent);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+    }
+
+    .kontakt-notdienst .notdienst-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--body);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--akzent);
+      margin-bottom: 8px;
+    }
+
+    .notdienst-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--akzent);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .kontakt-notdienst p {
+      font-size: 0.9rem;
+      color: var(--primaer);
+      margin-bottom: 12px;
+    }
+
+    .notdienst-tel {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      color: var(--akzent);
+      text-decoration: none;
+    }
+
+    .notdienst-tel:hover {
+      text-decoration: underline;
+    }
+
+    .kontakt-info-block {
+      background-color: var(--weiss);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .info-item .info-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--neutral);
+    }
+
+    .info-item .info-value {
+      font-size: 0.95rem;
+      color: var(--primaer);
+      font-weight: 500;
+    }
+
+    .info-item a {
+      color: var(--primaer);
+      text-decoration: none;
+    }
+
+    .info-item a:hover {
+      color: var(--akzent);
+      text-decoration: underline;
+    }
+
+    .info-divider {
+      height: 1px;
+      background-color: var(--border);
+    }
+
+    .oeffnungszeiten-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .oz-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--primaer);
+    }
+
+    .oz-row .oz-tag {
+      color: var(--neutral);
+      font-size: 0.85rem;
+    }
+
+    .oz-row .oz-zeit {
+      font-weight: 500;
+    }
+
+    /* ─── RECHTE SPALTE – FORMULAR ─── */
+    .kontakt-formular {
+      background-color: var(--weiss);
+      border-radius: var(--radius);
+      padding: 40px 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .formular-title {
+      font-family: var(--display);
+      font-size: 1.4rem;
+      color: var(--primaer);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .formular-sub {
+      font-size: 0.9rem;
+      color: var(--neutral);
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primaer);
+      margin-bottom: 6px;
+    }
+
+    label .required {
+      color: var(--akzent);
+      margin-left: 2px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      font-family: var(--body);
+      font-size: 0.95rem;
+      color: var(--primaer);
+      background-color: var(--hintergrund);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      appearance: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--akzent);
+      box-shadow: 0 0 0 3px rgba(232,97,26,0.12);
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236B7A8D' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      cursor: pointer;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 15px 24px;
+      background-color: var(--akzent);
+      color: var(--weiss);
+      font-family: var(--display);
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover {
+      background-color: #d05510;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.99);
+    }
+
+    .form-hint {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--neutral);
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .form-hint svg {
+      flex-shrink: 0;
+    }
+
+    /* ─── MAPS SECTION ─── */
+    .maps-section {
+      background-color: var(--primaer);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .maps-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .maps-section-header {
+      padding: 48px 24px 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .maps-section-header h2 {
+      font-family: var(--display);
+      font-size: 1.6rem;
+      color: var(--weiss);
+      margin-bottom: 6px;
+    }
+
+    .maps-section-header p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+    }
+
+    .maps-placeholder {
+      width: 100%;
+      height: 380px;
+      background-color: #141f28;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Subtle map grid texture */
+    .maps-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(232,97,26,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232,97,26,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .maps-overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 32px;
+    }
+
+    .maps-pin {
+      width: 48px;
+      height: 48px;
+      background-color: var(--akzent);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      margin: 0 auto 24px;
+      box-shadow: 0 4px 16px rgba(232,97,26,0.4);
+    }
+
+    .maps-pin::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 16px;
+      height: 16px;
+      background-color: var(--primaer);
+      border-radius: 50%;
+    }
+
+    .maps-address {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      color: var(--weiss);
+      margin-bottom: 8px;
+    }
+
+    .maps-city {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 20px;
+    }
+
+    .maps-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--akzent);
+      color: var(--weiss);
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+
+    .maps-btn:hover {
+      background-color: #d05510;
+    }
+
+    /* ─── ANFAHRT SECTION ─── */
+    .anfahrt-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+
+    .anfahrt-section h2 {
+      font-family: var(--display);
+      font-size: 1.8rem;
+      color: var(--primaer);
+      margin-bottom: 40px;
+      letter-spacing: -0.01em;
+    }
+
+    .anfahrt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .anfahrt-card {
+      background-color: var(--weiss);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .anfahrt-icon {
+      width: 44px;
+      height: 44px;
+      background-color: rgba(232,97,26,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 1.3rem;
+    }
+
+    .anfahrt-card h3 {
+      font-family: var(--display);
+      font-size: 0.95rem;
+      color: var(--primaer);
+      margin-bottom: 10px;
+      letter-spacing: 0.01em;
+    }
+
+    .anfahrt-card p {
+      font-size: 0.88rem;
+      color: var(--neutral);
+      line-height: 1.65;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background-color: var(--primaer);
+      padding: 56px 24px 0;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand .footer-logo {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      color: var(--weiss);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand .footer-logo span {
+      color: var(--akzent);
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--weiss);
+    }
+
+    .footer-col address {
+      font-style: normal;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+    }
+
+    .footer-col address a {
+      color: var(--akzent);
+      text-decoration: none;
+    }
+
+    .footer-col address a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .kontakt-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .anfahrt-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background-color: var(--primaer);
+        padding: 12px 0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 14px 24px;
+        font-size: 0.95rem;
+      }
+
+      .nav-links .nav-cta {
+        margin: 8px 24px;
+        border-radius: var(--radius);
+        text-align: center;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      nav {
+        position: relative;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .kontakt-formular {
+        padding: 28px 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Hofer <span>Haustechnik</span></a>
+      <button class="nav-toggle" aria-label="Menü öffnen" onclick="this.classList.toggle('open'); document.querySelector('.nav-links').classList.toggle('open');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="index.html#leistungen">Leistungen</a></li>
+        <li><a href="index.html#ueber-uns">Über uns</a></li>
+        <li><a href="kontakt.html" class="active">Kontakt</a></li>
+        <li><a href="tel:+49XXXXXXXXXX" class="nav-cta">Jetzt anrufen</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ─── NOTDIENST BANNER ─── -->
+  <div class="notdienst-banner">
+    <p>🔧 Notfall? Rohrbruch, Heizungsausfall – wir sind 24/7 erreichbar: <a href="tel:+49XXXXXXXXXX">+49 XXX XXX XXXX</a></p>
+  </div>
+
+  <!-- ─── PAGE HERO ─── -->
+  <section class="page-hero">
+    <h1>Sprechen <span>wir.</span></h1>
+    <p>Wir kommen zu Ihnen – unkompliziert, zuverlässig und ohne lange Wartezeiten.</p>
+  </section>
+
+  <!-- ─── KONTAKT HAUPTBEREICH ─── -->
+  <section class="kontakt-section">
+    <div class="kontakt-grid">
+
+      <!-- LINKE SPALTE – Kontaktdaten -->
+      <div class="kontakt-daten">
+
+        <!-- Telefon XXL -->
+        <div class="kontakt-phone-block">
+          <p class="label">Rufen Sie uns direkt an</p>
+          <a href="tel:+49XXXXXXXXXX" class="phone-number">+49 XXX XXX XXXX</a>
+          <p class="subline">Mo–Fr 7:00–18:00 Uhr · Sa 8:00–13:00 Uhr</p>
+        </div>
+
+        <!-- Notdienst -->
+        <div class="kontakt-notdienst">
+          <div class="notdienst-label">
+            <span class="notdienst-dot"></span>
+            24h Notdienst
+          </div>
+          <p>Heizungsausfall, Rohrbruch oder Wassernotfall? Wir sind auch ausserhalb der Geschäftszeiten für Sie da.</p>
+          <a href="tel:+49XXXXXXXXXX" class="notdienst-tel">+49 XXX XXX XXXX</a>
+        </div>
+
+        <!-- Kontaktinfo Block -->
+        <div class="kontakt-info-block">
+          <div class="info-item">
+            <span class="info-label">E-Mail</span>
+            <a href="mailto:info@hofer-haustechnik.de" class="info-value">info@hofer-haustechnik.de</a>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-item">
+            <span class="info-label">Adresse</span>
+            <span class="info-value">
+              Musterstrasse 1<br />
+              84104 Rudelzhausen
+            </span>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-item">
+            <span class="info-label">Öffnungszeiten</span>
+            <div class="oeffnungszeiten-grid">
+              <div class="oz-row">
+                <span class="oz-tag">Montag – Freitag</span>
+                <span class="oz-zeit">07:00 – 18:00</span>
+              </div>
+              <div class="oz-row">
+                <span class="oz-tag">Samstag</span>
+                <span class="oz-zeit">08:00 – 13:00</span>
+              </div>
+              <div class="oz-row">
+                <span class="oz-tag">Sonntag</span>
+                <span class="oz-zeit">Nur Notdienst</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RECHTE SPALTE – Formular -->
+      <div class="kontakt-formular">
+        <h2 class="formular-title">Anfrage stellen</h2>
+        <p class="formular-sub">Beschreiben Sie kurz Ihr Anliegen – wir melden uns innerhalb von 24 Stunden.</p>
+
+        <form action="#" method="POST" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name <span class="required">*</span></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Max Mustermann"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="telefon">Telefon <span class="required">*</span></label>
+              <input
+                type="tel"
+                id="telefon"
+                name="telefon"
+                placeholder="+49 XXX XXX XXXX"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="ihre@email.de"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="problem">Art des Problems <span class="required">*</span></label>
+            <select id="problem" name="problem" required>
+              <option value="" disabled selected>Bitte wählen …</option>
+              <option value="heizung">Heizung</option>
+              <option value="sanitaer">Sanitär</option>
+              <option value="notfall">🚨 Notfall – sofortige Hilfe benötigt</option>
+              <option value="wartung">Wartung / Inspektion</option>
+              <option value="waermepumpe">Wärmepumpe / Solar</option>
+              <option value="anderes">Anderes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="nachricht">Nachricht</label>
+            <textarea
+              id="nachricht"
+              name="nachricht"
+              placeholder="Beschreiben Sie Ihr Anliegen kurz – je mehr Infos, desto schneller können wir helfen."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Anfrage senden →</button>
+
+          <p class="form-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B7A8D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+          </p>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── GOOGLE MAPS ─── -->
+  <!-- Google Maps iframe hier einfügen -->
+  <!-- Adresse: Musterstrasse 1, 84104 Rudelzhausen -->
+  <div class="maps-section">
+    <div class="maps-section-header">
+      <h2>So finden Sie uns</h2>
+      <p>Hofer Haustechnik GmbH · Musterstrasse 1, 84104 Rudelzhausen</p>
+    </div>
+    <div class="maps-placeholder">
+      <!-- 
+        Google Maps Embed hier einfügen:
+        <iframe
+          src="https://www.google.com/maps/embed?pb=..."
+          width="100%"
+          height="380"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      -->
+      <div class="maps-overlay">
+        <div class="maps-pin"></div>
+        <p class="maps-address">Musterstrasse 1</p>
+        <p class="maps-city">84104 Rudelzhausen · Bayern</p>
+        <a
+          href="https://maps.google.com/?q=Musterstrasse+1,+84104+Rudelzhausen"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="maps-btn"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          Route planen
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── ANFAHRT ─── -->
+  <section class="anfahrt-section">
+    <h2>Anfahrt & Parken</h2>
+    <div class="anfahrt-grid">
+
+      <div class="anfahrt-card">
+        <div class="anfahrt-icon">🚗</div>
+        <h3>Mit dem Auto</h3>
+        <p>
+          Über die B11 Richtung Mainburg, dann Abfahrt Rudelzhausen nehmen.
+          Dem Ortsschild folgen, Musterstrasse liegt zentral im Ort.
+          Fahrzeit ab München ca. 50 Minuten.
+        </p>
+      </div>
+
+      <div class="anfahrt-card">
+        <div class="anfahrt-icon">🅿️</div>
+        <h3>Parken</h3>
+        <p>
+          Kostenlose Parkplätze direkt vor dem Betrieb vorhanden.
+          Ausreichend Platz auch für grössere Fahrzeuge.
+          Kein Parkschein erforderlich.
+        </p>
+      </div>
+
+      <div class="anfahrt-card">
+        <div class="anfahrt-icon">🚌</div>
+        <h3>Öffentlicher Nahverkehr</h3>
+        <p>
+          Bushaltestelle "Rudelzhausen Mitte" ca. 5 Gehminuten entfernt.
+          Verbindungen ab Mainburg und Pfaffenhofen a. d. Ilm.
+          Fahrplan unter bahn.de oder mvv-muenchen.de.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">Hofer <span>Haustechnik</span></a>
+          <p>
+            Ihr verlässlicher Partner für Sanitär, Heizung und moderne
+            Haustechnik im Raum Rudelzhausen. Seit Jahren vertrauen uns
+            Privat- und Gewerbekunden in der Region.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="index.html#leistungen">Leistungen</a></li>
+            <li><a href="index.html#ueber-uns">Über uns</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <address>
+            Musterstrasse 1<br />
+            84104 Rudelzhausen<br /><br />
+            <a href="tel:+49XXXXXXXXXX">+49 XXX XXX XXXX</a><br />
+            <a href="mailto:info@hofer-haustechnik.de">info@hofer-haustechnik.de</a>
+          </address>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 Hofer Haustechnik GmbH · Alle Rechte vorbehalten</p>
+        <div class="footer-bottom-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
