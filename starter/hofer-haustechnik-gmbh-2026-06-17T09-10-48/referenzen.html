@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referenzen – Hofer Haustechnik GmbH</title>
+  <meta name="description" content="Projekte von Hofer Haustechnik GmbH: Wärmepumpen, Badsanierungen, Heizungsanlagen und mehr – aus der Region Rudelzhausen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:   #1C2B3A;
+      --accent:    #E87722;
+      --bg:        #F5F3EF;
+      --neutral:   #6B7B8D;
+      --white:     #FFFFFF;
+      --card-dark: #162230;
+      --font-display: 'Archivo Black', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --radius: 6px;
+      --shadow: 0 4px 20px rgba(28,43,58,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--primary);
+      line-height: 1.65;
+    }
+
+    /* ── NAVIGATION ───────────────────────────────────────────── */
+    nav {
+      background: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      color: var(--white);
+      font-size: 1.15rem;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.78);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+
+    .nav-links a.active {
+      color: var(--accent);
+      background: rgba(232,119,34,0.12);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white) !important;
+      font-weight: 600 !important;
+      padding: 8px 20px !important;
+      border-radius: var(--radius) !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: #cf6510 !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--primary);
+        flex-direction: column;
+        padding: 16px 24px 24px;
+        gap: 4px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 10px 14px; font-size: 1rem; }
+    }
+
+    /* ── HERO ─────────────────────────────────────────────────── */
+    .page-hero {
+      background: var(--primary);
+      padding: 80px 24px 72px;
+      text-align: center;
+    }
+
+    .page-hero .eyebrow {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .page-hero h1 span { color: var(--accent); }
+
+    .page-hero p {
+      max-width: 620px;
+      margin: 0 auto;
+      color: rgba(255,255,255,0.70);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat-item {
+      text-align: center;
+    }
+
+    .hero-stat-item .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--accent);
+      display: block;
+    }
+
+    .hero-stat-item .stat-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.60);
+      font-weight: 500;
+    }
+
+    /* ── SECTION BASE ─────────────────────────────────────────── */
+    section { padding: 80px 24px; }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      color: var(--primary);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      color: var(--neutral);
+      font-size: 1rem;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* ── PROJEKT-KARTEN ───────────────────────────────────────── */
+    .projekte-section { background: var(--primary); }
+
+    .projekte-section .section-title { color: var(--white); }
+    .projekte-section .section-intro { color: rgba(255,255,255,0.60); }
+    .projekte-section .section-label { color: var(--accent); }
+
+    .projekte-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .projekt-karte {
+      background: var(--card-dark);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .projekt-karte::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .projekt-karte:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.30);
+    }
+
+    .projekt-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(232,119,34,0.15);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .projekt-karte h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .projekt-ort {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 500;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .projekt-beschreibung {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.70);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .projekt-ergebnis {
+      background: rgba(232,119,34,0.10);
+      border-left: 3px solid var(--accent);
+      padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .projekt-ergebnis .ergebnis-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .projekt-ergebnis p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+
+    /* ── CASE STUDIES ─────────────────────────────────────────── */
+    .cases-section { background: var(--bg); }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .case-card {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 36px 32px;
+      border-top: 4px solid var(--accent);
+      transition: box-shadow 0.25s;
+    }
+
+    .case-card:hover { box-shadow: 0 8px 32px rgba(28,43,58,0.14); }
+
+    .case-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(232,119,34,0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+
+    .case-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .case-step {
+      margin-bottom: 16px;
+    }
+
+    .case-step-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .case-step p {
+      font-size: 0.90rem;
+      color: var(--neutral);
+      line-height: 1.6;
+    }
+
+    .case-ergebnis-highlight {
+      background: var(--bg);
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin-top: 20px;
+    }
+
+    .case-ergebnis-highlight .ergebnis-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .case-ergebnis-highlight p {
+      font-size: 0.90rem;
+      color: var(--primary);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* ── ZAHLEN ───────────────────────────────────────────────── */
+    .zahlen-section {
+      background: var(--accent);
+      padding: 64px 24px;
+    }
+
+    .zahlen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .zahl-item .zahl {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      color: var(--white);
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .zahl-item .zahl-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .zahl-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.25);
+      align-self: stretch;
+    }
+
+    @media (max-width: 600px) { .zahl-divider { display: none; } }
+
+    /* ── BRANCHEN ─────────────────────────────────────────────── */
+    .branchen-section { background: var(--white); padding: 72px 24px; }
+
+    .branchen-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .branche-chip {
+      background: var(--bg);
+      border: 1.5px solid rgba(28,43,58,0.10);
+      color: var(--primary);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 30px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .branche-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── CTA ──────────────────────────────────────────────────── */
+    .cta-section {
+      background: var(--primary);
+      padding: 88px 24px;
+      text-align: center;
+    }
+
+    .cta-section .section-label { justify-content: center; display: block; }
+
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .cta-section h2 span { color: var(--accent); }
+
+    .cta-section p {
+      max-width: 520px;
+      margin: 0 auto 40px;
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: #cf6510; transform: translateY(-2px); }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: rgba(255,255,255,0.80);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 16px 28px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.20);
+      margin-left: 12px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.55); color: var(--white); }
+
+    .cta-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* ── FOOTER ───────────────────────────────────────────────── */
+    footer {
+      background: #111D27;
+      color: rgba(255,255,255,0.60);
+      padding: 56px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 520px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    .footer-brand .footer-logo {
+      font-family: var(--font-display);
+      color: var(--white);
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .footer-brand .footer-logo span { color: var(--accent); }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .footer-col ul a {
+      color: rgba(255,255,255,0.58);
+      text-decoration: none;
+      font-size: 0.90rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--accent); }
+
+    .footer-contact-item {
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .footer-contact-item span:first-child {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.35);
+      font-weight: 600;
+    }
+
+    .footer-contact-item a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-item a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.82rem;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      color: rgba(255,255,255,0.40);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom-links a:hover { color: rgba(255,255,255,0.75); }
+
+    .footer-badge {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.30);
+    }
+
+    /* ── UTILITY ──────────────────────────────────────────────── */
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════════════════════════════ -->
+  <nav aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        Hofer <span>Haustechnik</span>
+      </a>
+      <button class="nav-hamburger" aria-label="Menü öffnen" onclick="document.getElementById('navLinks').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="referenzen.html" class="active" aria-current="page">Referenzen</a></li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="kontakt.html" class="nav-cta">Anfrage stellen</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PAGE HERO
+  ════════════════════════════════════════════════════════════ -->
+  <header class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Unsere Projekte</span>
+      <h1>Projekte, auf die wir <span>stolz</span> sind.</h1>
+      <p>
+        Seit 1897 setzen wir Projekte um, die halten. Wärmepumpen, Badsanierungen, Heizungsanlagen – hier sehen Sie, was dabei herauskommt, wenn Handwerk und Erfahrung zusammenkommen. Alle Projekte aus der Region Niederbayern.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <span class="stat-num">125+</span>
+          <span class="stat-label">Jahre Erfahrung</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Abgeschlossene Projekte</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Gewerke aus einer Hand</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="stat-num">Region</span>
+          <span class="stat-label">Niederbayern & Umgebung</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROJEKT-KARTEN
+  ════════════════════════════════════════════════════════════ -->
+  <section class="projekte-section">
+    <div class="container">
+      <span class="section-label">Abgeschlossene Projekte</span>
+      <h2 class="section-title" style="color: #fff;">Was wir gebaut haben.</h2>
+      <p class="section-intro">
+        Jedes Projekt ist anders. Jedes haben wir sorgfältig geplant und sauber ausgeführt. Keine Abkürzungen – das schulden wir unseren Kunden und dem Handwerk.
+      </p>
+
+      <div class="projekte-grid">
+
+        <!-- Projekt 1 -->
+        <article class="projekt-karte">
+          <span class="projekt-tag">🌡 Wärmepumpe</span>
+          <h3>Heizungsumstieg Einfamilienhaus</h3>
+          <p class="projekt-ort">📍 Raum Rudelzhausen</p>
+          <p class="projekt-beschreibung">
+            Komplette Umrüstung einer Ölheizung auf eine Luft-Wasser-Wärmepumpe. Inklusive hydraulischem Abgleich, neuem Pufferspeicher und Einbindung der bestehenden Fussbodenheizung. Alles in einer Heizperiode fertiggestellt.
+          </p>
+          <div class="projekt-ergebnis">
+            <p class="ergebnis-label">Ergebnis</p>
+            <p>Heizkosten um rund 60 % gesenkt. Hausbesitzer unabhängig von Öl- und Gaspreisen. Förderantrag durch uns begleitet.</p>
+          </div>
+        </article>
+
+        <!-- Projekt 2 -->
+        <article class="projekt-karte">
+          <span class="projekt-tag">🛁 Badsanierung</span>
+          <h3>Barrierefreier Badumbau</h3>
+          <p class="projekt-ort">📍 Landkreis Freising</p>
+          <p class="projekt-beschreibung">
+            Komplettumbau eines Badezimmers aus den 1980er-Jahren. Bodengleiche Dusche, neue Wandfliesen, behindertengerechte Haltegriffe, neue Sanitärinstallation und Unterputz-Thermostat. Planung und Ausführung aus einer Hand.
+          </p>
+          <div class="projekt-ergebnis">
+            <p class="ergebnis-label">Ergebnis</p>
+            <p>Modernes, pflegeleichtes Bad mit langfristiger Nutzbarkeit für alle Generationen – fertig in 10 Arbeitstagen.</p>
+          </div>
+        </article>
+
+        <!-- Projekt 3 -->
+        <article class="projekt-karte">
+          <span class="projekt-tag">☀️ Solar & Wärme</span>
+          <h3>Solarthermie-Anlage Wohnhaus</h3>
+          <p class="projekt-ort">📍 Raum Mainburg</p>
+          <p class="projekt-beschreibung">
+            Planung und Installation einer Solarthermie-Anlage zur Warmwasserbereitung und Heizungsunterstützung. 8 m² Kollektorfläche, 500-Liter-Kombispeicher, Einbindung in bestehende Gasheizung als Ergänzungssystem.
+          </p>
+          <div class="projekt-ergebnis">
+            <p class="ergebnis-label">Ergebnis</p>
+            <p>Warmwasser von April bis Oktober nahezu kostenfrei. Amortisation der Anlage innerhalb von 9 Jahren erwartet.</p>
+          </div>
+        </article>
+
+        <!-- Projekt 4 -->
+        <article class="projekt-karte">
+          <span class="projekt-tag">🔥 Pelletheizung</span>
+          <h3>Pelletkessel Einfamilienhaus</h3>
+          <p class="projekt-ort">📍 Raum Pfaffenhofen a.d. Ilm</p>
+          <p class="projekt-beschreibung">
+            Austausch einer veralteten Gasheizung gegen einen Pelletkessel mit automatischer Beschickung. Pelletlager im Keller umgebaut, Abgasanlage erneuert, sämtliche Heizkörper auf den neuen Vorlauftemperaturbereich optimiert.
+          </p>
+          <div class="projekt-ergebnis">
+            <p class="ergebnis-label">Ergebnis</p>
+            <p>Vollautomatischer Betrieb, regionaler Brennstoff, keine Abhängigkeit vom Gasmarkt. Förderung nach BEG genutzt.</p>
+          </div>
+        </article>
+
+        <!-- Projekt 5 -->
+        <article class="projekt-karte">
+          <span class="projekt-tag">🏠 Mehrfamilienhaus</span>
+          <h3>Heizungsanlage Mehrfamilienhaus</h3>
+          <p class="projekt-ort">📍 Raum Kelheim</p>
+          <p class="projekt-beschreibung">
+            Erneuerung der Zentralheizung für ein Haus mit 6 Wohneinheiten. Gas-Brennwerttherme als Übergangslösung, Vorbereitung der Leitungsinfrastruktur für spätere Wärmepumpe. Minimale Ausfallzeit für die Mieter.
+          </p>
+          <div class="projekt-ergebnis">
+            <p class="ergebnis-label">Ergebnis</p>
+            <p>Alle Wohneinheiten innerhalb von 3 Tagen wieder vollständig mit Heizung und Warmwasser versorgt.</p>
+          </div>
+        </article>
+
+        <!-- Projekt 6 -->
+        <article class="projekt-karte">
+          <span class="projekt-tag">🚿 Neubau Sanitär</span>
+          <h3>Sanitärinstallation Neubau</h3>
+          <p class="projekt-ort">📍 Raum Rudelzhausen</p>
+          <p class="projekt-beschreibung">
+            Vollständige Sanitärinstallation in einem Neubau-Einfamilienhaus. 2 Bäder, Gäste-WC, Technikraum. Koordination mit Bauherrn, Architekt und weiteren Gewerken. Abnahme beim ersten Versuch bestanden.
+          </p>
+          <div class="projekt-ergebnis">
+            <p class="ergebnis-label">Ergebnis</p>
+            <p>Schlüsselfertige Sanitärinstallation im vorgesehenen Zeitrahmen – keine Nacharbeiten, keine offenen Punkte.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CASE STUDIES
+  ════════════════════════════════════════════════════════════ -->
+  <section class="cases-section">
+    <div class="container">
+      <span class="section-label">Detailblick</span>
+      <h2 class="section-title">Drei Projekte – von Anfang bis Ende.</h2>
+      <p class="section-intro">
+        Hier schauen wir genauer hin: Was war die Ausgangslage, wie sind wir vorgegangen, und was hat der Kunde am Ende davon?
+      </p>
+
+      <div class="cases-grid">
+
+        <!-- Case 1 -->
+        <article class="case-card">
+          <div class="case-icon">🌡</div>
+          <h3>Wärmepumpe statt Ölheizung – kompletter Heizungsumstieg</h3>
+          <div class="case-step">
+            <p class="case-step-label">Ausgangslage</p>
+            <p>25 Jahre alte Ölheizung, Heizöltank veraltet, steigende Betriebskosten. Hausbesitzer wollte unabhängig werden und suchte eine zukunftssichere Lösung.</p>
+          </div>
+          <div class="case-step">
+            <p class="case-step-label">Vorgehen</p>
+            <p>Vor-Ort-Analyse, Berechnung der Heizlast, Auswahl der passenden Wärmepumpe, Antragstellung BAFA-Förderung, Installation inkl. Entsorgung des Öltanks.</p>
+          </div>
+          <div class="case-ergebnis-highlight">
+            <p class="ergebnis-label">Ergebnis</p>
+            <p>Förderung von 35 % der Investitionskosten. Heizkostenersparnis von ca. 1.400 € pro Jahr. Anlage läuft seit dem ersten Winter störungsfrei.</p>
+          </div>
+        </article>
+
+        <!-- Case 2 -->
+        <article class="case-card">
+          <div class="case-icon">🛁</div>
+          <h3>Badezimmer aus den 70ern – zeitgemäss neu gebaut</h3>
+          <div class="case-step">
+            <p class="case-step-label">Ausgangslage</p>
+            <p>Veraltetes Bad, undichte Fugen, schlechte Belüftung, keine bodengleiche Dusche. Eigentümer plante langfristig und wollte altersgerechte Ausstattung.</p>
+          </div>
+          <div class="case-step">
+            <p class="case-step-label">Vorgehen</p>
+            <p>Kompletter Rückbau bis auf den Rohbau, neue Leitungsführung, behindertengerechte Planung, Installation, Fliesenarbeiten durch Partnerhandwerker, Endmontage Sanitär.</p>
+          </div>
+          <div class="case-ergebnis-highlight">
+            <p class="ergebnis-label">Ergebnis</p>
+            <p>Übergabe in 12 Arbeitstagen. Kein Folgeauftrag für Nachbesserungen. Kunde hat das Projekt direkt an seinen Bruder weiterempfohlen.</p>
+          </div>
+        </article>
+
+        <!-- Case 3 -->
+        <article class="case-card">
+          <div class="case-icon">♻️</div>
+          <h3>Pelletsheizung mit Solarthermie – kombiniertes System</h3>
+          <div class="case-step">
+            <p class="case-step-label">Ausgangslage</p>
+            <p>Freistehendes Einfamilienhaus, kein Gasanschluss, elektrische Nachtspeicheröfen. Hohe Energiekosten, schlechte Regelbarkeit, unbehagliche Wärme.</p>
+          </div>
+          <div class="case-step">
+            <p class="case-step-label">Vorgehen</p>
+            <p>Planung eines kombinierten Systems aus Pelletkessel und Solarthermie. Kellerausbau für Pelletlager, neue Heizkörper in allen Räumen, Regelungstechnik, Inbetriebnahme und Einweisung.</p>
+          </div>
+          <div class="case-ergebnis-highlight">
+            <p class="ergebnis-label">Ergebnis</p>
+            <p>Energiekosten von über 3.000 € auf unter 900 € pro Jahr gesenkt. Anlage seit 4 Jahren in Betrieb, eine Wartung pro Jahr.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ZAHLEN-SEKTION
+  ════════════════════════════════════════════════════════════ -->
+  <section class="zahlen-section" aria-label="Zahlen und Fakten">
+    <div class="zahlen-grid">
+      <div class="zahl-item">
+        <span class="zahl">1897</span>
+        <span class="zahl-label">Gegründet – Tradition verpflichtet</span>
+      </div>
+      <div class="zahl-divider" role="presentation"></div>
+      <div class="zahl-item">
+        <span class="zahl">3</span>
+        <span class="zahl-label">Gewerke: Sanitär, Heizung, Klima</span>
+      </div>
+      <div class="zahl-divider" role="presentation"></div>
+      <div class="zahl-item">
+        <span class="zahl">500+</span>
+        <span class="zahl-label">Projekte in der Region</span>
+      </div>
+      <div class="zahl-divider" role="presentation"></div>
+      <div class="zahl-item">
+        <span class="zahl">1</span>
+        <span class="zahl-label">Ansprechpartner für alles</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BRANCHEN / PROJEKTTYPEN
+  ════════════════════════════════════════════════════════════ -->
+  <section class="branchen-section">
+    <div class="container">
+      <span class="section-label">Wer vertraut uns</span>
+      <h2 class="section-title">Wir arbeiten für:</h2>
+      <p class="section-intro">
+        Von der Eigentümerfamilie bis zum Verwalter kleiner Mehrfamilienhäuser – unsere Kunden kommen aus der Region und bleiben über Jahre.
+      </p>
+      <div class="branchen-grid">
+        <span class="branche-chip">Einfamilienhäuser</span>
+        <span class="branche-chip">Mehrfamilienhäuser (bis 10 WE)</span>
+        <span class="branche-chip">Neubauten</span>
+        <span class="branche-chip">Altbausanierungen</span>
+        <span class="branche-chip">Ferienhäuser & Wochenendhäuser</span>
+        <span class="branche-chip">Gewerbliche Kleinflächen</span>
+        <span class="branche-chip">Landwirtschaftliche Anwesen</span>
+        <span class="branche-chip">Hausverwaltungen regional</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CTA
+  ════════════════════════════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <span class="section-label">Ihr nächstes Projekt</span>
+      <h2>Werden Sie unser nächstes <span>Referenzprojekt.</span></h2>
+      <p>
+        Egal ob Wärmepumpe, Badsanierung oder neue Heizungsanlage – wir schauen uns Ihre Situation an und sagen Ihnen ehrlich, was Sinn macht. Kostenlos, unverbindlich, direkt.
+      </p>
+      <div class="cta-buttons">
+        <a href="kontakt.html" class="btn-primary">Jetzt Anfrage stellen</a>
+        <a href="leistungen.html" class="btn-secondary">Alle Leistungen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <span class="footer-logo">Hofer <span>Haustechnik</span></span>
+          <p>Sanitär, Heizung & Klima aus der Region Niederbayern. Seit 1897 – für Kunden, die Wert auf saubere Arbeit legen.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="referenzen.html">Referenzen</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul>
+            <li><a href="leistungen.html#waermepumpe">Wärmepumpen</a></li>
+            <li><a href="leistungen.html#solar">Solar & Pellets</a></li>
+            <li><a href="leistungen.html#bad">Badsanierung</a></li>
+            <li><a href="leistungen.html#sanitaer">Sanitär</a></li>
+            <li><a href="leistungen.html#klima">Klimaanlagen</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <div class="footer-contact-item">
+            <span>Adresse</span>
+            <span>Musterstrasse 1<br />84095 Rudelzhausen</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>Telefon</span>
+            <a href="tel:+49XXXXXXXXX">+49 XX XXX XX XX</a>
+          </div>
+          <div class="footer-contact-item">
+            <span>E-Mail</span>
+            <a href="mailto:info@hofer-haustechnik.de">info@hofer-haustechnik.de</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Hofer Haustechnik GmbH – Alle Rechte vorbehalten</span>
+        <div class="footer-bottom-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+        <span class="footer-badge">Handwerk seit 1897</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
